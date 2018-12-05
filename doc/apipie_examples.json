@@ -1,0 +1,4641 @@
+{
+  "apipies#index": [
+    {
+      "verb": "GET",
+      "path": "/apidoc/1.0/transfer_requests/create.html",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": null,
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "carts#add_item": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/carts/add_item",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=2R8imfN3Koyw1hUokwXV&product_id=3&cart_type=product",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "carts#all": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/carts/all",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=2R8imfN3Koyw1hUokwXV&page=1",
+      "request_data": null,
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "carts": [
+          {
+            "cart": {
+              "aasm_state": "product",
+              "product": {
+                "id": 3,
+                "name": "Adidas Manuel Neuer Gloves Original 4",
+                "one_hour": 15.0,
+                "four_hours": 20.0,
+                "one_day": 25.0,
+                "one_week": 30.0,
+                "deposit": 35.0,
+                "aasm_state": "available",
+                "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+                "user": {
+                  "name": "teguh firman"
+                },
+                "attachment": null,
+                "category_name": "Electronic",
+                "is_liked": false,
+                "is_favourited": false
+              }
+            }
+          }
+        ]
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "carts#remove_item": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/carts/remove_item",
+      "versions": [
+        "1.0"
+      ],
+      "query": "product_id=1&authentication_token=tPeTnib-R7su4vbbRGMy",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "categories#all": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/categories/all",
+      "versions": [
+        "1.0"
+      ],
+      "query": "page=1",
+      "request_data": null,
+      "response_data": {
+        "categories": [
+          {
+            "category": {
+              "id": 1,
+              "name": "Electronic",
+              "image": {
+                "image": {
+                  "url": "/uploads/category/image/1/nadia_normal.jpg",
+                  "thumb": {
+                    "url": "/uploads/category/image/1/thumb_nadia_normal.jpg"
+                  },
+                  "small": {
+                    "url": "/uploads/category/image/1/small_nadia_normal.jpg"
+                  }
+                }
+              },
+              "attachment": null
+            }
+          },
+          {
+            "category": {
+              "id": 2,
+              "name": "Hand Held",
+              "image": {
+                "image": {
+                  "url": null,
+                  "thumb": {
+                    "url": null
+                  },
+                  "small": {
+                    "url": null
+                  }
+                }
+              },
+              "attachment": null
+            }
+          },
+          {
+            "category": {
+              "id": 3,
+              "name": "Wooden",
+              "image": {
+                "image": {
+                  "url": null,
+                  "thumb": {
+                    "url": null
+                  },
+                  "small": {
+                    "url": null
+                  }
+                }
+              },
+              "attachment": null
+            }
+          }
+        ],
+        "error": 0,
+        "errors": "",
+        "product_count": 5,
+        "junkyard_count": 2
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "categories#create": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/categories/create",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=2R8imfN3Koyw1hUokwXV&name=Electronic",
+      "request_data": "",
+      "response_data": {
+        "category": {
+          "id": 1,
+          "name": "Electronic",
+          "attachment": null
+        },
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/api/v1/categories/create",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=2R8imfN3Koyw1hUokwXV&name=Hand%20Held",
+      "request_data": "",
+      "response_data": {
+        "category": {
+          "id": 2,
+          "name": "Hand Held",
+          "attachment": null
+        },
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/api/v1/categories/create",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=2R8imfN3Koyw1hUokwXV&name=Wooden",
+      "request_data": "",
+      "response_data": {
+        "category": {
+          "id": 3,
+          "name": "Wooden",
+          "attachment": null
+        },
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "categories#show": [
+    {
+      "verb": "GET",
+      "path": "/admin/categories/1",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": "<!DOCTYPE html><html>\n  <head>\n    <meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\"/>\n    <title>Electronic | Rendt Server</title>\n<link rel=\"stylesheet\" media=\"screen\" href=\"/assets/active_admin.self-10792c7391f386228ed27b41f4222fcdd0238873e0031a93b59948046abeb30d.css?body=1\" /><link rel=\"stylesheet\" media=\"print\" href=\"/assets/active_admin/print.self-cca0d97a9db47eae7890c438014180652d9faabd18a22f0351916f7f0f5058a1.css?body=1\" /><script src=\"/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1\"></script>\n<script src=\"/assets/jquery-ui/core.self-93be4d22eda916787802a64d8f88b52db8a9027d4ccbbc0942625324a7d12d44.js?body=1\"></script>\n<script src=\"/assets/jquery-ui/datepicker.self-6267be6d4d0f0e8665be3b4d6ac07f40ba23a32aff8eaa5d1bfc00f76a9eeae7.js?body=1\"></script>\n<script src=\"/assets/jquery-ui/widget.self-c1602241ddc51216b58391768667068867b8e15b9efc722befcd25771eda6819.js?body=1\"></script>\n<script src=\"/assets/jquery-ui/button.self-4d4f21ba77bbf8cc08ae65e2b6329a7a1b952b32c3ba7bffca8313e7e8c93d0c.js?body=1\"></script>\n<script src=\"/assets/jquery-ui/mouse.self-c513294e8da73f31f84ba3ef11e2a1180a47faea0eb2fea4a53fc26153dd21fd.js?body=1\"></script>\n<script src=\"/assets/jquery-ui/draggable.self-debcca3d0d5d9afe2fe91a6fd1aebdb41ca0a55f2f6017352e6c02b6d8a6e64c.js?body=1\"></script>\n<script src=\"/assets/jquery-ui/position.self-e693ced4ecfa1a276f0b794f32c1d30d792764b08788bf68ecfa3b388c291333.js?body=1\"></script>\n<script src=\"/assets/jquery-ui/resizable.self-60b870565f3cd62982c1907828119bb51f42ec8228d5e23868153edc3abc685c.js?body=1\"></script>\n<script src=\"/assets/jquery-ui/dialog.self-5a6c7980dfa3f6b74445b0f4b20eed799ee65363163500ed7f032e603d6b022d.js?body=1\"></script>\n<script src=\"/assets/jquery-ui/sortable.self-df2d80a36f9dfbe0facc596ccd92af83ca50d38e4cd6a84810aaf5d40b8cd181.js?body=1\"></script>\n<script src=\"/assets/jquery-ui/tabs.self-dc07b44bf1b926c8d28ccd2658e30933881e5329348caf70cf305c3943f6bbd7.js?body=1\"></script>\n<script src=\"/assets/active_admin/jquery_ui.self-01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b.js?body=1\"></script>\n<script src=\"/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1\"></script>\n<script src=\"/assets/active_admin/base.self-ab2cb3098b53fe7d229937d768d701e8f4013f2a5aea7988d8f2149fa40426db.js?body=1\"></script>\n<script src=\"/assets/active_admin/lib/batch_actions.self-10ee4c07784b00259ca97a02c4e7fb53c1b27ebe5653a3b910426b4ea0941250.js?body=1\"></script>\n<script src=\"/assets/active_admin/lib/checkbox-toggler.self-ffdc88fc1b3b6bcfac3e314f191fc486175ab5a4b5daab87af6bd208cb483bd8.js?body=1\"></script>\n<script src=\"/assets/active_admin/lib/dropdown-menu.self-161387c54d1640bd9f174301b77d73ea88ce6d7daf0d7356bd50b4d0143d1b72.js?body=1\"></script>\n<script src=\"/assets/active_admin/lib/flash.self-8f05a5d9328ea28fca100b057787fbfb567986513c5f1735ea48fad8f9571c10.js?body=1\"></script>\n<script src=\"/assets/active_admin/lib/has_many.self-ece319debdc01ca5096ae8ac6c130ffc0decab382543b4b94e18591375d3d3bb.js?body=1\"></script>\n<script src=\"/assets/active_admin/lib/modal_dialog.self-0e86d9de4b99cb242de337a342f957f4872f686afc40f31f32d855672b1cd878.js?body=1\"></script>\n<script src=\"/assets/active_admin/lib/per_page.self-d7697643296439a8f6aadbf22a229d8ce9b4e8e530ca854164398141006bcfda.js?body=1\"></script>\n<script src=\"/assets/active_admin/lib/table-checkbox-toggler.self-f5200d732ec9ffd4ee8fd1fe11524ad7b54a67f6c0ef447a29d119ece2dcecdb.js?body=1\"></script>\n<script src=\"/assets/active_admin/ext/jquery-ui.self-f96f2ec2a32c4bc4da4292cc74bddeca0bb223d81a421c98c4d613632860945e.js?body=1\"></script>\n<script src=\"/assets/active_admin/ext/jquery.self-da8dafbbe883092bcae73f35a8caf4ae6170fe7d8130ae7039a233f9b509c757.js?body=1\"></script>\n<script src=\"/assets/active_admin/initializers/batch_actions.self-dc92ae60a047f8753fec580d6ff92df79e4315e155da987b4f9afbd626e07d20.js?body=1\"></script>\n<script src=\"/assets/active_admin/initializers/datepicker.self-e33243c5ee22a67beb226ebbd3c9da65f1aaa5d5f796aec539c38b80ebb00583.js?body=1\"></script>\n<script src=\"/assets/active_admin/initializers/filters.self-6808d670791ae5166fb47face6cc6a60b047a031f8d1a7a0402647707ab73542.js?body=1\"></script>\n<script src=\"/assets/active_admin/initializers/tabs.self-18eef5f4f4457e27d25b74bc121ddcf21b67c66f550a075a1f0e2b4c02eb1238.js?body=1\"></script>\n<script src=\"/assets/active_admin.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1\"></script><meta name=\"csrf-param\" content=\"authenticity_token\" />\n<meta name=\"csrf-token\" content=\"fD/E9+EJZ1MLDVCt92oMErKwWiDhWsGslZO37GhSIY3xeCsUgHLj+6sVsLWz70mJ+n/Za7xw5ZryXGvsNmOpIw==\" />  </head>\n  <body class=\"show admin_categories active_admin logged_in admin_namespace\">\n    <div id=\"wrapper\">\n      <div class=\"header\" id=\"header\">\n        <h1 class=\"site_title\" id=\"site_title\">Rendt Server</h1>\n        <ul class=\"header-item tabs\" id=\"tabs\">\n          <li id=\"dashboard\"><a href=\"/admin/dashboard\">Dashboard</a></li>\n          <li id=\"admin_users\"><a href=\"/admin/admin_users\">Admin Users</a></li>\n          <li class=\"current\" id=\"categories\"><a href=\"/admin/categories\">Categories</a></li>\n          <li id=\"products\"><a href=\"/admin/products\">Products</a></li>\n          <li id=\"transfer_requests\"><a href=\"/admin/transfer_requests\">Transfer Requests</a></li>\n          <li id=\"users\"><a href=\"/admin/users\">Users</a></li>\n        </ul>\n        <ul class=\"header-item tabs\" id=\"utility_nav\">\n          <li id=\"current_user\"><a href=\"/admin/admin_users/1\">admin@example.com</a></li>\n          <li id=\"logout\"><a data-method=\"get\" href=\"/admin/logout\">Logout</a></li>\n        </ul>\n      </div>\n      <div class=\"title_bar\" id=\"title_bar\">\n        <div id=\"titlebar_left\">\n          <span class=\"breadcrumb\">\n<a href=\"/admin\">Admin</a>            <span class=\"breadcrumb_sep\">/</span>\n<a href=\"/admin/categories\">Categories</a>            <span class=\"breadcrumb_sep\">/</span>\n          </span>\n          <h2 id=\"page_title\">Electronic</h2>\n        </div>\n        <div id=\"titlebar_right\">\n          <div class=\"action_items\">\n            <span class=\"action_item\"><a href=\"/admin/categories/1/edit\">Edit Category</a></span>\n            <span class=\"action_item\"></span>\n          </div>\n        </div>\n      </div>\n      <div class=\"flashes\"></div>\n      <div id=\"active_admin_content\" class=\"without_sidebar\">\n        <div id=\"main_content_wrapper\">\n          <div id=\"main_content\">\n            <div class=\"panel\">\n              <h3>Category Details</h3>\n              <div class=\"panel_contents\">\n                <div class=\"attributes_table category\" id=\"attributes_table_category_1\">\n                  <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n                    <tr class=\"row row-id\">\n                      <th>Id</th>\n                      <td>1</td>\n                    </tr>\n                    <tr class=\"row row-name\">\n                      <th>Name</th>\n                      <td>Electronic</td>\n                    </tr>\n                    <tr class=\"row row-created_at\">\n                      <th>Created At</th>\n                      <td>June 24, 2016 02:21</td>\n                    </tr>\n                    <tr class=\"row row-updated_at\">\n                      <th>Updated At</th>\n                      <td>July 13, 2016 13:44</td>\n                    </tr>\n                    <tr class=\"row row-image\">\n                      <th>Image</th>\n                      <td>/uploads/category/image/1/nadia_normal.jpg</td>\n                    </tr>\n                  </table>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"footer\" id=\"footer\">\n        <p>Powered by <a href=\"http://www.activeadmin.info\">Active Admin</a> 1.0.0.pre2</p>\n      </div>\n    </div>\n  </body>\n</html>\n",
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "checkouts#all": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/checkouts/all",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwy&page=1",
+      "request_data": null,
+      "response_data": {
+        "rent": [
+          {
+            "checkout_item": {
+              "id": 12,
+              "price": 10.0,
+              "deposit": 50.0,
+              "start_time": "2016-05-04T10:07:19.000Z",
+              "end_time": "2016-05-04T11:07:19.000Z",
+              "product": {
+                "id": 2,
+                "name": "Adidas Manuel Neuer Gloves Original 2",
+                "user": {
+                  "name": "Andreas Arnold"
+                }
+              }
+            }
+          },
+          {
+            "checkout_item": {
+              "id": 13,
+              "price": 70.0,
+              "deposit": 50.0,
+              "start_time": "2016-05-04T10:07:19.000Z",
+              "end_time": "2016-05-04T14:07:19.000Z",
+              "product": {
+                "id": 1,
+                "name": "Adidas Manuel Neuer Gloves Original 2",
+                "user": {
+                  "name": "Teguh Firman"
+                }
+              }
+            }
+          },
+          {
+            "checkout_item": {
+              "id": 15,
+              "price": 10.0,
+              "deposit": 50.0,
+              "start_time": "2016-05-04T10:07:19.000Z",
+              "end_time": "2016-05-04T11:07:19.000Z",
+              "product": {
+                "id": 2,
+                "name": "Adidas Manuel Neuer Gloves Original 2",
+                "user": {
+                  "name": "Andreas Arnold"
+                }
+              }
+            }
+          },
+          {
+            "checkout_item": {
+              "id": 16,
+              "price": 40.0,
+              "deposit": 50.0,
+              "start_time": "2016-05-04T10:07:19.000Z",
+              "end_time": "2016-05-04T14:07:19.000Z",
+              "product": {
+                "id": 3,
+                "name": "Adidas Manuel Neuer Gloves Original 3",
+                "user": {
+                  "name": "Andreas Arnold"
+                }
+              }
+            }
+          },
+          {
+            "checkout_item": {
+              "id": 17,
+              "price": 100.0,
+              "deposit": 50.0,
+              "start_time": "2016-05-04T10:07:19.000Z",
+              "end_time": "2016-05-05T10:07:19.000Z",
+              "product": {
+                "id": 5,
+                "name": "Adidas Manuel Neuer Gloves Original 5",
+                "user": {
+                  "name": "Andreas Arnold"
+                }
+              }
+            }
+          },
+          {
+            "rent_from": "hadi saja"
+          }
+        ],
+        "lend": [
+          {
+            "checkout_item": {
+              "id": 14,
+              "price": 100.0,
+              "deposit": 50.0,
+              "start_time": "2016-05-04T10:07:19.000Z",
+              "end_time": "2016-05-05T10:07:19.000Z",
+              "product": {
+                "id": 4,
+                "name": "Adidas Manuel Neuer Gloves Original 3",
+                "user": {
+                  "name": "hadi saja"
+                }
+              }
+            }
+          },
+          {
+            "lend_by": "Andreas Arnold"
+          }
+        ]
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "checkouts#confirmation": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/checkouts/confirmation",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiww&checkout_id=13",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "checkouts#create": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/checkouts/create",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=D2WPqzykzpARmuzp55hV&product_ids=1,2,3&junkyard_product_ids=1,2",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "checkout": {
+          "checkout_product": {
+            "id": 3,
+            "checkout_type": "product",
+            "checkout_items": [
+              {
+                "checkout_item": {
+                  "id": 3,
+                  "price": null,
+                  "rent_time": null,
+                  "deposit": 50.0,
+                  "total_price": 0.0,
+                  "product": {
+                    "id": 2,
+                    "name": "Adidas Manuel Neuer Gloves Original 4",
+                    "one_hour": 10.0,
+                    "four_hours": 40.0,
+                    "one_day": 100.0,
+                    "one_week": 1000.0,
+                    "user": {
+                      "id": 2,
+                      "name": "Andreas Arnold"
+                    }
+                  }
+                }
+              },
+              {
+                "checkout_item": {
+                  "id": 4,
+                  "price": null,
+                  "rent_time": null,
+                  "deposit": 50.0,
+                  "total_price": 0.0,
+                  "product": {
+                    "id": 3,
+                    "name": "Adidas Manuel Neuer Gloves Original 3",
+                    "one_hour": 10.0,
+                    "four_hours": 40.0,
+                    "one_day": 100.0,
+                    "one_week": 1000.0,
+                    "user": {
+                      "id": 2,
+                      "name": "Andreas Arnold"
+                    }
+                  }
+                }
+              },
+              {
+                "checkout_item": {
+                  "id": 5,
+                  "price": null,
+                  "rent_time": null,
+                  "deposit": 50.0,
+                  "total_price": 0.0,
+                  "product": {
+                    "id": 1,
+                    "name": "Adidas Manuel Neuer Gloves Original 2",
+                    "one_hour": 20.0,
+                    "four_hours": 10.0,
+                    "one_day": 100.0,
+                    "one_week": 1000.0,
+                    "user": {
+                      "id": 1,
+                      "name": "Teguh Firman"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "checkout_junkyard": {
+            "id": 4,
+            "checkout_type": "junkyard",
+            "checkout_items": [
+              {
+                "checkout_item": {
+                  "id": 6,
+                  "price": null,
+                  "rent_time": null,
+                  "deposit": 0.0,
+                  "total_price": 0.0,
+                  "product": {
+                    "id": 1,
+                    "name": "Adidas Manuel Neuer Gloves Original 2",
+                    "one_hour": 20.0,
+                    "four_hours": 10.0,
+                    "one_day": 100.0,
+                    "one_week": 1000.0,
+                    "user": {
+                      "id": 1,
+                      "name": "Teguh Firman"
+                    }
+                  }
+                }
+              },
+              {
+                "checkout_item": {
+                  "id": 7,
+                  "price": null,
+                  "rent_time": null,
+                  "deposit": 0.0,
+                  "total_price": 0.0,
+                  "product": {
+                    "id": 2,
+                    "name": "Adidas Manuel Neuer Gloves Original 4",
+                    "one_hour": 10.0,
+                    "four_hours": 40.0,
+                    "one_day": 100.0,
+                    "one_week": 1000.0,
+                    "user": {
+                      "id": 2,
+                      "name": "Andreas Arnold"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "checkouts#items": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/checkouts/items",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=tPeTnib-R7su4vbbRGMy&checkout_id=15",
+      "request_data": null,
+      "response_data": {
+        "checkout_items": [
+          {
+            "checkout_item": {
+              "id": 13,
+              "price": null,
+              "rent_time": null,
+              "deposit": 50.0,
+              "total_price": null,
+              "product": {
+                "id": 3,
+                "name": "Adidas Manuel Neuer Gloves Original 1",
+                "user": {
+                  "id": 1,
+                  "name": "John Doe"
+                }
+              }
+            }
+          },
+          {
+            "checkout_item": {
+              "id": 14,
+              "price": null,
+              "rent_time": null,
+              "deposit": 50.0,
+              "total_price": null,
+              "product": {
+                "id": 5,
+                "name": "Adidas Manuel Neuer Gloves Original 2",
+                "user": {
+                  "id": 1,
+                  "name": "John Doe"
+                }
+              }
+            }
+          }
+        ],
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "checkouts#review": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/checkouts/review",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwx&checkout_type=product,junkyard&checkout_id=3&checkout_junkyard_id=13",
+      "request_data": null,
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "checkout_product": {
+          "id": 3,
+          "payment": {
+            "id": 4,
+            "paypal_email": "buyer-4@rendserver.com"
+          },
+          "aasm_state": "wait_approval",
+          "total_paid": 300.0,
+          "checkout_type": "product",
+          "checkout_items": [
+            {
+              "checkout_item": {
+                "id": 4,
+                "price": 40.0,
+                "rent_time": "four_hours",
+                "deposit": 50.0,
+                "total_price": 90.0,
+                "product": {
+                  "id": 3,
+                  "name": "Adidas Manuel Neuer Gloves Original 3",
+                  "user": {
+                    "id": 2,
+                    "name": "Andreas Arnold"
+                  }
+                }
+              }
+            },
+            {
+              "checkout_item": {
+                "id": 5,
+                "price": 100.0,
+                "rent_time": "one_day",
+                "deposit": 50.0,
+                "total_price": 150.0,
+                "product": {
+                  "id": 1,
+                  "name": "Adidas Manuel Neuer Gloves Original 2",
+                  "user": {
+                    "id": 1,
+                    "name": "Teguh Firman"
+                  }
+                }
+              }
+            },
+            {
+              "checkout_item": {
+                "id": 3,
+                "price": 10.0,
+                "rent_time": "one_hour",
+                "deposit": 50.0,
+                "total_price": 60.0,
+                "product": {
+                  "id": 2,
+                  "name": "Adidas Manuel Neuer Gloves Original 4",
+                  "user": {
+                    "id": 2,
+                    "name": "Andreas Arnold"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "checkout_junkyard": {
+          "id": 13,
+          "payment": {
+            "id": null,
+            "paypal_email": null
+          },
+          "aasm_state": "pending",
+          "total_paid": 0.0,
+          "checkout_type": "junkyard",
+          "checkout_items": [
+            {
+              "checkout_item": {
+                "id": 11,
+                "price": null,
+                "rent_time": null,
+                "deposit": 0.0,
+                "total_price": 0.0,
+                "product": {
+                  "id": 1,
+                  "name": "Adidas Manuel Neuer Gloves Original 2",
+                  "user": {
+                    "id": 1,
+                    "name": "Teguh Firman"
+                  }
+                }
+              }
+            },
+            {
+              "checkout_item": {
+                "id": 12,
+                "price": null,
+                "rent_time": null,
+                "deposit": 0.0,
+                "total_price": 0.0,
+                "product": {
+                  "id": 2,
+                  "name": "Adidas Manuel Neuer Gloves Original 4",
+                  "user": {
+                    "id": 2,
+                    "name": "Andreas Arnold"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "checkouts#update_payment_information": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/checkouts/update_payment_information",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=D2WPqzykzpARmuzp55hV&checkout_id=3&payment_id=4",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "checkouts#update_rent_duration": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/checkouts/update_rent_duration",
+      "versions": [
+
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiww&checkout_id=1&rent_durations=1h,4h,1d",
+      "request_data": "",
+      "response_data": {
+        "checkout": {
+          "id": 1,
+          "aasm_state": "approved",
+          "checkout_items": [
+            {
+              "checkout_item": {
+                "id": 1,
+                "price": 10.0,
+                "rent_time": "one_hour",
+                "deposit": 50.0,
+                "total_price": 60.0,
+                "product": {
+                  "id": 2,
+                  "name": "Adidas Manuel Neuer Gloves Original 4",
+                  "user": {
+                    "id": 2,
+                    "name": "Andreas Arnold"
+                  }
+                }
+              }
+            },
+            {
+              "checkout_item": {
+                "id": 2,
+                "price": 40.0,
+                "rent_time": "four_hours",
+                "deposit": 50.0,
+                "total_price": 90.0,
+                "product": {
+                  "id": 3,
+                  "name": "Adidas Manuel Neuer Gloves Original 3",
+                  "user": {
+                    "id": 2,
+                    "name": "Andreas Arnold"
+                  }
+                }
+              }
+            },
+            {
+              "checkout_item": {
+                "id": 3,
+                "price": 100.0,
+                "rent_time": "one_day",
+                "deposit": 50.0,
+                "total_price": 150.0,
+                "product": {
+                  "id": 5,
+                  "name": "Adidas Manuel Neuer Gloves Original 5",
+                  "user": {
+                    "id": 2,
+                    "name": "Andreas Arnold"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "checkouts#update_status_item": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/checkouts/update_status_item",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=2R8imfN3Koyw1hUokwXV&product_id=4&status=approved",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "confirmations#show": [
+    {
+      "verb": "GET",
+      "path": "/users/confirmation",
+      "versions": [
+
+      ],
+      "query": "confirmation_token=1z7g8z1RnD9RsNKWMXmP",
+      "request_data": null,
+      "response_data": "<html><body>You are being <a href=\"http://localhost:3000/users/sign_in\">redirected</a>.</body></html>",
+      "code": 302,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "favourites#all": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/favourites/all",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=Q8BrV4VcpqV6b2JJteBQ&page=1",
+      "request_data": null,
+      "response_data": {
+        "favourites": [
+          {
+            "favourite": {
+              "product": {
+                "id": 1,
+                "name": "Adidas Manuel Neuer Gloves Original",
+                "one_hour": 0.0,
+                "four_hours": 0.0,
+                "one_day": 0.0,
+                "one_week": 0.0,
+                "deposit": 50.0,
+                "aasm_state": "deleted",
+                "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+                "attachment": "/uploads/attachment/name/2/gloves1.jpg",
+                "category_name": "Electronic",
+                "is_liked": false,
+                "is_favourited": true
+              }
+            }
+          }
+        ],
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "favourites#create": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/favourites/create",
+      "versions": [
+        "1.0"
+      ],
+      "query": "product_id=1&authentication_token=Q8BrV4VcpqV6b2JJteBQ",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "favourites#create_lender": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/favourites/create_lender",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=D2WPqzykzpARmuzp55hV&user_id=2",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "favourites#destroy": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/favourites/destroy",
+      "versions": [
+        "1.0"
+      ],
+      "query": "product_id=1&authentication_token=czBSoG_Pw-xNb79-PrpP",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "favourites#destroy_favourit_lender": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/favourites/destroy_favourit_lender",
+      "versions": [
+
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiww&user_id=1",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/api/v1/favourites/destroy_favourit_lender",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=D2WPqzykzpARmuzp55hV&user_id=2",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "favourites#destroy_favourite_lender": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/favourites/destroy_favourite_lender",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=D2WPqzykzpARmuzp55hV&user_id=3",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "histories#my_order": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/histories/my_order",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=FKfCi2A9JM4zAgpYyack&page=1",
+      "request_data": null,
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "rent": null,
+        "lend": [
+          {
+            "checkout_item": {
+              "id": 1,
+              "renter_id": 3,
+              "lend_by": "andreas engko-engko",
+              "price": 10.0,
+              "deposit": 50.0,
+              "start_time": "2016-06-23T09:32:17.702Z",
+              "end_time": "2016-06-23T10:32:17.702Z",
+              "item_type": "product",
+              "pay_key": "AP-0BM49543HX1045427",
+              "product": {
+                "id": 1,
+                "name": "Adidas Manuel Neuer Gloves Original 4",
+                "aasm_state": "returned",
+                "rent_status": "need_refunded",
+                "user": {
+                  "id": 1,
+                  "name": "teguh firman"
+                }
+              },
+              "is_confirm_request": false
+            }
+          },
+          {
+            "checkout_item": {
+              "id": 2,
+              "renter_id": 3,
+              "lend_by": "andreas engko-engko",
+              "price": 10.0,
+              "deposit": 25.0,
+              "start_time": "2016-06-23T09:32:17.731Z",
+              "end_time": "2016-06-23T13:32:17.731Z",
+              "item_type": "product",
+              "pay_key": "AP-0BM49543HX1045427",
+              "product": {
+                "id": 2,
+                "name": "Adidas Manuel Neuer Gloves Original 4",
+                "aasm_state": "not_available",
+                "rent_status": "rent",
+                "user": {
+                  "id": 1,
+                  "name": "teguh firman"
+                }
+              },
+              "is_confirm_request": false
+            }
+          },
+          {
+            "checkout_item": {
+              "id": 3,
+              "renter_id": 3,
+              "lend_by": "andreas engko-engko",
+              "price": 21.0,
+              "deposit": 40.0,
+              "start_time": "2016-06-23T09:32:17.739Z",
+              "end_time": "2016-06-24T09:32:17.739Z",
+              "item_type": "product",
+              "pay_key": "AP-0BM49543HX1045427",
+              "product": {
+                "id": 4,
+                "name": "Adidas Manuel Neuer Gloves Original 4",
+                "aasm_state": "not_available",
+                "rent_status": "rent",
+                "user": {
+                  "id": 2,
+                  "name": "luay kacang"
+                }
+              },
+              "is_confirm_request": false
+            }
+          }
+        ]
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "histories#my_transaction": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/histories/my_transaction",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwx&page=1",
+      "request_data": null,
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "rent": [
+          {
+            "checkout_item": {
+              "id": 4,
+              "lend_by": null,
+              "price": 100.0,
+              "deposit": 50.0,
+              "start_time": "2016-05-04T10:07:19.000Z",
+              "end_time": "2016-05-05T10:07:19.000Z",
+              "item_type": "product",
+              "product": {
+                "id": 1,
+                "name": "Adidas Manuel Neuer Gloves Original 2",
+                "user": {
+                  "id": 1,
+                  "name": "Teguh Firman"
+                }
+              }
+            }
+          }
+        ],
+        "lend": [
+          {
+            "checkout_item": {
+              "id": 1,
+              "lend_by": "Teguh Firman",
+              "price": 10.0,
+              "deposit": 50.0,
+              "start_time": "2016-06-14T03:17:26.775Z",
+              "end_time": "2016-06-14T04:17:26.775Z",
+              "item_type": "product",
+              "product": {
+                "id": 2,
+                "name": "Adidas Manuel Neuer Gloves Original 4",
+                "user": {
+                  "id": 2,
+                  "name": "Andreas Arnold"
+                }
+              }
+            }
+          },
+          {
+            "checkout_item": {
+              "id": 2,
+              "lend_by": "Teguh Firman",
+              "price": 40.0,
+              "deposit": 50.0,
+              "start_time": "2016-06-14T03:17:26.791Z",
+              "end_time": "2016-06-14T07:17:26.791Z",
+              "item_type": "product",
+              "product": {
+                "id": 3,
+                "name": "Adidas Manuel Neuer Gloves Original 3",
+                "user": {
+                  "id": 2,
+                  "name": "Andreas Arnold"
+                }
+              }
+            }
+          },
+          {
+            "checkout_item": {
+              "id": 3,
+              "lend_by": "Teguh Firman",
+              "price": 100.0,
+              "deposit": 50.0,
+              "start_time": "2016-06-14T03:17:26.800Z",
+              "end_time": "2016-06-15T03:17:26.800Z",
+              "item_type": "product",
+              "product": {
+                "id": 5,
+                "name": "Adidas Manuel Neuer Gloves Original 5",
+                "user": {
+                  "id": 2,
+                  "name": "Andreas Arnold"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "histories#my_wallet": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/histories/my_wallet",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=D2WPqzykzpARmuzp55hV&page=1",
+      "request_data": null,
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "total_spend": 0.0,
+        "total_income": 0.0
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "histories#update_status": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/histories/update_status",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwx&product_id=2&status=rented",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "is_rented": true,
+        "is_returned": false
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "junkyard_products#all": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/junkyard_products/all",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwx&page=1",
+      "request_data": null,
+      "response_data": {
+        "junkyard_products": [
+          {
+            "junkyard_product": {
+              "id": 4,
+              "name": "Adidas Gloves2",
+              "description": "Lorem ipsum set dolor set ammet",
+              "location": "Canada",
+              "latitude": "51.5287336",
+              "longitude": "-0.382471",
+              "category_id": 2,
+              "aasm_state": "available",
+              "attachment": null,
+              "category_name": "Wooden",
+              "is_liked": false,
+              "is_favourited": false
+            }
+          },
+          {
+            "junkyard_product": {
+              "id": 1,
+              "name": "Adidas Gloves2",
+              "description": "Lorem ipsum set dolor set ammet",
+              "location": "Canada",
+              "latitude": "51.5287336",
+              "longitude": "-0.382471",
+              "category_id": 2,
+              "aasm_state": "available",
+              "attachment": null,
+              "category_name": "Wooden",
+              "is_liked": false,
+              "is_favourited": false
+            }
+          },
+          {
+            "junkyard_product": {
+              "id": 2,
+              "name": "Adidas Gloves2",
+              "description": "Lorem ipsum set dolor set ammet",
+              "location": "Canada",
+              "latitude": "51.5287336",
+              "longitude": "-0.382471",
+              "category_id": 1,
+              "aasm_state": "available",
+              "attachment": "/uploads/attachment/name/53/ktp.jpg",
+              "category_name": "Electronic",
+              "is_liked": false,
+              "is_favourited": false
+            }
+          },
+          {
+            "junkyard_product": {
+              "id": 3,
+              "name": "Adidas Gloves2",
+              "description": "Lorem ipsum set dolor set ammet",
+              "location": "Canada",
+              "latitude": "51.5287336",
+              "longitude": "-0.382471",
+              "category_id": 2,
+              "aasm_state": "available",
+              "attachment": null,
+              "category_name": "Wooden",
+              "is_liked": false,
+              "is_favourited": false
+            }
+          }
+        ],
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "junkyard_products#by_category": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/junkyard_products/by_category",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwx&category_id=2&page=1",
+      "request_data": null,
+      "response_data": {
+        "junkyard_products": [
+          {
+            "junkyard_product": {
+              "id": 1,
+              "name": "Adidas Gloves2",
+              "description": "Lorem ipsum set dolor set ammet",
+              "special_condition": "llam quis ante. Nunc nonummy metus.",
+              "location": "Canada",
+              "latitude": "51.5287336",
+              "longitude": "-0.382471",
+              "size": "10",
+              "category_id": 2,
+              "aasm_state": "available",
+              "attachment": null,
+              "category_name": "Wooden",
+              "is_liked": false,
+              "is_favourited": false
+            }
+          }
+        ],
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "junkyard_products#by_favourite": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/junkyard_products/by_favourite",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwx&category_id=2&page=1",
+      "request_data": null,
+      "response_data": {
+        "junkyard_products": [
+          {
+            "junkyard_product": {
+              "id": 1,
+              "name": "Adidas Gloves2",
+              "description": "Lorem ipsum set dolor set ammet",
+              "special_condition": "llam quis ante. Nunc nonummy metus.",
+              "location": "Canada",
+              "latitude": "51.5287336",
+              "longitude": "-0.382471",
+              "size": "10",
+              "category_id": 2,
+              "aasm_state": "available",
+              "attachment": null,
+              "category_name": "Wooden",
+              "is_liked": false,
+              "is_favourited": false
+            }
+          }
+        ],
+        "error": 0,
+        "errors": "",
+        "category_name": "Wooden"
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/api/v1/junkyard_products/by_favourite",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwx&category_id=2&page=1",
+      "request_data": null,
+      "response_data": {
+        "junkyard_products": [
+          {
+            "junkyard_product": {
+              "id": 1,
+              "name": "Adidas Gloves2",
+              "description": "Lorem ipsum set dolor set ammet",
+              "special_condition": "llam quis ante. Nunc nonummy metus.",
+              "location": "Canada",
+              "latitude": "51.5287336",
+              "longitude": "-0.382471",
+              "size": "10",
+              "category_id": 2,
+              "aasm_state": "available",
+              "attachment": null,
+              "category_name": "Wooden",
+              "is_liked": false,
+              "is_favourited": false
+            }
+          }
+        ],
+        "error": 0,
+        "errors": "",
+        "category_name": "Wooden"
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "junkyard_products#by_user": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/junkyard_products/by_user",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=D2WPqzykzpARmuzp55hV&user_id=2&page=1",
+      "request_data": null,
+      "response_data": {
+        "junkyard_products": [
+          {
+            "junkyard_product": {
+              "id": 1,
+              "name": "Adidas Gloves2",
+              "description": "Lorem ipsum set dolor set ammet",
+              "category_id": 2,
+              "aasm_state": "available",
+              "attachment": null,
+              "category_name": "Wooden",
+              "is_liked": false,
+              "is_favourited": false
+            }
+          }
+        ],
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "junkyard_products#create": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/junkyard_products/create",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwx&category_id=2&name=Adidas%20Gloves2&description=Lorem%20ipsum%20set%20dolor%20set%20ammet&special_condition=llam%20quis%20ante.%20Nunc%20nonummy%20metus.&location=Canada&latitude=51.5287336&longitude=-0.382471&size=10",
+      "request_data": "",
+      "response_data": {
+        "junkyard_product": {
+          "id": 4,
+          "name": "Adidas Gloves2",
+          "description": "Lorem ipsum set dolor set ammet",
+          "special_condition": "llam quis ante. Nunc nonummy metus.",
+          "location": "Canada",
+          "latitude": "51.5287336",
+          "longitude": "-0.382471",
+          "size": "10",
+          "category_id": 2,
+          "user_id": 2,
+          "aasm_state": "available"
+        },
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "junkyard_products#delete": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/junkyard_products/delete",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwx&id=4",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "product": {
+          "id": 4,
+          "name": "Adidas Gloves2",
+          "description": "Lorem ipsum set dolor set ammet",
+          "location": "Canada",
+          "special_condition": "llam quis ante. Nunc nonummy metus.",
+          "size": "10",
+          "latitude": "51.5287336",
+          "longitude": "-0.382471",
+          "aasm_state": "deleted",
+          "category_id": 2,
+          "user_id": 2,
+          "created_at": "2016-05-23T16:39:41.239Z",
+          "updated_at": "2016-05-23T16:40:06.678Z"
+        }
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "junkyard_products#detail": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/junkyard_products/detail",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=ewtVHcxZCeWb1MBKKc3J&junkyard_product_id=1",
+      "request_data": null,
+      "response_data": {
+        "junkyard_product": {
+          "id": 1,
+          "name": "Adidas Gloves2",
+          "description": "Lorem ipsum set dolor set ammet",
+          "special_condition": "llam quis ante. Nunc nonummy metus.",
+          "location": "Canada",
+          "latitude": "51.5287336",
+          "longitude": "-0.382471",
+          "size": "10",
+          "category_id": 2,
+          "aasm_state": "available",
+          "category": {
+            "id": 2,
+            "name": "Wooden"
+          },
+          "user": {
+            "id": 2,
+            "name": "Andreas Arnold"
+          },
+          "created_at": "May 17, 2016",
+          "attachments": [
+
+          ],
+          "is_owner": false,
+          "is_liked": false,
+          "is_favourited": false,
+          "likes_count": 2
+        },
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "junkyard_products#like": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/junkyard_products/like",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=D2WPqzykzpARmuzp55hV&junkyard_product_id=2",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "junkyard_products#unlike": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/junkyard_products/unlike",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=D2WPqzykzpARmuzp55hV&junkyard_product_id=2",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "response": null
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "junkyard_products#update": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/junkyard_products/update",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwx&id=1&category_id=2&name=Adidas%20Gloves2&description=Lorem%20ipsum%20set%20dolor%20set%20ammet&special_condition=llam%20quis%20ante.%20Nunc%20nonummy%20metus.&location=Canada&latitude=51.5287336&longitude=-0.382471&size=10",
+      "request_data": "",
+      "response_data": {
+        "junkyard_product": {
+          "id": 1,
+          "name": "Adidas Gloves2",
+          "description": "Lorem ipsum set dolor set ammet",
+          "special_condition": "llam quis ante. Nunc nonummy metus.",
+          "location": "Canada",
+          "latitude": "51.5287336",
+          "longitude": "-0.382471",
+          "size": "10",
+          "category_id": 2,
+          "user_id": 2,
+          "aasm_state": "available"
+        },
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "junkyard_products#upload_photo": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/junkyard_products/upload_photo",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwx&junkyard_product_id=2",
+      "request_data": "Content-Type: multipart/form-data; boundary=APIPIE_RECORDER_EXAMPLE_BOUNDARY\n\n--APIPIE_RECORDER_EXAMPLE_BOUNDARY\nContent-Disposition: form-data; name=\"name\"; filename=\"shoe-629644_960_720.jpg\"\nContent-Type: image/jpeg\n\n... contents of \"name\" ...\n--APIPIE_RECORDER_EXAMPLE_BOUNDARY--",
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "photo": {
+          "id": 19,
+          "name": {
+            "url": "/uploads/attachment/name/19/shoe-629644_960_720.jpg",
+            "thumb": {
+              "url": "/uploads/attachment/name/19/thumb_shoe-629644_960_720.jpg"
+            },
+            "small": {
+              "url": "/uploads/attachment/name/19/small_shoe-629644_960_720.jpg"
+            }
+          },
+          "attachable_id": 2,
+          "attachable_type": "JunkyardProduct",
+          "created_at": "2016-05-31T03:57:08.517Z",
+          "updated_at": "2016-05-31T03:57:08.517Z"
+        }
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/api/v1/junkyard_products/upload_photo",
+      "versions": [
+
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwx&junkyard_product_id=2",
+      "request_data": "Content-Type: multipart/form-data; boundary=APIPIE_RECORDER_EXAMPLE_BOUNDARY\n\n--APIPIE_RECORDER_EXAMPLE_BOUNDARY\nContent-Disposition: form-data; name=\"name\"; filename=\"shoe-629644_960_720.jpg\"\nContent-Type: image/jpeg\n\n... contents of \"name\" ...\n--APIPIE_RECORDER_EXAMPLE_BOUNDARY--",
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "photo": {
+          "id": 20,
+          "name": {
+            "url": "/uploads/attachment/name/20/shoe-629644_960_720.jpg",
+            "thumb": {
+              "url": "/uploads/attachment/name/20/thumb_shoe-629644_960_720.jpg"
+            },
+            "small": {
+              "url": "/uploads/attachment/name/20/small_shoe-629644_960_720.jpg"
+            }
+          },
+          "attachable_id": 2,
+          "attachable_type": "JunkyardProduct",
+          "created_at": "2016-05-31T03:59:05.567Z",
+          "updated_at": "2016-05-31T03:59:05.567Z"
+        }
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "lenders#all": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/lenders/all",
+      "versions": [
+
+      ],
+      "query": "authentication_token=FKfCi2A9JM4zAgpYyack&page=1",
+      "request_data": null,
+      "response_data": {
+        "lenders": [
+          {
+            "id": 2,
+            "email": "luay@41studio.com",
+            "full_name": "luay kacang",
+            "address": "London, United Kingdom",
+            "phone_number": "dmwTa06fKFc:APA91bFg5_bNMbfsMxN0Peh-ugDoMZku2veQ9SBDrSos-TujO-vs0Yh0_XEVsOpScYlXvu0sFdXzx3FU76tjWDTPtcH5bQZ7GJk3IQcLdPyLh_mZoivVhsLhbh_kFOWhHcMV1p8KYDnF",
+            "latitude": "51.5287336",
+            "longitude": "-0.382471",
+            "hide_address": false,
+            "is_favourited": false
+          },
+          {
+            "id": 1,
+            "email": "teguh@41studio.com",
+            "full_name": "teguh firman",
+            "address": "London, United Kingdom",
+            "phone_number": "2123333",
+            "latitude": "51.5287336",
+            "longitude": "-0.382471",
+            "hide_address": false,
+            "is_favourited": false
+          }
+        ],
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/api/v1/lenders/all",
+      "versions": [
+
+      ],
+      "query": "authentication_token=FKfCi2A9JM4zAgpYyack&page=1",
+      "request_data": null,
+      "response_data": {
+        "lenders": [
+          {
+            "id": 1,
+            "email": "teguh@41studio.com",
+            "full_name": "teguh firman",
+            "address": "London, United Kingdom",
+            "phone_number": "2123333",
+            "latitude": "51.5287336",
+            "longitude": "-0.382471",
+            "hide_address": true,
+            "is_favourited": false
+          },
+          {
+            "id": 2,
+            "email": "luay@41studio.com",
+            "full_name": "luay kacang",
+            "address": "London, United Kingdom",
+            "phone_number": "dmwTa06fKFc:APA91bFg5_bNMbfsMxN0Peh-ugDoMZku2veQ9SBDrSos-TujO-vs0Yh0_XEVsOpScYlXvu0sFdXzx3FU76tjWDTPtcH5bQZ7GJk3IQcLdPyLh_mZoivVhsLhbh_kFOWhHcMV1p8KYDnF",
+            "latitude": "51.5287336",
+            "longitude": "-0.382471",
+            "hide_address": true,
+            "is_favourited": false
+          }
+        ],
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "lenders#profile": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/lenders/profile",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=FKfCi2A9JM4zAgpYyack&user_id=1",
+      "request_data": null,
+      "response_data": {
+        "lender": {
+          "id": 1,
+          "email": "teguh@41studio.com",
+          "full_name": "teguh firman",
+          "address": "London, United Kingdom",
+          "phone_number": "2123333",
+          "latitude": "51.5287336",
+          "longitude": "-0.382471",
+          "hide_address": true,
+          "is_favourited": false
+        },
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "messages#all": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/messages/all",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=FKfCi2A9JM4zAgpYyack",
+      "request_data": null,
+      "response_data": {
+        "messages": [
+          {
+            "message": {
+              "id": 8,
+              "body": "where are you ?",
+              "documentable_id": 1,
+              "sender": {
+                "id": 3,
+                "full_name": "andreas engko-engko"
+              },
+              "receiver": {
+                "id": 1,
+                "full_name": "teguh firman"
+              },
+              "created_at": "June 28, 2016",
+              "created_time_at": "07:44:44"
+            }
+          }
+        ],
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "messages#conversation": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/messages/conversation",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=FKfCi2A9JM4zAgpYyack&target_id=3",
+      "request_data": null,
+      "response_data": {
+        "messages": [
+          {
+            "message": {
+              "id": 1,
+              "body": "hai teguh how are you ?",
+              "sender": {
+                "id": 3,
+                "full_name": "andreas engko-engko"
+              },
+              "receiver": {
+                "id": 1,
+                "full_name": "teguh firman"
+              },
+              "created_at": "June 28, 2016",
+              "created_time_at": "03:57:42",
+              "is_message_owner": false
+            }
+          },
+          {
+            "message": {
+              "id": 2,
+              "body": "Yes, I'm fine and you ?",
+              "sender": {
+                "id": 1,
+                "full_name": "teguh firman"
+              },
+              "receiver": {
+                "id": 3,
+                "full_name": "andreas engko-engko"
+              },
+              "created_at": "June 28, 2016",
+              "created_time_at": "03:58:52",
+              "is_message_owner": true
+            }
+          }
+        ],
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "messages#inbox": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/messages/inbox",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=FKfCi2A9JM4zAgpYyack",
+      "request_data": null,
+      "response_data": {
+        "messages": [
+          {
+            "message": {
+              "id": 4,
+              "body": "hai sob",
+              "sender": {
+                "id": 2,
+                "full_name": "luay kacang"
+              },
+              "receiver": {
+                "id": 1,
+                "full_name": "teguh firman"
+              },
+              "created_at": "June 27, 2016",
+              "created_time_at": "09:22:46"
+            }
+          },
+          {
+            "message": {
+              "id": 3,
+              "body": "where are you ?",
+              "sender": {
+                "id": 3,
+                "full_name": "andreas engko-engko"
+              },
+              "receiver": {
+                "id": 1,
+                "full_name": "teguh firman"
+              },
+              "created_at": "June 27, 2016",
+              "created_time_at": "09:20:41"
+            }
+          }
+        ],
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "messages#lender_conversation": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/messages/lender_conversation",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=FKfCi2A9JM4zAgpYyack",
+      "request_data": null,
+      "response_data": {
+        "messages": [
+          {
+            "message": {
+              "id": 1,
+              "body": "hello....",
+              "sender": {
+                "id": 3,
+                "full_name": "andreas engko-engko"
+              },
+              "receiver": {
+                "id": 1,
+                "full_name": "teguh firman"
+              },
+              "created_at": "June 27, 2016",
+              "created_time_at": "08:10:17",
+              "is_message_owner": false
+            }
+          },
+          {
+            "message": {
+              "id": 2,
+              "body": "iyahh",
+              "sender": {
+                "id": 1,
+                "full_name": "teguh firman"
+              },
+              "receiver": {
+                "id": 3,
+                "full_name": "andreas engko-engko"
+              },
+              "created_at": "June 27, 2016",
+              "created_time_at": "08:11:55",
+              "is_message_owner": true
+            }
+          }
+        ],
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "messages#post_message": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/messages/post_message",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=2R8imfN3Koyw1hUokwXV&recipient_id=1&message=Are%20you%20ok%20?",
+      "request_data": "",
+      "response_data": {
+        "message": {
+          "id": 1,
+          "body": "Are you ok ?",
+          "sender": {
+            "id": 3,
+            "full_name": "andreas engko-engko"
+          },
+          "receiver": {
+            "id": 1,
+            "full_name": "teguh firman"
+          },
+          "created_at": "June 24, 2016",
+          "created_time_at": "07:57:25"
+        },
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "messages#renter_conversation": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/messages/renter_conversation",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=2R8imfN3Koyw1hUokwXV&message_id=1",
+      "request_data": null,
+      "response_data": {
+        "messages": [
+          {
+            "message": {
+              "id": 1,
+              "body": "hello....",
+              "sender": {
+                "id": 3,
+                "full_name": "andreas engko-engko"
+              },
+              "receiver": {
+                "id": 1,
+                "full_name": "teguh firman"
+              },
+              "created_at": "June 27, 2016",
+              "created_time_at": "08:10:17",
+              "is_message_owner": true
+            }
+          },
+          {
+            "message": {
+              "id": 2,
+              "body": "iyahh",
+              "sender": {
+                "id": 1,
+                "full_name": "teguh firman"
+              },
+              "receiver": {
+                "id": 3,
+                "full_name": "andreas engko-engko"
+              },
+              "created_at": "June 27, 2016",
+              "created_time_at": "08:11:55",
+              "is_message_owner": false
+            }
+          }
+        ],
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "messages#reply_message": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/messages/reply_message",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=FKfCi2A9JM4zAgpYyack&message_id=1&recipient_id=3&message=Ho%20do%20you%20do%20?",
+      "request_data": "",
+      "response_data": {
+        "message": {
+          "id": 3,
+          "body": "Ho do you do ?",
+          "sender": {
+            "id": 1,
+            "full_name": "teguh firman"
+          },
+          "receiver": {
+            "id": 3,
+            "full_name": "andreas engko-engko"
+          },
+          "created_at": "June 24, 2016",
+          "created_time_at": "07:59:24"
+        },
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "notifications#all": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/notifications/all",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwy&page=1",
+      "request_data": null,
+      "response_data": {
+        "activities": [
+          {
+            "id": 69,
+            "owner_id": 4,
+            "owner_type": "User",
+            "recipient_id": 3,
+            "recipient_type": "User",
+            "aasm_state": "read",
+            "parameters": {
+              "notification_type": "post_message",
+              "title_message": null,
+              "body_message": "Where do you stay ?"
+            },
+            "created_at": "2016-05-17T06:58:41.102Z",
+            "trackable": true
+          },
+          {
+            "id": 68,
+            "owner_id": 4,
+            "owner_type": "User",
+            "recipient_id": 3,
+            "recipient_type": "User",
+            "aasm_state": "read",
+            "parameters": {
+              "notification_type": "post_message",
+              "title_message": "Where do you stay ?",
+              "body_message": null
+            },
+            "created_at": "2016-05-17T06:33:41.472Z",
+            "trackable": true
+          },
+          {
+            "id": 67,
+            "owner_id": 4,
+            "owner_type": "User",
+            "recipient_id": 3,
+            "recipient_type": "User",
+            "aasm_state": "read",
+            "parameters": {
+              "notification_type": "post_message",
+              "title_message": "Where do you stay ?",
+              "body_message": null
+            },
+            "created_at": "2016-05-17T06:32:53.656Z",
+            "trackable": true
+          }
+        ],
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "payments#accepted_refund": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/payments/renter/accepted_refund",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=2R8imfN3Koyw1hUokwXV&product_id=1",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "refund_info": [
+          {
+            "receiver": {
+              "amount": 50.0,
+              "email": "guhunderscore-facilitator@gmail.com"
+            },
+            "refundStatus": "AMOUNT_EXCEEDS_REFUNDABLE"
+          }
+        ],
+        "time": "June 28, 2016 10:11:44"
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "payments#all": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/payments/all",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=tPeTnib-R7su4vbbRGMy",
+      "request_data": null,
+      "response_data": {
+        "payments": [
+          {
+            "payment": {
+              "id": 1,
+              "paypal_email": "nurhadimaulana2309@paypal.com"
+            }
+          }
+        ],
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "payments#by_user": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/payments/by_user",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=D2WPqzykzpARmuzp55hV",
+      "request_data": null,
+      "response_data": {
+        "payments": [
+          {
+            "payment": {
+              "id": 4,
+              "paypal_email": "ervina@paypal.com",
+              "first_name": "ervina"
+            }
+          },
+          {
+            "payment": {
+              "id": 5,
+              "paypal_email": "ervina2@paypal.com",
+              "first_name": "ervina"
+            }
+          }
+        ],
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "payments#create": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/payments/create",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiww&paypal_email=buyer-2@rendserver.com&status=default",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "success": true,
+        "account_status": "VERIFIED",
+        "country_code": "US",
+        "user_info": {
+          "paypal_email": "buyer-2@rendserver.com",
+          "first_name": "buyer",
+          "last_name": "two"
+        }
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "payments#give_refund": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/payments/lender/give_refund",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=FKfCi2A9JM4zAgpYyack&product_id=1&renter_id=3",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "is_available": false,
+        "is_not_available": false,
+        "is_not_yet_returned": false,
+        "is_returned": true,
+        "is_not_rent": false,
+        "is_taken": false,
+        "is_rent": false,
+        "is_need_refunded": true
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "payments#refund": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/payments/refund",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=FKfCi2A9JM4zAgpYyack&pay_key=AP-7UP024332D080842G&product_id=2",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "refund_info": [
+          {
+            "receiver": {
+              "amount": 25.0,
+              "email": "guhunderscore-facilitator@gmail.com"
+            },
+            "refundStatus": "REFUNDED",
+            "refundNetAmount": 24.28,
+            "refundFeeAmount": 0.72,
+            "refundGrossAmount": 25.0,
+            "totalOfAllRefunds": 75.0,
+            "refundHasBecomeFull": false,
+            "encryptedRefundTransactionId": "5D277602TF573241M",
+            "refundTransactionStatus": "COMPLETED"
+          }
+        ],
+        "time": "June 22, 2016 00:12:00"
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "products#all": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/products/all",
+      "versions": [
+
+      ],
+      "query": "authentication_token=D2WPqzykzpARmuzp55hV&page=1",
+      "request_data": null,
+      "response_data": {
+        "products": [
+          {
+            "product": {
+              "id": 2,
+              "name": "Adidas Manuel Neuer Gloves Original 4",
+              "one_hour": 10.0,
+              "four_hours": 40.0,
+              "one_day": 100.0,
+              "one_week": 1000.0,
+              "deposit": 50.0,
+              "aasm_state": "available",
+              "latitude": "51.5287336",
+              "longitude": "-0.382471",
+              "location": "London, United Kingdom",
+              "attachment": null,
+              "category_name": "Electronic",
+              "is_liked": false,
+              "is_favourited": true,
+              "renter_id": 4,
+              "rented_by": "ervina angraeni",
+              "countdown": null
+            }
+          },
+          {
+            "product": {
+              "id": 3,
+              "name": "Adidas Manuel Neuer Gloves Original 3",
+              "one_hour": 10.0,
+              "four_hours": 40.0,
+              "one_day": 100.0,
+              "one_week": 1000.0,
+              "deposit": 50.0,
+              "aasm_state": "available",
+              "latitude": "51.5287336",
+              "longitude": "-0.382471",
+              "location": "London, United Kingdom",
+              "attachment": null,
+              "category_name": "Wooden",
+              "is_liked": false,
+              "is_favourited": false,
+              "renter_id": 4,
+              "rented_by": "ervina angraeni",
+              "countdown": null
+            }
+          },
+          {
+            "product": {
+              "id": 4,
+              "name": "Adidas Manuel Neuer Gloves Original 3",
+              "one_hour": 10.0,
+              "four_hours": 40.0,
+              "one_day": 100.0,
+              "one_week": 1000.0,
+              "deposit": 50.0,
+              "aasm_state": "available",
+              "latitude": "51.5287336",
+              "longitude": "-0.382471",
+              "location": "London, United Kingdom",
+              "attachment": null,
+              "category_name": "Electronic",
+              "is_liked": false,
+              "is_favourited": false,
+              "renter_id": null,
+              "rented_by": null,
+              "countdown": null
+            }
+          },
+          {
+            "product": {
+              "id": 7,
+              "name": "Adidas Manuel Neuer Gloves Original 4",
+              "one_hour": 10.0,
+              "four_hours": 40.0,
+              "one_day": 100.0,
+              "one_week": 1000.0,
+              "deposit": 50.0,
+              "aasm_state": "available",
+              "latitude": "51.5287336",
+              "longitude": "-0.382471",
+              "location": "London, United Kingdom",
+              "attachment": null,
+              "category_name": "Electronic",
+              "is_liked": false,
+              "is_favourited": false,
+              "renter_id": null,
+              "rented_by": null,
+              "countdown": null
+            }
+          },
+          {
+            "product": {
+              "id": 5,
+              "name": "Adidas Manuel Neuer Gloves Original 5",
+              "one_hour": 10.0,
+              "four_hours": 40.0,
+              "one_day": 100.0,
+              "one_week": 1000.0,
+              "deposit": 50.0,
+              "aasm_state": "available",
+              "latitude": "51.5287336",
+              "longitude": "-0.382471",
+              "location": "London, United Kingdom",
+              "attachment": null,
+              "category_name": "Hand Held",
+              "is_liked": false,
+              "is_favourited": false,
+              "renter_id": null,
+              "rented_by": null,
+              "countdown": null
+            }
+          },
+          {
+            "product": {
+              "id": 6,
+              "name": "Adidas Manuel Neuer Gloves Original 4",
+              "one_hour": 10.0,
+              "four_hours": 40.0,
+              "one_day": 100.0,
+              "one_week": 1000.0,
+              "deposit": 50.0,
+              "aasm_state": "available",
+              "latitude": "51.5287336",
+              "longitude": "-0.382471",
+              "location": "London, United Kingdom",
+              "attachment": null,
+              "category_name": "Wooden",
+              "is_liked": false,
+              "is_favourited": true,
+              "renter_id": null,
+              "rented_by": null,
+              "countdown": null
+            }
+          },
+          {
+            "product": {
+              "id": 9,
+              "name": "Adidas Manuel Neuer Gloves Original 4",
+              "one_hour": 10.0,
+              "four_hours": 40.0,
+              "one_day": 100.0,
+              "one_week": 1000.0,
+              "deposit": 50.0,
+              "aasm_state": "available",
+              "latitude": "51.5287336",
+              "longitude": "-0.382471",
+              "location": "London, United Kingdom",
+              "attachment": null,
+              "category_name": "Electronic",
+              "is_liked": false,
+              "is_favourited": false,
+              "renter_id": null,
+              "rented_by": null,
+              "countdown": null
+            }
+          },
+          {
+            "product": {
+              "id": 8,
+              "name": "Adidas Manuel Neuer Gloves Original 4",
+              "one_hour": 10.0,
+              "four_hours": 40.0,
+              "one_day": 100.0,
+              "one_week": 1000.0,
+              "deposit": 50.0,
+              "aasm_state": "available",
+              "latitude": "51.5287336",
+              "longitude": "-0.382471",
+              "location": "London, United Kingdom",
+              "attachment": null,
+              "category_name": "Electronic",
+              "is_liked": false,
+              "is_favourited": false,
+              "renter_id": null,
+              "rented_by": null,
+              "countdown": null
+            }
+          },
+          {
+            "product": {
+              "id": 1,
+              "name": "Adidas Manuel Neuer Gloves Original 2",
+              "one_hour": 20.0,
+              "four_hours": 10.0,
+              "one_day": 100.0,
+              "one_week": 1000.0,
+              "deposit": 50.0,
+              "aasm_state": "available",
+              "latitude": "51.5287336",
+              "longitude": "-0.382471",
+              "location": "London, United Kingdom",
+              "attachment": null,
+              "category_name": "Electronic",
+              "is_liked": false,
+              "is_favourited": true,
+              "renter_id": 4,
+              "rented_by": "ervina angraeni",
+              "countdown": null
+            }
+          }
+        ],
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "products#by_category": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/products/by_category",
+      "versions": [
+
+      ],
+      "query": "authentication_token=D2WPqzykzpARmuzp55hV&category_id=1&page=1",
+      "request_data": null,
+      "response_data": {
+        "products": [
+          {
+            "product": {
+              "id": 2,
+              "name": "Adidas Manuel Neuer Gloves Original 4",
+              "one_hour": 10.0,
+              "four_hours": 40.0,
+              "one_day": 100.0,
+              "one_week": 1000.0,
+              "deposit": 50.0,
+              "aasm_state": "available",
+              "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+              "attachment": null,
+              "category_name": "Electronic",
+              "is_liked": false,
+              "is_favourited": true,
+              "renter_id": 4,
+              "rented_by": "ervina angraeni",
+              "countdown": null
+            }
+          },
+          {
+            "product": {
+              "id": 4,
+              "name": "Adidas Manuel Neuer Gloves Original 3",
+              "one_hour": 10.0,
+              "four_hours": 40.0,
+              "one_day": 100.0,
+              "one_week": 1000.0,
+              "deposit": 50.0,
+              "aasm_state": "available",
+              "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+              "attachment": null,
+              "category_name": "Electronic",
+              "is_liked": false,
+              "is_favourited": false,
+              "renter_id": null,
+              "rented_by": null,
+              "countdown": null
+            }
+          },
+          {
+            "product": {
+              "id": 7,
+              "name": "Adidas Manuel Neuer Gloves Original 4",
+              "one_hour": 10.0,
+              "four_hours": 40.0,
+              "one_day": 100.0,
+              "one_week": 1000.0,
+              "deposit": 50.0,
+              "aasm_state": "available",
+              "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+              "attachment": null,
+              "category_name": "Electronic",
+              "is_liked": false,
+              "is_favourited": false,
+              "renter_id": null,
+              "rented_by": null,
+              "countdown": null
+            }
+          },
+          {
+            "product": {
+              "id": 9,
+              "name": "Adidas Manuel Neuer Gloves Original 4",
+              "one_hour": 10.0,
+              "four_hours": 40.0,
+              "one_day": 100.0,
+              "one_week": 1000.0,
+              "deposit": 50.0,
+              "aasm_state": "available",
+              "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+              "attachment": null,
+              "category_name": "Electronic",
+              "is_liked": false,
+              "is_favourited": false,
+              "renter_id": null,
+              "rented_by": null,
+              "countdown": null
+            }
+          },
+          {
+            "product": {
+              "id": 8,
+              "name": "Adidas Manuel Neuer Gloves Original 4",
+              "one_hour": 10.0,
+              "four_hours": 40.0,
+              "one_day": 100.0,
+              "one_week": 1000.0,
+              "deposit": 50.0,
+              "aasm_state": "available",
+              "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+              "attachment": null,
+              "category_name": "Electronic",
+              "is_liked": false,
+              "is_favourited": false,
+              "renter_id": null,
+              "rented_by": null,
+              "countdown": null
+            }
+          },
+          {
+            "product": {
+              "id": 1,
+              "name": "Adidas Manuel Neuer Gloves Original 2",
+              "one_hour": 20.0,
+              "four_hours": 10.0,
+              "one_day": 100.0,
+              "one_week": 1000.0,
+              "deposit": 50.0,
+              "aasm_state": "available",
+              "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+              "attachment": null,
+              "category_name": "Electronic",
+              "is_liked": false,
+              "is_favourited": true,
+              "renter_id": 4,
+              "rented_by": "ervina angraeni",
+              "countdown": null
+            }
+          }
+        ],
+        "error": 0,
+        "errors": "",
+        "category_name": "Electronic"
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "products#by_favourite": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/products/by_favourite",
+      "versions": [
+
+      ],
+      "query": "authentication_token=D2WPqzykzpARmuzp55hV&category_id=1&page=1",
+      "request_data": null,
+      "response_data": {
+        "products": [
+          {
+            "product": {
+              "id": 2,
+              "name": "Adidas Manuel Neuer Gloves Original 4",
+              "one_hour": 10.0,
+              "four_hours": 40.0,
+              "one_day": 100.0,
+              "one_week": 1000.0,
+              "deposit": 50.0,
+              "aasm_state": "available",
+              "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+              "attachment": null,
+              "category_name": "Electronic",
+              "is_liked": false,
+              "is_favourited": true,
+              "renter_id": 4,
+              "rented_by": "ervina angraeni",
+              "countdown": null
+            }
+          },
+          {
+            "product": {
+              "id": 1,
+              "name": "Adidas Manuel Neuer Gloves Original 2",
+              "one_hour": 20.0,
+              "four_hours": 10.0,
+              "one_day": 100.0,
+              "one_week": 1000.0,
+              "deposit": 50.0,
+              "aasm_state": "available",
+              "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+              "attachment": null,
+              "category_name": "Electronic",
+              "is_liked": false,
+              "is_favourited": true,
+              "renter_id": 4,
+              "rented_by": "ervina angraeni",
+              "countdown": null
+            }
+          },
+          {
+            "product": {
+              "id": 4,
+              "name": "Adidas Manuel Neuer Gloves Original 3",
+              "one_hour": 10.0,
+              "four_hours": 40.0,
+              "one_day": 100.0,
+              "one_week": 1000.0,
+              "deposit": 50.0,
+              "aasm_state": "available",
+              "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+              "attachment": null,
+              "category_name": "Electronic",
+              "is_liked": false,
+              "is_favourited": false,
+              "renter_id": null,
+              "rented_by": null,
+              "countdown": null
+            }
+          },
+          {
+            "product": {
+              "id": 7,
+              "name": "Adidas Manuel Neuer Gloves Original 4",
+              "one_hour": 10.0,
+              "four_hours": 40.0,
+              "one_day": 100.0,
+              "one_week": 1000.0,
+              "deposit": 50.0,
+              "aasm_state": "available",
+              "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+              "attachment": null,
+              "category_name": "Electronic",
+              "is_liked": false,
+              "is_favourited": false,
+              "renter_id": null,
+              "rented_by": null,
+              "countdown": null
+            }
+          },
+          {
+            "product": {
+              "id": 9,
+              "name": "Adidas Manuel Neuer Gloves Original 4",
+              "one_hour": 10.0,
+              "four_hours": 40.0,
+              "one_day": 100.0,
+              "one_week": 1000.0,
+              "deposit": 50.0,
+              "aasm_state": "available",
+              "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+              "attachment": null,
+              "category_name": "Electronic",
+              "is_liked": false,
+              "is_favourited": false,
+              "renter_id": null,
+              "rented_by": null,
+              "countdown": null
+            }
+          },
+          {
+            "product": {
+              "id": 8,
+              "name": "Adidas Manuel Neuer Gloves Original 4",
+              "one_hour": 10.0,
+              "four_hours": 40.0,
+              "one_day": 100.0,
+              "one_week": 1000.0,
+              "deposit": 50.0,
+              "aasm_state": "available",
+              "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+              "attachment": null,
+              "category_name": "Electronic",
+              "is_liked": false,
+              "is_favourited": false,
+              "renter_id": null,
+              "rented_by": null,
+              "countdown": null
+            }
+          }
+        ],
+        "error": 0,
+        "errors": "",
+        "category_name": "Electronic"
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "products#by_price": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/products/by_price",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=2R8imfN3Koyw1hUokwXV&category_id=1&rent_time=1d&page=1",
+      "request_data": null,
+      "response_data": {
+        "products": [
+          {
+            "product": {
+              "id": 2,
+              "name": "Adidas Manuel Neuer Gloves Original 4",
+              "one_hour": 5.0,
+              "four_hours": 10.0,
+              "one_day": 15.0,
+              "one_week": 20.0,
+              "deposit": 25.0,
+              "aasm_state": "not_available",
+              "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+              "rent_status": "rent",
+              "attachment": null,
+              "category_name": "Electronic",
+              "is_liked": false,
+              "is_favourited": false,
+              "renter_id": 3,
+              "rented_by": "andreas engko-engko"
+            }
+          },
+          {
+            "product": {
+              "id": 5,
+              "name": "Adidas Manuel Neuer Gloves Original 4",
+              "one_hour": 8.0,
+              "four_hours": 10.0,
+              "one_day": 20.0,
+              "one_week": 30.0,
+              "deposit": 35.0,
+              "aasm_state": "available",
+              "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+              "rent_status": "not_rent",
+              "attachment": null,
+              "category_name": "Electronic",
+              "is_liked": false,
+              "is_favourited": false,
+              "renter_id": null,
+              "rented_by": null
+            }
+          },
+          {
+            "product": {
+              "id": 4,
+              "name": "Adidas Manuel Neuer Gloves Original 4",
+              "one_hour": 5.0,
+              "four_hours": 6.0,
+              "one_day": 21.0,
+              "one_week": 32.0,
+              "deposit": 40.0,
+              "aasm_state": "not_available",
+              "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+              "rent_status": "rent",
+              "attachment": null,
+              "category_name": "Electronic",
+              "is_liked": false,
+              "is_favourited": false,
+              "renter_id": 3,
+              "rented_by": "andreas engko-engko"
+            }
+          },
+          {
+            "product": {
+              "id": 3,
+              "name": "Adidas Manuel Neuer Gloves Original 4",
+              "one_hour": 15.0,
+              "four_hours": 20.0,
+              "one_day": 25.0,
+              "one_week": 30.0,
+              "deposit": 35.0,
+              "aasm_state": "available",
+              "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+              "rent_status": "not_rent",
+              "attachment": null,
+              "category_name": "Electronic",
+              "is_liked": false,
+              "is_favourited": false,
+              "renter_id": null,
+              "rented_by": null
+            }
+          },
+          {
+            "product": {
+              "id": 6,
+              "name": "Adidas Manuel Neuer Gloves Original 4",
+              "one_hour": 20.0,
+              "four_hours": 22.0,
+              "one_day": 30.0,
+              "one_week": 35.0,
+              "deposit": 45.0,
+              "aasm_state": "available",
+              "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+              "rent_status": "not_rent",
+              "attachment": null,
+              "category_name": "Electronic",
+              "is_liked": false,
+              "is_favourited": false,
+              "renter_id": null,
+              "rented_by": null
+            }
+          },
+          {
+            "product": {
+              "id": 1,
+              "name": "Adidas Manuel Neuer Gloves Original 4",
+              "one_hour": 10.0,
+              "four_hours": 40.0,
+              "one_day": 100.0,
+              "one_week": 150.0,
+              "deposit": 50.0,
+              "aasm_state": "returned",
+              "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+              "rent_status": "need_refunded",
+              "attachment": null,
+              "category_name": "Electronic",
+              "is_liked": false,
+              "is_favourited": false,
+              "renter_id": 3,
+              "rented_by": "andreas engko-engko"
+            }
+          }
+        ],
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "products#by_user": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/products/by_user",
+      "versions": [
+
+      ],
+      "query": "authentication_token=D2WPqzykzpARmuzp55hV&user_id=2&page=1",
+      "request_data": null,
+      "response_data": {
+        "products": [
+          {
+            "product": {
+              "id": 2,
+              "name": "Adidas Manuel Neuer Gloves Original 4",
+              "one_hour": 10.0,
+              "four_hours": 40.0,
+              "one_day": 100.0,
+              "one_week": 1000.0,
+              "deposit": 50.0,
+              "aasm_state": "available",
+              "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+              "attachment": null,
+              "category_name": "Electronic",
+              "is_liked": false,
+              "is_favourited": false,
+              "renter_id": 4,
+              "rented_by": "ervina angraeni",
+              "countdown": null
+            }
+          },
+          {
+            "product": {
+              "id": 3,
+              "name": "Adidas Manuel Neuer Gloves Original 3",
+              "one_hour": 10.0,
+              "four_hours": 40.0,
+              "one_day": 100.0,
+              "one_week": 1000.0,
+              "deposit": 50.0,
+              "aasm_state": "available",
+              "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+              "attachment": null,
+              "category_name": "Wooden",
+              "is_liked": false,
+              "is_favourited": false,
+              "renter_id": 4,
+              "rented_by": "ervina angraeni",
+              "countdown": null
+            }
+          },
+          {
+            "product": {
+              "id": 7,
+              "name": "Adidas Manuel Neuer Gloves Original 4",
+              "one_hour": 10.0,
+              "four_hours": 40.0,
+              "one_day": 100.0,
+              "one_week": 1000.0,
+              "deposit": 50.0,
+              "aasm_state": "available",
+              "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+              "attachment": null,
+              "category_name": "Electronic",
+              "is_liked": false,
+              "is_favourited": false,
+              "renter_id": null,
+              "rented_by": null,
+              "countdown": null
+            }
+          },
+          {
+            "product": {
+              "id": 5,
+              "name": "Adidas Manuel Neuer Gloves Original 5",
+              "one_hour": 10.0,
+              "four_hours": 40.0,
+              "one_day": 100.0,
+              "one_week": 1000.0,
+              "deposit": 50.0,
+              "aasm_state": "available",
+              "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+              "attachment": null,
+              "category_name": "Hand Held",
+              "is_liked": false,
+              "is_favourited": false,
+              "renter_id": null,
+              "rented_by": null,
+              "countdown": null
+            }
+          },
+          {
+            "product": {
+              "id": 6,
+              "name": "Adidas Manuel Neuer Gloves Original 4",
+              "one_hour": 10.0,
+              "four_hours": 40.0,
+              "one_day": 100.0,
+              "one_week": 1000.0,
+              "deposit": 50.0,
+              "aasm_state": "available",
+              "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+              "attachment": null,
+              "category_name": "Wooden",
+              "is_liked": false,
+              "is_favourited": false,
+              "renter_id": null,
+              "rented_by": null,
+              "countdown": null
+            }
+          },
+          {
+            "product": {
+              "id": 9,
+              "name": "Adidas Manuel Neuer Gloves Original 4",
+              "one_hour": 10.0,
+              "four_hours": 40.0,
+              "one_day": 100.0,
+              "one_week": 1000.0,
+              "deposit": 50.0,
+              "aasm_state": "available",
+              "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+              "attachment": null,
+              "category_name": "Electronic",
+              "is_liked": false,
+              "is_favourited": false,
+              "renter_id": null,
+              "rented_by": null,
+              "countdown": null
+            }
+          },
+          {
+            "product": {
+              "id": 8,
+              "name": "Adidas Manuel Neuer Gloves Original 4",
+              "one_hour": 10.0,
+              "four_hours": 40.0,
+              "one_day": 100.0,
+              "one_week": 1000.0,
+              "deposit": 50.0,
+              "aasm_state": "available",
+              "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+              "attachment": null,
+              "category_name": "Electronic",
+              "is_liked": false,
+              "is_favourited": false,
+              "renter_id": null,
+              "rented_by": null,
+              "countdown": null
+            }
+          }
+        ],
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "products#conversation": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/products/enquiries/conversation",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=Q8BrV4VcpqV6b2JJteBQ&message_id=13",
+      "request_data": null,
+      "response_data": {
+        "messages": [
+          {
+            "message": {
+              "id": 15,
+              "body": "Test reply",
+              "sender": {
+                "id": 1,
+                "full_name": "John Doe"
+              },
+              "receiver": {
+                "id": 2,
+                "full_name": "Nurhadi Maulana"
+              },
+              "created_at": "April 07, 2016"
+            }
+          },
+          {
+            "message": {
+              "id": 14,
+              "body": "Yes, the item is available",
+              "sender": {
+                "id": 1,
+                "full_name": "John Doe"
+              },
+              "receiver": {
+                "id": 2,
+                "full_name": "Nurhadi Maulana"
+              },
+              "created_at": "April 07, 2016"
+            }
+          },
+          {
+            "message": {
+              "id": 13,
+              "body": "Hello there, is the item available to rent ?",
+              "sender": {
+                "id": 2,
+                "full_name": "Nurhadi Maulana"
+              },
+              "receiver": {
+                "id": 1,
+                "full_name": "John Doe"
+              },
+              "created_at": "April 07, 2016"
+            }
+          }
+        ],
+        "error": 0,
+        "errors": "",
+        "product_name": "Adidas Manuel Neuer Gloves Original"
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "products#create": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/products/create",
+      "versions": [
+        "1.0"
+      ],
+      "query": "name=Adidas%20Manuel%20Neuer%20Gloves%20Original%202&one_hour=10&four_hours=40&one_day=100&one_week=1000&description=Praesent%20metus%20tellus,%20elementum%20eu,%20semper%20a,%20adipiscing%20nec,%20purus.%20In%20turpis.%20Aenean%20leo%20ligula,%20porttitor%20eu,%20consequat%20vitae,%20eleifend%20ac,%20enim.&size=8&location=London,%20United%20Kingdom&latitude=51.5287336&longitude=-0.382471&special_condition=Nullam%20quis%20ante.%20Nunc%20nonummy%20metus.&deposit=50&authentication_token=Q8BrV4VcpqV6b2JJteBQ&category_id=1",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "product": {
+          "id": 5,
+          "name": "Adidas Manuel Neuer Gloves Original 2",
+          "category_id": 1,
+          "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+          "location": "London, United Kingdom",
+          "special_condition": "Nullam quis ante. Nunc nonummy metus.",
+          "deposit": 50.0,
+          "user_id": 1,
+          "created_at": "2016-04-13T03:01:38.961Z",
+          "updated_at": "2016-04-13T03:01:38.961Z",
+          "size": "8",
+          "latitude": "51.5287336",
+          "longitude": "-0.382471",
+          "aasm_state": "available",
+          "one_hour": 10.0,
+          "four_hours": 40.0,
+          "one_day": 100.0,
+          "one_week": 1000.0
+        }
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "products#delete": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/products/delete",
+      "versions": [
+        "1.0"
+      ],
+      "query": "product_id=1&authentication_token=Q8BrV4VcpqV6b2JJteBQ",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "product": {
+          "id": 1,
+          "name": "Adidas Manuel Neuer Gloves Original",
+          "category_id": 1,
+          "price": 100.0,
+          "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+          "location": "London, United Kingdom",
+          "special_condition": "Nullam quis ante. Nunc nonummy metus.",
+          "deposit": 50.0,
+          "user_id": 1,
+          "created_at": "2016-04-01T04:04:30.715Z",
+          "updated_at": "2016-04-01T04:07:12.903Z",
+          "size": "8",
+          "latitude": "51.5287336",
+          "longitude": "-0.382471",
+          "aasm_state": "deleted"
+        }
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "products#detail": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/products/detail",
+      "versions": [
+
+      ],
+      "query": "authentication_token=D2WPqzykzpARmuzp55hV&product_id=1",
+      "request_data": null,
+      "response_data": {
+        "product": {
+          "id": 1,
+          "name": "Adidas Manuel Neuer Gloves Original 2",
+          "one_hour": 20.0,
+          "four_hours": 10.0,
+          "one_day": 100.0,
+          "one_week": 1000.0,
+          "deposit": 50.0,
+          "aasm_state": "not_available",
+          "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+          "location": "London, United Kingdom",
+          "latitude": "51.5287336",
+          "longitude": "-0.382471",
+          "created_at": "May 09, 2016",
+          "category": {
+            "id": 1,
+            "name": "Electronic"
+          },
+          "user": {
+            "id": 1,
+            "name": "Teguh Firman"
+          },
+          "attachments": [
+
+          ],
+          "is_owner": false,
+          "is_liked": false,
+          "is_favourited": true,
+          "likes_count": 0,
+          "countdown": null
+        },
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/api/v1/products/detail",
+      "versions": [
+
+      ],
+      "query": "authentication_token=D2WPqzykzpARmuzp55hV&product_id=2",
+      "request_data": null,
+      "response_data": {
+        "product": {
+          "id": 2,
+          "name": "Adidas Manuel Neuer Gloves Original 4",
+          "one_hour": 10.0,
+          "four_hours": 40.0,
+          "one_day": 100.0,
+          "one_week": 1000.0,
+          "deposit": 50.0,
+          "aasm_state": "not_available",
+          "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+          "location": "London, United Kingdom",
+          "latitude": "51.5287336",
+          "longitude": "-0.382471",
+          "created_at": "May 09, 2016",
+          "category": {
+            "id": 1,
+            "name": "Electronic"
+          },
+          "user": {
+            "id": 2,
+            "name": "Andreas Arnold"
+          },
+          "attachments": [
+
+          ],
+          "is_owner": false,
+          "is_liked": false,
+          "is_favourited": true,
+          "likes_count": 0,
+          "countdown": null
+        },
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/api/v1/products/detail",
+      "versions": [
+
+      ],
+      "query": "authentication_token=D2WPqzykzpARmuzp55hV&product_id=2",
+      "request_data": null,
+      "response_data": {
+        "product": {
+          "id": 2,
+          "name": "Adidas Manuel Neuer Gloves Original 4",
+          "one_hour": 10.0,
+          "four_hours": 40.0,
+          "one_day": 100.0,
+          "one_week": 1000.0,
+          "deposit": 50.0,
+          "aasm_state": "not_available",
+          "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+          "location": "London, United Kingdom",
+          "latitude": "51.5287336",
+          "longitude": "-0.382471",
+          "created_at": "May 09, 2016",
+          "category": {
+            "id": 1,
+            "name": "Electronic"
+          },
+          "user": {
+            "id": 2,
+            "name": "Andreas Arnold"
+          },
+          "attachments": [
+
+          ],
+          "is_owner": false,
+          "is_liked": false,
+          "is_favourited": true,
+          "likes_count": 0,
+          "countdown": 3556
+        },
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "products#enquiries": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/products/enquiries",
+      "versions": [
+        "1.0"
+      ],
+      "query": "product_id=1&authentication_token=Q8BrV4VcpqV6b2JJteBQ",
+      "request_data": null,
+      "response_data": {
+        "messages": [
+          {
+            "message": {
+              "id": 18,
+              "sender": {
+                "id": 3,
+                "full_name": "Hadi 41studio"
+              },
+              "product": {
+                "id": 1,
+                "name": "Adidas Manuel Neuer Gloves Original"
+              },
+              "last_message": "I have plan to rent it",
+              "created_at": "April 07, 2016"
+            }
+          },
+          {
+            "message": {
+              "id": 16,
+              "sender": {
+                "id": 2,
+                "full_name": "Nurhadi Maulana"
+              },
+              "product": {
+                "id": 3,
+                "name": "Adidas Manuel Neuer Gloves Original 1"
+              },
+              "last_message": "Yes, the item is available",
+              "created_at": "April 07, 2016"
+            }
+          },
+          {
+            "message": {
+              "id": 13,
+              "sender": {
+                "id": 2,
+                "full_name": "Nurhadi Maulana"
+              },
+              "product": {
+                "id": 1,
+                "name": "Adidas Manuel Neuer Gloves Original"
+              },
+              "last_message": "Test reply",
+              "created_at": "April 07, 2016"
+            }
+          }
+        ],
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "products#enquiries_by_product": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/products/enquiries_by_product",
+      "versions": [
+        "1.0"
+      ],
+      "query": "product_id=1&authentication_token=Q8BrV4VcpqV6b2JJteBQ",
+      "request_data": null,
+      "response_data": {
+        "messages": [
+          {
+            "message": {
+              "id": 18,
+              "sender": {
+                "id": 3,
+                "full_name": "Hadi 41studio"
+              },
+              "last_message": "I have plan to rent it",
+              "created_at": "April 07, 2016"
+            }
+          },
+          {
+            "message": {
+              "id": 13,
+              "sender": {
+                "id": 2,
+                "full_name": "Nurhadi Maulana"
+              },
+              "last_message": "Test reply",
+              "created_at": "April 07, 2016"
+            }
+          }
+        ],
+        "error": 0,
+        "errors": "",
+        "product_name": "Adidas Manuel Neuer Gloves Original"
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "products#lender_conversation": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/products/enquiries/lender_conversation",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=Q8BrV4VcpqV6b2JJteBQ&product_id=1&message_id=18",
+      "request_data": null,
+      "response_data": {
+        "messages": [
+          {
+            "message": {
+              "id": 20,
+              "body": "I have plan to rent it",
+              "sender": {
+                "id": 3,
+                "full_name": "Hadi 41studio"
+              },
+              "receiver": {
+                "id": 1,
+                "full_name": "John Doe"
+              },
+              "created_at": "April 07, 2016",
+              "is_message_owner": false
+            }
+          },
+          {
+            "message": {
+              "id": 19,
+              "body": "Yes, the item is available",
+              "sender": {
+                "id": 1,
+                "full_name": "John Doe"
+              },
+              "receiver": {
+                "id": 3,
+                "full_name": "Hadi 41studio"
+              },
+              "created_at": "April 07, 2016",
+              "is_message_owner": true
+            }
+          },
+          {
+            "message": {
+              "id": 18,
+              "body": "Hello there, is the item available to rent ?",
+              "sender": {
+                "id": 3,
+                "full_name": "Hadi 41studio"
+              },
+              "receiver": {
+                "id": 1,
+                "full_name": "John Doe"
+              },
+              "created_at": "April 07, 2016",
+              "is_message_owner": false
+            }
+          }
+        ],
+        "error": 0,
+        "errors": "",
+        "product_name": "Adidas Manuel Neuer Gloves Original"
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "products#like": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/products/like",
+      "versions": [
+        "1.0"
+      ],
+      "query": "product_id=1&authentication_token=pcxvNkcLgS_GnSQ5CHRW",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "response": {
+          "response": "success",
+          "body": {
+            "multicast_id": 7491349123660777395,
+            "success": 0,
+            "failure": 1,
+            "canonical_ids": 0,
+            "results": [
+              {
+                "error": "InvalidRegistration"
+              }
+            ]
+          },
+          "headers": {
+            "content-type": [
+              "application/json; charset=UTF-8"
+            ],
+            "date": [
+              "Wed, 04 May 2016 02:52:12 GMT"
+            ],
+            "expires": [
+              "Wed, 04 May 2016 02:52:12 GMT"
+            ],
+            "cache-control": [
+              "private, max-age=0"
+            ],
+            "x-content-type-options": [
+              "nosniff"
+            ],
+            "x-frame-options": [
+              "SAMEORIGIN"
+            ],
+            "x-xss-protection": [
+              "1; mode=block"
+            ],
+            "server": [
+              "GSE"
+            ],
+            "alternate-protocol": [
+              "443:quic"
+            ],
+            "alt-svc": [
+              "quic=\":443\"; ma=2592000; v=\"33,32,31,30,29,28,27,26,25\""
+            ],
+            "accept-ranges": [
+              "none"
+            ],
+            "vary": [
+              "Accept-Encoding"
+            ],
+            "connection": [
+              "close"
+            ]
+          },
+          "status_code": 200
+        }
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "products#post_enquiry": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/products/post_enquiry",
+      "versions": [
+        "1.0"
+      ],
+      "query": "product_id=1&authentication_token=ABAtscAtzSnNxQASTiwy&message=Where%20do%20you%20stay%20?",
+      "request_data": "",
+      "response_data": {
+        "message": {
+          "id": 5,
+          "body": "Where do you stay ?",
+          "sender": {
+            "id": 3,
+            "full_name": "hadi saja"
+          },
+          "receiver": {
+            "id": 1,
+            "full_name": "Teguh Firman"
+          },
+          "created_at": "May 10, 2016"
+        },
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "products#renter_conversation": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/products/enquiries/renter_conversation",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=tPeTnib-R7su4vbbRGMy&product_id=1",
+      "request_data": null,
+      "response_data": {
+        "messages": [
+          {
+            "message": {
+              "id": 15,
+              "body": "Test reply",
+              "sender": {
+                "id": 1,
+                "full_name": "John Doe"
+              },
+              "receiver": {
+                "id": 2,
+                "full_name": "Nurhadi Maulana"
+              },
+              "created_at": "April 07, 2016",
+              "is_message_owner": false
+            }
+          },
+          {
+            "message": {
+              "id": 14,
+              "body": "Yes, the item is available",
+              "sender": {
+                "id": 1,
+                "full_name": "John Doe"
+              },
+              "receiver": {
+                "id": 2,
+                "full_name": "Nurhadi Maulana"
+              },
+              "created_at": "April 07, 2016",
+              "is_message_owner": false
+            }
+          },
+          {
+            "message": {
+              "id": 13,
+              "body": "Hello there, is the item available to rent ?",
+              "sender": {
+                "id": 2,
+                "full_name": "Nurhadi Maulana"
+              },
+              "receiver": {
+                "id": 1,
+                "full_name": "John Doe"
+              },
+              "created_at": "April 07, 2016",
+              "is_message_owner": true
+            }
+          }
+        ],
+        "error": 0,
+        "errors": "",
+        "product_name": "Adidas Manuel Neuer Gloves Original"
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "products#reply_enquiry": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/products/reply_enquiry",
+      "versions": [
+        "1.0"
+      ],
+      "query": "product_id=1&authentication_token=ABAtscAtzSnNxQASTiww&message=When%20we%20can%20meet%20?&message_id=5",
+      "request_data": "",
+      "response_data": {
+        "message": {
+          "id": 6,
+          "body": "When we can meet ?",
+          "sender": {
+            "id": 1,
+            "full_name": "Teguh Firman"
+          },
+          "receiver": {
+            "id": 3,
+            "full_name": "hadi saja"
+          },
+          "created_at": "May 10, 2016"
+        },
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "products#set_rent_status": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/products/set_rent_status",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=2R8imfN3Koyw1hUokwXV&product_id=1&status=need_refunded",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "is_not_rent": false,
+        "is_taken": false,
+        "is_rent": false,
+        "is_need_refunded": true
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "products#set_status": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/products/set_status",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=2R8imfN3Koyw1hUokwXV&product_id=1&status=returned",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "is_available": false,
+        "is_not_available": false,
+        "is_not_yet_returned": false,
+        "is_returned": true
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "products#unlike": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/products/unlike",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwy&product_id=2",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "response": null
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "products#update": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/products/update",
+      "versions": [
+        "1.0"
+      ],
+      "query": "id=1&authentication_token=ABAtscAtzSnNxQASTiww&name=Adidas%20Manuel%20Neuer%20Gloves%20Original%202&one_hour=10&four_hours=70&one_day=100&one_week=1000&description=Praesent%20metus%20tellus,%20elementum%20eu,%20semper%20a,%20adipiscing%20nec,%20purus.%20In%20turpis.%20Aenean%20leo%20ligula,%20porttitor%20eu,%20consequat%20vitae,%20eleifend%20ac,%20enim.&size=8&location=London,%20United%20Kingdom&latitude=51.5287336&longitude=-0.382471&special_condition=Nullam%20quis%20ante.%20Nunc%20nonummy%20metus.&deposit=50&category_id=1",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "product": {
+          "id": 1,
+          "name": "Adidas Manuel Neuer Gloves Original 2",
+          "category_id": 1,
+          "description": "Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In turpis. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+          "location": "London, United Kingdom",
+          "special_condition": "Nullam quis ante. Nunc nonummy metus.",
+          "deposit": 50.0,
+          "user_id": 1,
+          "created_at": "2016-05-09T07:20:05.962Z",
+          "updated_at": "2016-05-10T08:57:02.169Z",
+          "size": "8",
+          "latitude": "51.5287336",
+          "longitude": "-0.382471",
+          "aasm_state": "available",
+          "one_hour": 10.0,
+          "four_hours": 70.0,
+          "one_day": 100.0,
+          "one_week": 1000.0
+        }
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "products#upload_photo": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/products/upload_photo",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwx&product_id=2",
+      "request_data": "Content-Type: multipart/form-data; boundary=APIPIE_RECORDER_EXAMPLE_BOUNDARY\n\n--APIPIE_RECORDER_EXAMPLE_BOUNDARY\nContent-Disposition: form-data; name=\"name\"; filename=\"sony.jpg\"\nContent-Type: image/jpeg\n\n... contents of \"name\" ...\n--APIPIE_RECORDER_EXAMPLE_BOUNDARY--",
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "photo": {
+          "id": 17,
+          "name": {
+            "url": "/uploads/attachment/name/17/sony.jpg",
+            "thumb": {
+              "url": "/uploads/attachment/name/17/thumb_sony.jpg"
+            },
+            "small": {
+              "url": "/uploads/attachment/name/17/small_sony.jpg"
+            }
+          },
+          "attachable_id": 2,
+          "attachable_type": "Product",
+          "created_at": "2016-05-31T03:49:39.137Z",
+          "updated_at": "2016-05-31T03:49:39.137Z"
+        }
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/api/v1/products/upload_photo",
+      "versions": [
+
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwx&product_id=2",
+      "request_data": "Content-Type: multipart/form-data; boundary=APIPIE_RECORDER_EXAMPLE_BOUNDARY\n\n--APIPIE_RECORDER_EXAMPLE_BOUNDARY\nContent-Disposition: form-data; name=\"name\"; filename=\"sony.jpg\"\nContent-Type: image/jpeg\n\n... contents of \"name\" ...\n--APIPIE_RECORDER_EXAMPLE_BOUNDARY--",
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "photo": {
+          "id": 18,
+          "name": {
+            "url": "/uploads/attachment/name/18/sony.jpg",
+            "thumb": {
+              "url": "/uploads/attachment/name/18/thumb_sony.jpg"
+            },
+            "small": {
+              "url": "/uploads/attachment/name/18/small_sony.jpg"
+            }
+          },
+          "attachable_id": 2,
+          "attachable_type": "Product",
+          "created_at": "2016-05-31T03:51:13.533Z",
+          "updated_at": "2016-05-31T03:51:13.533Z"
+        }
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "reviews#delete": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/reviews/delete",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwx&review_id=2",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "reviews#detail": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/reviews/detail",
+      "versions": [
+
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwx&review_id=1",
+      "request_data": null,
+      "response_data": {
+        "review": {
+          "id": 1,
+          "quality": 0,
+          "price": 0,
+          "deposit": 0,
+          "service": 0,
+          "tool_safely": 3,
+          "return_on_time": 2,
+          "return_in_good_and_clean": 3,
+          "overall_rating": 3,
+          "comment": "I like this",
+          "target_id": 1,
+          "target_type": "renter",
+          "user_id": 2,
+          "product_id": 3
+        },
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "reviews#get_lender_all": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/reviews/lender/all",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwx&page=1",
+      "request_data": null,
+      "response_data": {
+        "reviews": [
+          {
+            "review": {
+              "id": 1,
+              "quality": 0,
+              "price": 0,
+              "deposit": 0,
+              "service": 0,
+              "return_in_good_and_clean": 3,
+              "overall_rating": 3,
+              "comment": "I like this",
+              "aasm_state": "read",
+              "sender": {
+                "id": 2,
+                "full_name": "Andreas Arnold"
+              },
+              "receiver": {
+                "id": 1,
+                "full_name": "Teguh Firman"
+              },
+              "product": {
+                "id": 1,
+                "name": "Adidas Manuel Neuer Gloves Original 2",
+                "attachment": null
+              },
+              "created_at": "June 15, 2016"
+            }
+          }
+        ],
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "reviews#get_renter_all": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/reviews/renter/all",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiww&page=1",
+      "request_data": null,
+      "response_data": {
+        "reviews": [
+          {
+            "review": {
+              "id": 2,
+              "quality": 3,
+              "price": 2,
+              "deposit": 3,
+              "service": 3,
+              "return_in_good_and_clean": 0,
+              "overall_rating": 4,
+              "comment": "Not bad",
+              "aasm_state": "unread",
+              "sender": {
+                "id": 1,
+                "full_name": "Teguh Firman"
+              },
+              "receiver": {
+                "id": 2,
+                "full_name": "Andreas Arnold"
+              },
+              "product": {
+                "id": 2,
+                "name": "Adidas Manuel Neuer Gloves Original 4",
+                "attachment": null
+              },
+              "created_at": "June 15, 2016"
+            }
+          }
+        ],
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "reviews#post_lender_review": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/reviews/lender/create",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiww&target_id=2&product_id=3&quality=3&price=2&deposit=3&service=3&overall_rating=4&comment=Not%20bad",
+      "request_data": "",
+      "response_data": {
+        "review": {
+          "id": 2,
+          "quality": 3,
+          "price": 2,
+          "deposit": 3,
+          "service": 3,
+          "return_in_good_and_clean": 0,
+          "overall_rating": 4,
+          "comment": "Not bad",
+          "sender": {
+            "id": 1,
+            "full_name": "Teguh Firman"
+          },
+          "receiver": {
+            "id": 2,
+            "full_name": "Andreas Arnold"
+          },
+          "product_id": 3,
+          "created_at": "June 15, 2016"
+        },
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "reviews#post_renter_review": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/reviews/renter/create",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwx&target_id=1&product_id=3&tool_safely=3&return_on_time=2&return_in_good_and_clean=3&overall_rating=3&comment=I%20like%20this",
+      "request_data": "",
+      "response_data": {
+        "review": {
+          "id": 1,
+          "tool_safely": 3,
+          "return_in_good_and_clean": 3,
+          "overall_rating": 3,
+          "comment": "I like this",
+          "sender": {
+            "id": 2,
+            "full_name": "Andreas Arnold"
+          },
+          "receiver": {
+            "id": 1,
+            "full_name": "Teguh Firman"
+          },
+          "product_id": 3,
+          "created_at": "June 15, 2016"
+        },
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "reviews#update_lender_review": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/reviews/lender/update",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwx&review_id=1&product_id=1&quality=3&price=2&deposit=2&service=1&overall_rating=3&comment=Not%20bad",
+      "request_data": "",
+      "response_data": {
+        "review": {
+          "id": 1,
+          "quality": 3,
+          "price": 2,
+          "deposit": 2,
+          "service": 1,
+          "return_in_good_and_clean": 0,
+          "overall_rating": 3,
+          "comment": "Not bad",
+          "sender": {
+            "id": 2,
+            "full_name": "Andreas Arnold"
+          },
+          "receiver": {
+            "id": 1,
+            "full_name": "Teguh Firman"
+          },
+          "product_id": 1,
+          "created_at": "June 14, 2016"
+        },
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "reviews#update_renter_review": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/reviews/renter/update",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwx&review_id=1&product_id=3&tool_safely=3&return_on_time=2&return_in_good_and_clean=2&overall_rating=3&comment=Yes,%20it%27s%20good",
+      "request_data": "",
+      "response_data": {
+        "review": {
+          "id": 1,
+          "quality": 3,
+          "price": 2,
+          "deposit": 2,
+          "service": 1,
+          "return_in_good_and_clean": 2,
+          "overall_rating": 3,
+          "comment": "Yes, it's good",
+          "sender": {
+            "id": 2,
+            "full_name": "Andreas Arnold"
+          },
+          "receiver": {
+            "id": 1,
+            "full_name": "Teguh Firman"
+          },
+          "product_id": 3,
+          "created_at": "June 14, 2016"
+        },
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "sessions#new": [
+    {
+      "verb": "GET",
+      "path": "/users/sign_in",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": null,
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "users#delete_photo": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/users/delete_photo",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwy",
+      "request_data": "Content-Type: multipart/form-data; boundary=APIPIE_RECORDER_EXAMPLE_BOUNDARY\n\n--APIPIE_RECORDER_EXAMPLE_BOUNDARY\nContent-Disposition: form-data; name=\"file_name\"; filename=\"nadia_normal.jpg\"\nContent-Type: image/jpeg\n\n... contents of \"file_name\" ...\n--APIPIE_RECORDER_EXAMPLE_BOUNDARY--",
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "product": {
+          "id": 11,
+          "name": {
+            "url": null
+          },
+          "attachable_id": 3,
+          "attachable_type": "User",
+          "created_at": "2016-05-24T03:07:56.451Z",
+          "updated_at": "2016-05-24T03:07:56.451Z"
+        }
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "users#forgot_password": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/users/forgot_password",
+      "versions": [
+        "1.0"
+      ],
+      "query": "email=john@doe.com",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "users#hide_address": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/users/hide_address",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=2R8imfN3Koyw1hUokwXV&hide=t",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "users#login": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/users/login",
+      "versions": [
+        "1.0"
+      ],
+      "query": "email=teguh@41studio.com&password=12345678&device_id=dmwTa06fKFc:APA91bFg5_bNMbfsMxN0Peh-ugDoMZku2veQ9SBDrSos-TujO-vs0Yh0_XEVsOpScYlXvu0sFdXzx3FU76tjWDTPtcH5bQZ7GJk3IQcLdPyLh_mZoivVhsLhbh_kFOWhHcMV1p8KYDnF&device_model=android",
+      "request_data": "",
+      "response_data": {
+        "user": {
+          "address": "London, United Kingdom",
+          "latitude": "51.5287336",
+          "longitude": "-0.382471",
+          "authentication_token": "FKfCi2A9JM4zAgpYyack",
+          "user_id": 1
+        },
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "users#logout": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/users/logout",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=2_e6VU2BpyQTByYAcFSy",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "users#profile": [
+    {
+      "verb": "GET",
+      "path": "/api/v1/users/profile",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwy",
+      "request_data": null,
+      "response_data": {
+        "user": {
+          "id": 3,
+          "email": "luay@41studio.com",
+          "first_name": "hadi",
+          "last_name": "saja",
+          "address": "London, United Kingdom",
+          "latitude": "51.5287336",
+          "longitude": "-0.382471",
+          "phone_number": "088121212",
+          "attachment": "/uploads/attachment/name/12/lgbt.jpg",
+          "authentication_token": "ABAtscAtzSnNxQASTiwy"
+        },
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "users#register": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/users/register",
+      "versions": [
+        "1.0"
+      ],
+      "query": "first_name=Jhon&last_name=Noo&email=andreas@41studio.com&password=12345678&address=London,%20United%20Kingdom&latitude=51.5287336&longitude=-0.382471&phone_number=1234&device_id=dmwTa06fKFc:APA91bFg5_bNMbfsMxN0Peh-ugDoMZku2veQ9SBDrSos-TujO-vs0Yh0_XEVsOpScYlXvu0sFdXzx3FU76tjWDTPtcH5bQZ7GJk3IQcLdPyLh_mZoivVhsLhbh_kFOWhHcMV1p8KYDnF&device_model=android",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "user": {
+          "id": 3,
+          "email": "andreas@41studio.com",
+          "created_at": "2016-06-21T08:54:50.149Z",
+          "updated_at": "2016-06-21T08:54:50.149Z",
+          "first_name": "Jhon",
+          "last_name": "Noo",
+          "address": "London, United Kingdom",
+          "latitude": "51.5287336",
+          "longitude": "-0.382471",
+          "authentication_token": "2R8imfN3Koyw1hUokwXV",
+          "phone_number": "1234"
+        }
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "users#resend_confirmation": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/users/resend_confirmation",
+      "versions": [
+        "1.0"
+      ],
+      "query": "email=teguh@41studio.com",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": ""
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "users#update": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/users/update",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwy&email=luay@41studio.com&phone_number=088121212&first_name=hadi&last_name=saja&password=12345678&address=London,%20United%20Kingdom&latitude=51.5287336&longitude=-0.382471",
+      "request_data": "",
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "user": {
+          "id": 3,
+          "email": "luay@41studio.com",
+          "created_at": "2016-05-09T07:19:51.048Z",
+          "updated_at": "2016-05-09T07:56:38.073Z",
+          "first_name": "hadi",
+          "last_name": "saja",
+          "address": "London, United Kingdom",
+          "latitude": "51.5287336",
+          "longitude": "-0.382471",
+          "authentication_token": "ABAtscAtzSnNxQASTiwy",
+          "phone_number": "088121212"
+        }
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "users#upload_photo": [
+    {
+      "verb": "POST",
+      "path": "/api/v1/users/upload_photo",
+      "versions": [
+        "1.0"
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwy",
+      "request_data": "Content-Type: multipart/form-data; boundary=APIPIE_RECORDER_EXAMPLE_BOUNDARY\n\n--APIPIE_RECORDER_EXAMPLE_BOUNDARY\nContent-Disposition: form-data; name=\"name\"; filename=\"calangap.jpg\"\nContent-Type: image/jpeg\n\n... contents of \"name\" ...\n--APIPIE_RECORDER_EXAMPLE_BOUNDARY--",
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "photo": {
+          "id": 12,
+          "name": {
+            "url": "/uploads/attachment/name/12/calangap.jpg",
+            "thumb": {
+              "url": "/uploads/attachment/name/12/thumb_calangap.jpg"
+            },
+            "small": {
+              "url": "/uploads/attachment/name/12/small_calangap.jpg"
+            }
+          },
+          "attachable_id": 3,
+          "attachable_type": "User",
+          "created_at": "2016-05-24T08:24:23.702Z",
+          "updated_at": "2016-05-31T03:47:57.905Z"
+        }
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/api/v1/users/upload_photo",
+      "versions": [
+
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwy",
+      "request_data": "Content-Type: multipart/form-data; boundary=APIPIE_RECORDER_EXAMPLE_BOUNDARY\n\n--APIPIE_RECORDER_EXAMPLE_BOUNDARY\nContent-Disposition: form-data; name=\"name\"; filename=\"calangap.jpg\"\nContent-Type: image/jpeg\n\n... contents of \"name\" ...\n--APIPIE_RECORDER_EXAMPLE_BOUNDARY--",
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "photo": {
+          "id": 12,
+          "name": {
+            "url": "/uploads/attachment/name/12/calangap.jpg",
+            "thumb": {
+              "url": "/uploads/attachment/name/12/thumb_calangap.jpg"
+            },
+            "small": {
+              "url": "/uploads/attachment/name/12/small_calangap.jpg"
+            }
+          },
+          "attachable_id": 3,
+          "attachable_type": "User",
+          "created_at": "2016-05-24T08:24:23.702Z",
+          "updated_at": "2016-05-31T04:00:46.546Z"
+        }
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/api/v1/users/upload_photo",
+      "versions": [
+
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwy",
+      "request_data": "Content-Type: multipart/form-data; boundary=APIPIE_RECORDER_EXAMPLE_BOUNDARY\n\n--APIPIE_RECORDER_EXAMPLE_BOUNDARY\nContent-Disposition: form-data; name=\"name\"; filename=\"sony.jpg\"\nContent-Type: image/jpeg\n\n... contents of \"name\" ...\n--APIPIE_RECORDER_EXAMPLE_BOUNDARY--",
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "photo": {
+          "id": 12,
+          "name": {
+            "url": "/uploads/attachment/name/12/sony.jpg",
+            "thumb": {
+              "url": "/uploads/attachment/name/12/thumb_sony.jpg"
+            },
+            "small": {
+              "url": "/uploads/attachment/name/12/small_sony.jpg"
+            }
+          },
+          "attachable_id": 3,
+          "attachable_type": "User",
+          "created_at": "2016-05-24T08:24:23.702Z",
+          "updated_at": "2016-05-31T04:01:02.340Z"
+        }
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/api/v1/users/upload_photo",
+      "versions": [
+
+      ],
+      "query": "authentication_token=ABAtscAtzSnNxQASTiwy",
+      "request_data": "Content-Type: multipart/form-data; boundary=APIPIE_RECORDER_EXAMPLE_BOUNDARY\n\n--APIPIE_RECORDER_EXAMPLE_BOUNDARY\nContent-Disposition: form-data; name=\"name\"; filename=\"download (1).jpg\"\nContent-Type: image/jpeg\n\n... contents of \"name\" ...\n--APIPIE_RECORDER_EXAMPLE_BOUNDARY--",
+      "response_data": {
+        "error": 0,
+        "errors": "",
+        "photo": {
+          "id": 12,
+          "name": {
+            "url": "/uploads/attachment/name/12/download__1_.jpg",
+            "thumb": {
+              "url": "/uploads/attachment/name/12/thumb_download__1_.jpg"
+            },
+            "small": {
+              "url": "/uploads/attachment/name/12/small_download__1_.jpg"
+            }
+          },
+          "attachable_id": 3,
+          "attachable_type": "User",
+          "created_at": "2016-05-24T08:24:23.702Z",
+          "updated_at": "2016-05-31T04:01:44.593Z"
+        }
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ]
+}

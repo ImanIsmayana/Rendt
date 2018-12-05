@@ -1,0 +1,30 @@
+.footer.col-md-12.inverse
+  - @bottom_menus.in_groups(3).each do |group|
+    - if group.compact.empty?
+      .col-md-2
+    - else
+      .col-md-2 style="border-right: 1px solid #8e8a8a;"
+        ul
+          - group.compact.each do |page|
+            li = link_to page.menu_title, "/#{page.slug}"
+
+  .col-md-3
+
+  .col-md-3
+    .social-logo-item.col-md-12
+      = link_to 'https://www.facebook.com'
+        .col-md-2
+          .row
+            = image_tag 'facebook.jpg', class: 'img-responsive', alt: 'facebook logo'
+        .col-md-10 
+          .row Our Facebook page
+    .social-logo-item.col-md-12
+      = link_to 'https://www.twitter.com'
+        .col-md-2
+          .row
+            = image_tag 'twitter.png', class: 'img-responsive', alt: 'twitter logo'
+        .col-md-10
+          .row Follow our Twitter
+
+.copyright-container.col-md-12.text-center
+  | &copy; 2016 #{ link_to (@setting.name || 'Rendt Server'), '/' }

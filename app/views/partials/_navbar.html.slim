@@ -1,0 +1,39 @@
+nav.navbar.navbar-default.navbar-static-top
+  .container  
+    .navbar-header
+      button.navbar-toggle.collapsed aria-expanded="false" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button" 
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+
+      = link_to "/", class: 'website-logo navbar-left'
+        = image_tag @setting.logo.url(:thumb), alt: "#{@setting.name || 'Rendt Server'} logo"
+
+      = link_to (@setting.name || 'Rendt Server'), '/', class: 'navbar-brand'
+
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-right
+        li class="#{'active' if controller_name.eql?('home') && action_name.eql?('index')}"
+          = link_to 'Home', '/'
+
+        - unless @top_menus.blank?
+          - if @top_menus.size > 7
+            - @top_menus.first(7).each do |page|
+              li class="#{ 'active' if page.slug.eql?(params[:id]) }"
+                = link_to page.menu_title, "/#{page.slug}"
+
+            li.dropdown
+              = link_to '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' }, role: 'button', aria: { haspopup: 'true', expanded: 'false' }
+                | More &nbsp;
+                span.caret
+       
+              ul.dropdown-menu
+                - @top_menus.last(@top_menus.size - 7).each do |page|
+                  li class="#{ 'active' if page.slug.eql?(params[:id]) }"
+                    = link_to page.menu_title, "/#{page.slug}"
+                  
+          - else
+            - @top_menus.each do |page|
+              li class="#{ 'active' if page.slug.eql?(params[:id]) }"
+                = link_to page.menu_title, "/#{page.slug}"

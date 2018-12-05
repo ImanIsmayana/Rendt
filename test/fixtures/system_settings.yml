@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  logo: MyString
+  email_sender: MyString
+  listing_per_page: 1
+  maintenance_mode: false
+  maintenance_message: MyText
+
+two:
+  name: MyString
+  logo: MyString
+  email_sender: MyString
+  listing_per_page: 1
+  maintenance_mode: false
+  maintenance_message: MyText

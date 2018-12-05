@@ -1,0 +1,107 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ 
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.navbar{
+  margin-bottom: 0;
+}
+
+.website-logo{
+  padding: 8px 10px 8px 0;
+
+  img{
+    width: 32px;
+  }
+}
+
+.banner{
+  min-height: 375px;
+  background: #F8BE00;
+  background-repeat: none;
+  background-size: 100% 100%;
+}
+
+.page-content{
+  color: #444444;
+  padding-bottom: 20px;
+  min-height: 500px;
+
+  p{
+    font-size: 16px;
+  }
+}
+
+.logo-small{
+  width: 128px; 
+  margin: 4em 0 1em 0;
+}
+
+.featured-content{
+  margin: 50px 0;
+
+  img{
+    width: 128px;
+  }
+}
+
+.footer{
+  background: #2a2730;
+  min-height: 150px;
+  line-height: 40px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  ul li{
+    list-style: none;
+  
+    a{
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
+
+.social-logo-item{
+  margin-bottom: 5px;
+  
+  a{
+    color: #ffffff;
+  }
+}
+
+.copyright-container{
+  padding: 15px 0;
+  height: 50px;
+}
+
+/* Code to center the layout
+.aligner{
+  position: absolute;
+  left:25%;
+}
+.redirect-align{
+  position: absolute;
+  text-align: center;
+  left:25%;
+  top:50%;
+}
+.redirect-align2{
+  position: absolute;
+  text-align: center;
+  left: 50%;
+  top:50%;
+}
+*/

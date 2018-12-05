@@ -1,0 +1,59 @@
+doctype html
+html
+  head
+    meta content="width=device-width, initial-scale=1.0" name="viewport" /
+    - if @page
+      title = @page.meta_title
+    - else
+      / title = @setting.name || 'Rendt Server'
+
+    / = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    link href="css/bootstrap.min.css" rel="stylesheet" /
+    /! General Style
+    link href="css/style.css" rel="stylesheet" /
+    /! Custom CSS
+    link href="css/custom.css" rel="stylesheet" /
+    /! Animations
+    link href="css/animate.css" rel="stylesheet" /
+    /! Owl Carousel
+    link href="css/owl.carousel.css" rel="stylesheet" /
+    link href="css/owl.theme.css" rel="stylesheet" /
+    link href="css/owl.transitions.css" rel="stylesheet" /
+    /! Vendor Styles
+    link href="vendor/push-menu/css/jasny-bootstrap.min.css" rel="stylesheet" type="text/css" /
+    link href="vendor/push-menu/css/push-menu.css" rel="stylesheet" type="text/css" /
+    link href="vendor/animated-text/css/style.css" rel="stylesheet" type="text/css" /
+    link href="vendor/lightbox/css/lightbox.css" rel="stylesheet" type="text/css" /
+    /! Device Styles
+    link href="css/devices/style.css" rel="stylesheet" type="text/css" /
+    /! Cover Styles (Skin)
+    link href="css/landing/landing.css" rel="stylesheet" type="text/css" /
+    /! Fonts
+    link href="http://fonts.googleapis.com/css?family=Raleway:400,300,200,100,500,600,700,800,900" rel="stylesheet" type="text/css" /
+    link href="css/fonts/font-awesome.css" rel="stylesheet" /
+
+    - if @page
+      meta[name="description" content="#{@page.meta_description}"]
+    - else
+      meta[name="description" content="Rendt Server App - a place for lenders and renters to meet"]
+
+    = csrf_meta_tags
+  body
+    / = render "partials/navbar"
+    = yield
+    / = render "partials/footer"
+
+    script src="js/bootstrap.min.js"
+    script src="js/main.js"
+    script src="js/owl.carousel.js"
+    script src="js/modernizr.js"
+    script src="js/wow.min.js"
+    script src="js/jquery.validation.js"
+    script src="js/contact.js"
+    /! Landing Scripts
+    script src="js/landing/owl-landing.js"
+    /! Vendor Scripts
+    script src="vendor/push-menu/js/jasny-bootstrap.min.js"
+    script src="vendor/animated-text/js/main.js"
+    script src="vendor/lightbox/js/lightbox.min.js"

@@ -1,0 +1,18 @@
+.col-md-12
+  - if @page.banner.file.try(:exists?)
+    .row.banner style="background: url('#{@page.banner.url(:large)}')"
+  - else
+    .row.banner
+
+.col-md-12
+  .container.page-content
+
+    h1 = @page.heading
+
+    br/
+
+    p = @page.short_intro
+
+    br/
+
+    = @page.content.html_safe

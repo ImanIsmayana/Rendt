@@ -1,0 +1,30 @@
+# == Schema Information
+#
+# Table name: checkout_items
+#
+#  id          :integer          not null, primary key
+#  product_id  :integer
+#  checkout_id :integer
+#  price       :decimal(, )
+#  rent_time   :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  deposit     :decimal(, )
+#  total_price :decimal(, )
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product_id: 1
+  checkout_id: 1
+  price: 9.99
+  rent_time: MyString
+  total_price: 9.99
+
+two:
+  product_id: 1
+  checkout_id: 1
+  price: 9.99
+  rent_time: MyString
+  total_price: 9.99

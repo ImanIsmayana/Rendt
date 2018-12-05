@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  requested_amount: 9.99
+  status: MyString
+  user_id: 
+
+two:
+  requested_amount: 9.99
+  status: MyString
+  user_id: 

@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  app_description: MyString
+  google_play_url: MyString
+  features_one_title: MyString
+  features_one_description: MyString
+  features_two_title: MyString
+  features_two_description: MyString
+  features_three_title: MyString
+  features_three_description: MyString
+  features_four_title: MyString
+  features_four_description: MyString
+  application_information_title: MyString
+  application_information_description: MyString
+
+two:
+  title: MyString
+  app_description: MyString
+  google_play_url: MyString
+  features_one_title: MyString
+  features_one_description: MyString
+  features_two_title: MyString
+  features_two_description: MyString
+  features_three_title: MyString
+  features_three_description: MyString
+  features_four_title: MyString
+  features_four_description: MyString
+  application_information_title: MyString
+  application_information_description: MyString

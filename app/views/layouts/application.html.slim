@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    - if @page
+      title = @page.meta_title
+    - else
+      title = @setting.name || 'Rendt Server'
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+
+    - if @page
+      meta[name="description" content="#{@page.meta_description}"]
+    - else
+      meta[name="description" content="Rendt Server App - a place for lenders and renters to meet"]
+
+    = csrf_meta_tags
+  body
+    = render "partials/navbar"
+    = yield
+    = render "partials/footer"

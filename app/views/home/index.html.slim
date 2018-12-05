@@ -1,0 +1,173 @@
+nav#infinityNav.navmenu.menu-side.navmenu-default.navmenu-fixed-left.offcanvas role="navigation"
+  ul.list-unstyled.push-menu-items.pm-title.text-center
+    li.push-menu-title
+      span INFINITY
+  ul.list-unstyled.push-menu-items.push-menu-social.text-center
+    li.push-menu-social-item
+      a.cbutton.cbutton--effect-ivana href="#"
+        i.cbutton__icon.fa.fa-twitter
+    li.push-menu-social-item
+      a.cbutton.cbutton--effect-ivana href="#"
+        i.cbutton__icon.fa.fa-facebook
+    li.push-menu-social-item
+      a.cbutton.cbutton--effect-ivana href="#"
+        i.cbutton__icon.fa.fa-google-plus
+    li.push-menu-social-item
+      a.cbutton.cbutton--effect-ivana href="#"
+        i.cbutton__icon.fa.fa-linkedin
+  #push-menu-nav
+    ul.list-unstyled.push-menu-items.text-center
+      li.push-menu-item
+        a.smooth href="#landing"  home
+      li.push-menu-item
+        a.smooth href="#features"  features
+      li.push-menu-item
+        a.smooth href="#information"  information
+  .menu-store-btn-container
+    ul.available-on-menu.list-unstyled
+      li
+        span.landing-availability Available for
+      li
+        i.fa.fa-tablet
+      li
+        i.fa.fa-mobile-phone
+    / a.btn.btn-store-menu href="#"
+    /   img.img-responsive alt=("app store") src="img/stores/btn-app-store.png"
+    a.btn.btn-store-menu href="#"
+      img.img-responsive alt=("google store") src="img/stores/btn-google-play.png"
+    / a.btn.btn-store-menu href="#"
+    /   img.img-responsive alt=("windows store") src="img/stores/btn-windows-store.png"
+.push-menu-container
+  .navbar.navbar-default.navbar-fixed-top.push-wrapper
+    .push-menu-button data-canvas="body" data-target="#infinityNav" data-toggle="offcanvas"
+      button.navbar-toggle type="button"
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      span.menu-text Menu
+/! Landing section
+section#landing
+  .container
+    /! Main Content Inner
+    .row.margin-lg.no-margin-bottom
+      .col-lg-4.col-md-4.col-sm-6.visible-lg.visible-md.visible-sm
+        /! Device Container
+        img.img-responsive alt="" src="img/landing/landing-app-top.png"
+        /! /Device Container
+      /! Main landing content
+      .landing-content.col-lg-8.col-md-8.col-sm-6.col-xs-12
+        .landing-heading
+          span.txt-xlg = @home.title
+          / span.txt-xlg.txt-strong INFINITY
+        .landing-text
+          p.txt-md = @home.app_description
+        .app-availability.no-padding
+          ul.landing-available-on.list-unstyled.block
+            li
+              span.landing-availability.txt-sm Available for
+            li
+              i.fa.fa-tablet
+            li
+              i.fa.fa-mobile-phone
+          / a.btn.btn-store.store-btn-repsonsive.no-padding href="#"
+          /   .apple-btn
+          / a.btn.btn-store.store-btn-repsonsive.no-padding href="#"
+          = link_to(@home.google_play_url, class: "btn btn-store store-btn-repsonsive no-padding") do
+            .google-btn
+          / a.btn.btn-store.store-btn-repsonsive.no-padding href="#"
+          /   .windows-btn
+      /! /Main landing content
+    /! /Main Content Inner
+/! /Landing section
+/! Features section
+section#features
+  .container
+    /! Features Content Inner
+    .row.margin-lg.text-center
+      .col-lg-12.text-center.margin-lg.no-margin-top
+        span.section-light.section-title features
+      .col-lg-4.col-md-4.col-sm-4.col-xs-6.margin-lg
+        .app-overview-box.aob-left
+          h3 = @home.features_one_title
+          p = @home.features_one_description
+        .app-overview-box.aob-left
+          h3 = @home.features_three_title
+          p = @home.features_three_description
+      .col-lg-4.col-md-4.col-sm-4.visible-lg.visible-md.visible-sm
+        .overview-device-wrapper
+          img.img-responsive alt="" src="img/landing/landing-app-overview.png"
+      .col-lg-4.col-md-4.col-sm-4.col-xs-6.margin-lg
+        .app-overview-box.aob-right
+          h3 = @home.features_two_title
+          p = @home.features_two_description
+        .app-overview-box.aob-right
+          h3 = @home.features_four_title
+          p = @home.features_four_description
+    /! /Features Content Inner
+/! /Features section
+/! Features Extra 2 section
+section#information.grey
+  .container
+    /! Features Extra 2 Content Inner
+    .row.margin-lg.text-center
+      .col-lg-12.text-center.sub-title-margin
+        span.sub-title-top = @home.application_information_title
+      .col-lg-8.col-md-8.col-sm-8.col-xs-12.margin-lg
+        .feature-extra-box.text-left
+          / h2.overview-title All about your application
+          span.overview-text
+            = @home.application_information_description
+          / ul.list-unstyled.feature-extra-list
+          /   li
+          /     i.fa.fa-cog
+          /     | Simple usablility
+          /   li
+          /     i.fa.fa-star
+          /     | Premium support
+          /   li
+          /     i.fa.fa-user
+          /     | User focused
+          /   li
+          /     i.fa.fa-heart
+          /     | Trust secured
+          /   li
+          /     i.fa.fa-check
+          /     | Lightweight
+          /   li
+          /     i.fa.fa-globe
+          /     | Multi-lingual
+          /   li
+          /     i.fa.fa-thumbs-up
+          /     | Infinity approved
+          / a.btn.btn-primary.btn-i-sm.uppercase.txt-sm href="#"
+          /   | Check Features
+          /   i.fa.fa-arrow-right
+      .col-lg-4.col-md-4.col-sm-4.visible-lg.visible-md.visible-sm
+        .overview-device-wrapper
+          img.img-responsive alt="" src="img/landing/landing-app-right-overview.png"
+    /! /Features Extra 2 Content Inner
+/! /Features Extra 2 section
+/! Footer start
+footer#footer
+  .container
+    /! footer Content Inner
+    .row.margin-sm
+      .col-lg-12.text-center
+        ul.list-unstyled.footer-items.footer-social.no-margin
+          li.footer-social-item
+            a.cbutton.cbutton--effect-ivana href="#"
+              i.cbutton__icon.fa.fa-twitter
+          li.footer-social-item
+            a.cbutton.cbutton--effect-ivana href="#"
+              i.cbutton__icon.fa.fa-facebook
+          li.footer-social-item
+            a.cbutton.cbutton--effect-ivana href="#"
+              i.cbutton__icon.fa.fa-google-plus
+          li.footer-social-item
+            a.cbutton.cbutton--effect-ivana href="#"
+              i.cbutton__icon.fa.fa-linkedin
+        span
+          | Copyright © 2015
+          a href="http://themes.audaindesigns.com"  Audain Designs
+    /! /footer Content Inner
+/! Footer end

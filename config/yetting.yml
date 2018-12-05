@@ -1,0 +1,12 @@
+defaults: &defaults
+  aws_access_key_id: AKIAJELSS4HW7LC76SXA
+  aws_secret_access_key: 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
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

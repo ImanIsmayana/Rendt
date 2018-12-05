@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  renter_id: 1
+  lender_id: 1
+  rent_time: MyString
+  aasm_state: MyString
+  product_id: 
+
+two:
+  renter_id: 1
+  lender_id: 1
+  rent_time: MyString
+  aasm_state: MyString
+  product_id: 

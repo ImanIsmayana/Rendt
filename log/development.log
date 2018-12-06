@@ -2579,3 +2579,503 @@ Processing by HomeController#index as HTML
   [1m[35mHome Load (1.0ms)[0m  SELECT  "homes".* FROM "homes"  ORDER BY "homes"."id" ASC LIMIT 1
   Rendered home/index.html.slim within layouts/landing (0.6ms)
 Completed 200 OK in 178ms (Views: 170.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin/products" for ::1 at 2018-12-06 10:05:57 +0700
+Processing by Admin::ProductsController#index as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "products" LIMIT 30 OFFSET 0) subquery_for_count
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (271.7ms)
+Completed 200 OK in 288ms (Views: 275.2ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/admin/products/new" for ::1 at 2018-12-06 10:06:00 +0700
+Processing by Admin::ProductsController#new as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.8ms)[0m  SELECT "categories".* FROM "categories"  ORDER BY name asc
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/new.html.arb (290.9ms)
+Completed 200 OK in 318ms (Views: 286.2ms | ActiveRecord: 9.9ms)
+
+
+Started GET "/admin/users" for ::1 at 2018-12-06 10:06:20 +0700
+Processing by Admin::UsersController#index as HTML
+  [1m[35mAdminUser Load (0.6ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."is_blocked" = $1[0m  [["is_blocked", "false"]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."is_blocked" = $1  [["is_blocked", "true"]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "users" WHERE "users"."is_blocked" = $1 LIMIT 30 OFFSET 0) subquery_for_count  [["is_blocked", "false"]]
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (171.2ms)
+Completed 200 OK in 180ms (Views: 173.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/admin/users?scope=blocked_account" for ::1 at 2018-12-06 10:06:22 +0700
+Processing by Admin::UsersController#index as HTML
+  Parameters: {"scope"=>"blocked_account"}
+  [1m[36mAdminUser Load (0.4ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."is_blocked" = $1  [["is_blocked", "false"]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."is_blocked" = $1[0m  [["is_blocked", "true"]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "users" WHERE "users"."is_blocked" = $1 LIMIT 30 OFFSET 0) subquery_for_count[0m  [["is_blocked", "true"]]
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (162.7ms)
+Completed 200 OK in 174ms (Views: 165.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/admin/users?scope=all" for ::1 at 2018-12-06 10:06:24 +0700
+Processing by Admin::UsersController#index as HTML
+  Parameters: {"scope"=>"all"}
+  [1m[35mAdminUser Load (0.5ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."is_blocked" = $1[0m  [["is_blocked", "false"]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."is_blocked" = $1  [["is_blocked", "true"]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "users" LIMIT 30 OFFSET 0) subquery_for_count
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (189.3ms)
+Completed 200 OK in 198ms (Views: 191.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/admin/users?scope=blocked_account" for ::1 at 2018-12-06 10:06:26 +0700
+Processing by Admin::UsersController#index as HTML
+  Parameters: {"scope"=>"blocked_account"}
+  [1m[36mAdminUser Load (0.4ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."is_blocked" = $1  [["is_blocked", "false"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."is_blocked" = $1[0m  [["is_blocked", "true"]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "users" WHERE "users"."is_blocked" = $1 LIMIT 30 OFFSET 0) subquery_for_count[0m  [["is_blocked", "true"]]
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (186.2ms)
+Completed 200 OK in 194ms (Views: 188.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/admin/users?scope=active_account" for ::1 at 2018-12-06 10:06:27 +0700
+Processing by Admin::UsersController#index as HTML
+  Parameters: {"scope"=>"active_account"}
+  [1m[35mAdminUser Load (0.3ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."is_blocked" = $1[0m  [["is_blocked", "false"]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."is_blocked" = $1  [["is_blocked", "true"]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "users" WHERE "users"."is_blocked" = $1 LIMIT 30 OFFSET 0) subquery_for_count  [["is_blocked", "false"]]
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (168.9ms)
+Completed 200 OK in 179ms (Views: 171.2ms | ActiveRecord: 1.8ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+
+
+Started GET "/admin/dashboard" for ::1 at 2018-12-06 10:06:43 +0700
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.3ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/page/index.html.arb (146.2ms)
+Completed 200 OK in 152ms (Views: 147.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/admin_users" for ::1 at 2018-12-06 10:06:45 +0700
+Processing by Admin::AdminUsersController#index as HTML
+  [1m[35mAdminUser Load (0.3ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "admin_users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mAdminUser Load (0.4ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users"  ORDER BY "admin_users"."id" desc LIMIT 30 OFFSET 0[0m
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (179.2ms)
+Completed 200 OK in 187ms (Views: 181.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/admin/categories" for ::1 at 2018-12-06 10:06:46 +0700
+Processing by Admin::CategoriesController#index as HTML
+  [1m[35mAdminUser Load (0.4ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "categories" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "categories" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "categories" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" asc LIMIT 30 OFFSET 0[0m
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (180.4ms)
+Completed 200 OK in 191ms (Views: 182.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/admin/checkouts" for ::1 at 2018-12-06 10:06:50 +0700
+Processing by Admin::CheckoutsController#index as HTML
+  [1m[35mAdminUser Load (0.5ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM "checkouts" WHERE (transaction_id IS NOT NULL AND pay_status = 'paid' AND checkout_type = 'product')[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "checkouts" WHERE (pay_status = 'free' AND checkout_type = 'junkyard')
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "checkouts" WHERE (transaction_id IS NOT NULL AND pay_status = 'paid' AND checkout_type = 'product') LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (174.8ms)
+Completed 200 OK in 189ms (Views: 177.2ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/admin/transfer_requests" for ::1 at 2018-12-06 10:07:10 +0700
+Processing by Admin::TransferRequestsController#index as HTML
+  [1m[36mAdminUser Load (0.3ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "transfer_requests" WHERE "transfer_requests"."aasm_state" = $1  [["aasm_state", "pending"]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "transfer_requests" WHERE "transfer_requests"."aasm_state" = $1[0m  [["aasm_state", "approved"]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "transfer_requests"
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "transfer_requests" WHERE "transfer_requests"."aasm_state" = $1 LIMIT 30 OFFSET 0) subquery_for_count[0m  [["aasm_state", "pending"]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (170.8ms)
+Completed 200 OK in 181ms (Views: 172.4ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/" for ::1 at 2018-12-06 10:07:56 +0700
+Processing by HomeController#index as HTML
+  [1m[36mHome Load (0.5ms)[0m  [1mSELECT  "homes".* FROM "homes"  ORDER BY "homes"."id" ASC LIMIT 1[0m
+  Rendered home/index.html.slim within layouts/landing (0.3ms)
+Completed 200 OK in 148ms (Views: 142.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin" for ::1 at 2018-12-06 10:08:35 +0700
+Processing by Admin::DashboardController#index as HTML
+  [1m[35mAdminUser Load (0.3ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/page/index.html.arb (146.2ms)
+Completed 200 OK in 154ms (Views: 148.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/checkouts" for ::1 at 2018-12-06 10:08:38 +0700
+Processing by Admin::CheckoutsController#index as HTML
+  [1m[36mAdminUser Load (0.3ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "checkouts" WHERE (transaction_id IS NOT NULL AND pay_status = 'paid' AND checkout_type = 'product')
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "checkouts" WHERE (pay_status = 'free' AND checkout_type = 'junkyard')[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "checkouts" WHERE (transaction_id IS NOT NULL AND pay_status = 'paid' AND checkout_type = 'product') LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (168.1ms)
+Completed 200 OK in 177ms (Views: 169.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/admin/homes" for ::1 at 2018-12-06 10:08:40 +0700
+Processing by Admin::HomesController#index as HTML
+  [1m[35mAdminUser Load (0.2ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "homes" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "homes" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "homes"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "homes" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mHome Load (0.5ms)[0m  [1mSELECT  "homes".* FROM "homes"  ORDER BY "homes"."id" desc LIMIT 30 OFFSET 0[0m
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (211.2ms)
+Completed 200 OK in 219ms (Views: 212.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/admin/products" for ::1 at 2018-12-06 10:08:42 +0700
+Processing by Admin::ProductsController#index as HTML
+  [1m[35mAdminUser Load (0.4ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (1.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "products" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (188.8ms)
+Completed 200 OK in 197ms (Views: 190.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/admin/transfer_requests" for ::1 at 2018-12-06 10:08:43 +0700
+Processing by Admin::TransferRequestsController#index as HTML
+  [1m[35mAdminUser Load (0.3ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "transfer_requests" WHERE "transfer_requests"."aasm_state" = $1[0m  [["aasm_state", "pending"]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "transfer_requests" WHERE "transfer_requests"."aasm_state" = $1  [["aasm_state", "approved"]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "transfer_requests"[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "transfer_requests" WHERE "transfer_requests"."aasm_state" = $1 LIMIT 30 OFFSET 0) subquery_for_count  [["aasm_state", "pending"]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (161.0ms)
+Completed 200 OK in 169ms (Views: 161.7ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/admin/checkouts" for ::1 at 2018-12-06 10:08:46 +0700
+Processing by Admin::CheckoutsController#index as HTML
+  [1m[35mAdminUser Load (0.3ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM "checkouts" WHERE (transaction_id IS NOT NULL AND pay_status = 'paid' AND checkout_type = 'product')[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "checkouts" WHERE (pay_status = 'free' AND checkout_type = 'junkyard')
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "checkouts" WHERE (transaction_id IS NOT NULL AND pay_status = 'paid' AND checkout_type = 'product') LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users"
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (179.0ms)
+Completed 200 OK in 190ms (Views: 180.2ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/admin/homes" for ::1 at 2018-12-06 10:08:46 +0700
+Processing by Admin::HomesController#index as HTML
+  [1m[36mAdminUser Load (0.4ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "homes" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "homes" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "homes"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "homes" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mHome Load (0.4ms)[0m  SELECT  "homes".* FROM "homes"  ORDER BY "homes"."id" desc LIMIT 30 OFFSET 0
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (212.6ms)
+Completed 200 OK in 221ms (Views: 213.8ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/admin/checkouts" for ::1 at 2018-12-06 10:08:48 +0700
+Processing by Admin::CheckoutsController#index as HTML
+  [1m[36mAdminUser Load (0.4ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "checkouts" WHERE (transaction_id IS NOT NULL AND pay_status = 'paid' AND checkout_type = 'product')
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "checkouts" WHERE (pay_status = 'free' AND checkout_type = 'junkyard')[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "checkouts" WHERE (transaction_id IS NOT NULL AND pay_status = 'paid' AND checkout_type = 'product') LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (179.7ms)
+Completed 200 OK in 189ms (Views: 180.6ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/admin/admin_users" for ::1 at 2018-12-06 10:08:49 +0700
+Processing by Admin::AdminUsersController#index as HTML
+  [1m[35mAdminUser Load (0.3ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "admin_users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mAdminUser Load (0.5ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users"  ORDER BY "admin_users"."id" desc LIMIT 30 OFFSET 0[0m
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (177.0ms)
+Completed 200 OK in 186ms (Views: 178.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/admin/homes" for ::1 at 2018-12-06 10:08:52 +0700
+Processing by Admin::HomesController#index as HTML
+  [1m[35mAdminUser Load (0.3ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "homes" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "homes" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "homes"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "homes" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mHome Load (0.4ms)[0m  [1mSELECT  "homes".* FROM "homes"  ORDER BY "homes"."id" desc LIMIT 30 OFFSET 0[0m
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (210.4ms)
+Completed 200 OK in 218ms (Views: 211.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/admin/products" for ::1 at 2018-12-06 10:09:00 +0700
+Processing by Admin::ProductsController#index as HTML
+  [1m[35mAdminUser Load (0.3ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "products" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (192.7ms)
+Completed 200 OK in 204ms (Views: 196.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/admin/transfer_requests" for ::1 at 2018-12-06 10:09:05 +0700
+Processing by Admin::TransferRequestsController#index as HTML
+  [1m[35mAdminUser Load (0.2ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "transfer_requests" WHERE "transfer_requests"."aasm_state" = $1[0m  [["aasm_state", "pending"]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "transfer_requests" WHERE "transfer_requests"."aasm_state" = $1  [["aasm_state", "approved"]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "transfer_requests"[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "transfer_requests" WHERE "transfer_requests"."aasm_state" = $1 LIMIT 30 OFFSET 0) subquery_for_count  [["aasm_state", "pending"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (161.6ms)
+Completed 200 OK in 169ms (Views: 163.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/admin/users" for ::1 at 2018-12-06 10:09:06 +0700
+Processing by Admin::UsersController#index as HTML
+  [1m[35mAdminUser Load (0.3ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."is_blocked" = $1[0m  [["is_blocked", "false"]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."is_blocked" = $1  [["is_blocked", "true"]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "users" WHERE "users"."is_blocked" = $1 LIMIT 30 OFFSET 0) subquery_for_count  [["is_blocked", "false"]]
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (176.6ms)
+Completed 200 OK in 185ms (Views: 178.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/admin/pages" for ::1 at 2018-12-06 10:09:09 +0700
+Processing by Admin::PagesController#index as HTML
+  [1m[36mAdminUser Load (0.3ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.8ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "pages" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "pages" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "pages"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "pages" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mPage Load (0.6ms)[0m  SELECT  "pages".* FROM "pages"  ORDER BY "pages"."id" desc LIMIT 30 OFFSET 0
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (211.8ms)
+Completed 200 OK in 220ms (Views: 213.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/admin/pages" for ::1 at 2018-12-06 10:12:57 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Admin::PagesController#index as HTML
+  [1m[35mAdminUser Load (0.7ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (1.3ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "pages" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "pages" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "pages"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "pages" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mPage Load (0.8ms)[0m  [1mSELECT  "pages".* FROM "pages"  ORDER BY "pages"."id" desc LIMIT 30 OFFSET 0[0m
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (795.5ms)
+Completed 200 OK in 873ms (Views: 806.8ms | ActiveRecord: 11.9ms)
+
+
+Started GET "/admin/pages" for ::1 at 2018-12-06 10:13:00 +0700
+Processing by Admin::PagesController#index as HTML
+  [1m[35mAdminUser Load (0.5ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "pages" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "pages" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "pages"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "pages" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mPage Load (0.5ms)[0m  [1mSELECT  "pages".* FROM "pages"  ORDER BY "pages"."id" desc LIMIT 30 OFFSET 0[0m
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (299.0ms)
+Completed 200 OK in 313ms (Views: 301.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for ::1 at 2018-12-06 10:13:03 +0700
+Processing by HomeController#index as HTML
+  [1m[35mHome Load (0.7ms)[0m  SELECT  "homes".* FROM "homes"  ORDER BY "homes"."id" ASC LIMIT 1
+  Rendered home/index.html.slim within layouts/landing (35.0ms)
+Completed 200 OK in 209ms (Views: 187.0ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/admin/dashboard" for ::1 at 2018-12-06 10:15:35 +0700
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/page/index.html.arb (144.2ms)
+Completed 200 OK in 150ms (Views: 145.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/admin_users" for ::1 at 2018-12-06 10:15:36 +0700
+Processing by Admin::AdminUsersController#index as HTML
+  [1m[35mAdminUser Load (0.4ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "admin_users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mAdminUser Load (0.5ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users"  ORDER BY "admin_users"."id" desc LIMIT 30 OFFSET 0[0m
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (186.6ms)
+Completed 200 OK in 195ms (Views: 188.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/admin/categories" for ::1 at 2018-12-06 10:18:11 +0700
+Processing by Admin::CategoriesController#index as HTML
+  [1m[35mAdminUser Load (0.5ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "categories" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "categories" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "categories" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" asc LIMIT 30 OFFSET 0[0m
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (190.0ms)
+Completed 200 OK in 200ms (Views: 191.2ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/admin/checkouts" for ::1 at 2018-12-06 10:18:24 +0700
+Processing by Admin::CheckoutsController#index as HTML
+  [1m[35mAdminUser Load (0.4ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (1.2ms)[0m  [1mSELECT COUNT(*) FROM "checkouts" WHERE (transaction_id IS NOT NULL AND pay_status = 'paid' AND checkout_type = 'product')[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "checkouts" WHERE (pay_status = 'free' AND checkout_type = 'junkyard')
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "checkouts" WHERE (transaction_id IS NOT NULL AND pay_status = 'paid' AND checkout_type = 'product') LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users"
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (188.0ms)
+Completed 200 OK in 198ms (Views: 186.0ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/admin/homes" for ::1 at 2018-12-06 10:18:32 +0700
+Processing by Admin::HomesController#index as HTML
+  [1m[36mAdminUser Load (0.3ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "homes" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "homes" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "homes"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "homes" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mHome Load (0.4ms)[0m  SELECT  "homes".* FROM "homes"  ORDER BY "homes"."id" desc LIMIT 30 OFFSET 0
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (211.3ms)
+Completed 200 OK in 220ms (Views: 213.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/admin/products" for ::1 at 2018-12-06 10:19:42 +0700
+Processing by Admin::ProductsController#index as HTML
+  [1m[36mAdminUser Load (0.4ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (1.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "products" LIMIT 30 OFFSET 0) subquery_for_count
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (180.4ms)
+Completed 200 OK in 191ms (Views: 182.4ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/admin/transfer_requests" for ::1 at 2018-12-06 10:19:48 +0700
+Processing by Admin::TransferRequestsController#index as HTML
+  [1m[36mAdminUser Load (0.3ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.9ms)[0m  SELECT COUNT(*) FROM "transfer_requests" WHERE "transfer_requests"."aasm_state" = $1  [["aasm_state", "pending"]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "transfer_requests" WHERE "transfer_requests"."aasm_state" = $1[0m  [["aasm_state", "approved"]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "transfer_requests"
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "transfer_requests" WHERE "transfer_requests"."aasm_state" = $1 LIMIT 30 OFFSET 0) subquery_for_count[0m  [["aasm_state", "pending"]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (189.1ms)
+Completed 200 OK in 200ms (Views: 190.0ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/admin/users" for ::1 at 2018-12-06 10:19:54 +0700
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdminUser Load (0.3ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "users" WHERE "users"."is_blocked" = $1  [["is_blocked", "false"]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."is_blocked" = $1[0m  [["is_blocked", "true"]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "users" WHERE "users"."is_blocked" = $1 LIMIT 30 OFFSET 0) subquery_for_count[0m  [["is_blocked", "false"]]
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (184.8ms)
+Completed 200 OK in 195ms (Views: 186.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/admin/google_ads_locations" for ::1 at 2018-12-06 10:19:57 +0700
+Processing by Admin::GoogleAdsLocationsController#index as HTML
+  [1m[35mAdminUser Load (0.2ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (1.1ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "google_ads_locations" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (169.6ms)
+Completed 200 OK in 181ms (Views: 171.9ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/admin/pages" for ::1 at 2018-12-06 10:19:59 +0700
+Processing by Admin::PagesController#index as HTML
+  [1m[35mAdminUser Load (0.3ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "pages" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "pages" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "pages"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "pages" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mPage Load (0.5ms)[0m  [1mSELECT  "pages".* FROM "pages"  ORDER BY "pages"."id" desc LIMIT 30 OFFSET 0[0m
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (215.0ms)
+Completed 200 OK in 224ms (Views: 216.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/admin/google_ads_locations" for ::1 at 2018-12-06 10:20:15 +0700
+Processing by Admin::GoogleAdsLocationsController#index as HTML
+  [1m[35mAdminUser Load (0.4ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "google_ads_locations" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (177.3ms)
+Completed 200 OK in 186ms (Views: 179.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin/pages" for ::1 at 2018-12-06 10:20:22 +0700
+Processing by Admin::PagesController#index as HTML
+  [1m[35mAdminUser Load (0.3ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "pages" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "pages" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "pages"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "pages" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mPage Load (0.6ms)[0m  [1mSELECT  "pages".* FROM "pages"  ORDER BY "pages"."id" desc LIMIT 30 OFFSET 0[0m
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (212.6ms)
+Completed 200 OK in 221ms (Views: 213.8ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/admin/system_settings" for ::1 at 2018-12-06 10:20:29 +0700
+Processing by Admin::SystemSettingsController#index as HTML
+  [1m[35mAdminUser Load (0.3ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "system_settings" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "system_settings" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "system_settings"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "system_settings" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mSystemSetting Load (0.5ms)[0m  [1mSELECT  "system_settings".* FROM "system_settings"  ORDER BY "system_settings"."id" desc LIMIT 30 OFFSET 0[0m
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (186.0ms)
+Completed 200 OK in 196ms (Views: 187.6ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/admin/system_settings/1" for ::1 at 2018-12-06 10:20:42 +0700
+Processing by Admin::SystemSettingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mAdminUser Load (0.2ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mSystemSetting Load (0.3ms)[0m  [1mSELECT  "system_settings".* FROM "system_settings" WHERE "system_settings"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/show.html.arb (158.8ms)
+Completed 200 OK in 174ms (Views: 162.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin/admin_users" for ::1 at 2018-12-06 10:20:54 +0700
+Processing by Admin::AdminUsersController#index as HTML
+  [1m[35mAdminUser Load (0.3ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "admin_users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mAdminUser Load (0.5ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users"  ORDER BY "admin_users"."id" desc LIMIT 30 OFFSET 0[0m
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (179.5ms)
+Completed 200 OK in 188ms (Views: 180.6ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/admin/categories" for ::1 at 2018-12-06 10:20:56 +0700
+Processing by Admin::CategoriesController#index as HTML
+  [1m[35mAdminUser Load (0.3ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "categories" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "categories" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "categories" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" asc LIMIT 30 OFFSET 0[0m
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/index.html.arb (185.2ms)
+Completed 200 OK in 194ms (Views: 186.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/admin/categories/1" for ::1 at 2018-12-06 10:20:58 +0700
+Processing by Admin::CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mAdminUser Load (0.3ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1  ORDER BY name asc LIMIT 1[0m  [["id", 1]]
+  Rendered /home/studio/.rvm/gems/ruby-2.4.4/bundler/gems/activeadmin-f94be3b2b404/app/views/active_admin/resource/show.html.arb (178.6ms)
+Completed 200 OK in 188ms (Views: 181.6ms | ActiveRecord: 0.7ms)

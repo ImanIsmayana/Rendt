@@ -4,11 +4,6 @@ ActiveAdmin.register GoogleAdsLocation do
   permit_params :name, :width, :location, :number, :status, :sort_order
 
   filter :name, as: :string
-  filter :width
-  filter :location
-  filter :number
-  filter :status
-  filter :sort_order
 
   form do |f|
     f.inputs "Google Ads Location" do

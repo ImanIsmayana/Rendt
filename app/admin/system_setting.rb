@@ -51,7 +51,7 @@ ActiveAdmin.register SystemSetting do
       end
 
       row :website_logo do |system_setting|
-        image_tag system_setting.logo.url(:small)
+        image_tag system_setting.logo.url(:thumb)
       end
 
       row :email_sender

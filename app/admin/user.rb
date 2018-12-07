@@ -7,7 +7,7 @@ ActiveAdmin.register User do
   #
   # setting up strong parameters
   #
-  permit_params :email, :first_name, :last_name, :address, :latitude, :longitude, 
+  permit_params :email, :first_name, :last_name, :address, :latitude, :longitude,
     :phone_number, attachment_attributes: [:id, :name]
 
   #
@@ -51,9 +51,9 @@ ActiveAdmin.register User do
 
     column :image do |user|
       if user.attachment
-        image_tag user.attachment.name.thumb.url, class: 'current-user-image', alt: user.full_name 
+        image_tag user.attachment.name.thumb.url, class: 'current-user-image', alt: user.full_name
       else
-        image_tag '/images/fallback/noimg96x96.jpg', class: 'current-user-image', alt: user.full_name 
+        image_tag '/images/fallback/noimg96x96.jpg', class: 'current-user-image', alt: user.full_name
       end
     end
 
@@ -64,7 +64,7 @@ ActiveAdmin.register User do
     column :address
     column :phone_number
     column :created_at
-    
+
     actions default: true, name: 'Actions' do |user|
       if user.is_blocked
         link_to 'Unblock', unblock_admin_users_path(user), method: :post

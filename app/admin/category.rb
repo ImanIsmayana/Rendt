@@ -13,7 +13,6 @@ ActiveAdmin.register Category do
   # setting filter action
   #
   filter :name
-  filter :created_at
 
   #
   # setting data sort
@@ -30,13 +29,12 @@ ActiveAdmin.register Category do
       if category.image
         image_tag category.image.thumb.url, alt: category.name
       else
-       image_tag category.image.url, alt: category.full_name 
+       image_tag category.image.url, alt: category.full_name
       end
     end
 
     column :name
     column :created_at
-    column :updated_at
     actions
   end
 
@@ -63,7 +61,7 @@ ActiveAdmin.register Category do
     f.inputs "Category" do
       f.input :name
 
-      f.input :image, as: :file, :hint => image_tag(f.object.image.thumb.url) 
+      f.input :image, as: :file, :hint => image_tag(f.object.image.thumb.url)
     end
     f.actions
   end

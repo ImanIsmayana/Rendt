@@ -6,10 +6,6 @@ ActiveAdmin.register Page do
     attachment_attributes: [:id, :name, :name_cache, :_destroy]
 
   filter :heading
-  filter :menu_title
-  filter :menu_position
-  filter :menu_sort_order
-  filter :active
 
   controller do
     before_action :set_page, except: [:index, :new, :create]
@@ -29,12 +25,7 @@ ActiveAdmin.register Page do
     selectable_column
     column :id
     column :heading
-    column :meta_title
-    column :menu_title
-    column :menu_position
-    column :menu_sort_order
     column :created_at
-    column :updated_at
     actions
   end
 

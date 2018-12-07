@@ -82,7 +82,7 @@ ActiveAdmin.register TransferRequest do
 
         activity = PublicActivity::Activity.new
 
-        body_message = "Your request with amount #{number_to_currency(transfer_request.requested_amount)} 
+        body_message = "Your request with amount #{number_to_currency(transfer_request.requested_amount)}
           on #{transfer_request.created_at.strftime("%B %d, %Y %H:%M:%S")} already approved by Admin"
 
         #

@@ -2,7 +2,7 @@ ActiveAdmin.register Product do
   #
   # setting up strong parameters
   #
-  permit_params :name, :one_hour, :four_hours, :one_day, :one_week, :description, 
+  permit_params :name, :one_hour, :four_hours, :one_day, :one_week, :description,
     :special_condition, :deposit, :size, :user_id, :category_id, :location, :latitude, :longitude,
     :aasm_state, attachments_attributes: [:id, :name]
 
@@ -15,11 +15,6 @@ ActiveAdmin.register Product do
   # setting filter action
   #
   filter :name
-  filter :one_hour
-  filter :four_hours
-  filter :one_day
-  filter :one_week
-  filter :created_at
 
   #
   # setting data sort
@@ -113,7 +108,7 @@ ActiveAdmin.register Product do
             image_tag attachment.name.thumb.url, alt: product.name if attachment
           end.join("<br />").html_safe
         else
-          image_tag '/images/fallback/noimg96x96.jpg', alt: product.name 
+          image_tag '/images/fallback/noimg96x96.jpg', alt: product.name
         end
       end
     end
@@ -142,7 +137,7 @@ ActiveAdmin.register Product do
         "available", "not_available", "not_yet_returned", "returned", "deleted"
       ]
     end
-    
+
     f.has_many :attachments do |attachment|
       attachment.input :name,  as: :file, label: "Image"
     end

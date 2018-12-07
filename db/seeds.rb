@@ -5,6 +5,8 @@ AdminUser.destroy_all
 # ActiveRecord::Base.connection.reset_pk_sequence!('admin_users')
 
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+AdminUser.create!(email: 'joe@example.com', password: 'admin123', password_confirmation: 'admin123')
+
 
 #
 # seeds for categories
@@ -52,3 +54,5 @@ Page.create(heading: 'Sample Content', url: 'about-us', meta_title: 'Sample Cont
       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>',
     menu_title: "Sample Content #{n}", menu_position: 'top', menu_sort_order: 1, active: true);
  end
+
+User.create!(email: 'mino@example.com', password: 'mino123456', password_confirmation: 'mino123456', first_name: "mino", last_name: "taur", address: "new york", latitude: "40.712776", longitude: "-74.005974", phone_number: "02179187686")

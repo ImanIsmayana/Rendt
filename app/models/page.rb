@@ -1,10 +1,10 @@
 class Page < ActiveRecord::Base
   mount_uploader :banner, BannerUploader
-  
+
   extend FriendlyId
   friendly_id :meta_title, use: :slugged
 
-  scope :menus, -> (position) { 
+  scope :menus, -> (position) {
     select('id, slug, menu_title').where(active: true).order('menu_sort_order, menu_title ASC')
       .where('menu_position = ? OR menu_position = ?', position, 'both')
   }

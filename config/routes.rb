@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   get 'pages/show'
 
   namespace :api do
-  namespace :v1 do
-    get 'lenders_controller/all'
+    namespace :v1 do
+      get 'lenders_controller/all'
     end
   end
 

@@ -1,5 +1,5 @@
 Apipie.configure do |config|
-  config.app_name                = "Rend"
+  config.app_name                = "Rendt"
   config.api_base_url            = "/api"
   config.doc_base_url            = "/apidoc"
   # where is your API defined?

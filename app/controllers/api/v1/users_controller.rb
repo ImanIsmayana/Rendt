@@ -4,7 +4,7 @@ class Api::V1::UsersController < Api::V1::ApiController
   end
 
   skip_before_action :verify_authenticity_token
-  before_action :check_user_authentication, only: [:profile, :hide_address, :logout, :update, :update_password, 
+  before_action :check_user_authentication, only: [:profile, :hide_address, :logout, :update, :update_password,
     :upload_photo, :delete_photo]
 
   respond_to :json
@@ -26,7 +26,7 @@ class Api::V1::UsersController < Api::V1::ApiController
   def register
     user = User.new(user_params.except!(:device_id, :device_model))
     user.build_mobile_platform(device_id: user_params[:device_id], device_model: user_params[:device_model])
-    
+
     if user.save
       @user = user
     else
@@ -250,7 +250,7 @@ class Api::V1::UsersController < Api::V1::ApiController
   private
     def set_user_by_email
       @user = User.find_by_email(params[:email])
-      
+
       if @user.blank?
         @object = "Email"
         render "api/v1/errors/404", status: 404
@@ -258,7 +258,7 @@ class Api::V1::UsersController < Api::V1::ApiController
     end
 
     def user_params
-      params.permit(:authentication_token, :email, :current_password, :password, :password_confirmation, :first_name, :last_name, 
+      params.permit(:authentication_token, :email, :current_password, :password, :password_confirmation, :first_name, :last_name,
         :address, :longitude, :latitude, :phone_number, :name, :device_id, :device_model, :description)
     end
 

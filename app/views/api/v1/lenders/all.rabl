@@ -10,6 +10,6 @@ child @lenders, root: 'lenders', object_root: false do
       { :is_favourited => false }
     end
   end
-  
+
   node(:full_name) { |user| user.full_name }
 end

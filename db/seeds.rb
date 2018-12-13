@@ -56,3 +56,13 @@ Page.create(heading: 'Sample Content', url: 'about-us', meta_title: 'Sample Cont
  end
 
 User.create!(email: 'mino@example.com', password: 'mino123456', password_confirmation: 'mino123456', first_name: "mino", last_name: "taur", address: "new york", latitude: "40.712776", longitude: "-74.005974", phone_number: "02179187686")
+User.create!(email: 'jhon@example.com', password: 'jhon123456', password_confirmation: 'jhon123456', first_name: "jhon", last_name: "son", address: "new york", latitude: "40.712776", longitude: "-74.005974", phone_number: "02179187686")
+
+Home.create!(title: 'Example', app_description: 'Lorem ipsum dolor sit amet',
+  google_play_url: "https://play.google.com/store/apps/details?id=com.whatsapp.w4b&hl=en",
+  features_one_title: 'foto', features_one_description: 'to take foto',
+  features_two_title: 'video', features_two_description: 'to play video',
+  features_three_title: 'film', features_three_description: 'to show film',
+  features_four_title: 'document', features_four_description: 'to read doc',
+  application_information_title: 'example',
+  application_information_description: 'lorem ipsum dolor sit amet');

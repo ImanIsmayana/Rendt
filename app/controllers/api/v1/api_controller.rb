@@ -32,7 +32,7 @@ class Api::V1::ApiController < ApplicationController
       setting = SystemSetting.cached
 
       if setting.try(:maintenance_mode?)
-        render json: { status: 503, errorType: 'maintenance', statusText: setting.maintenance_message }, status: 503
+        render json: { errorType: 'maintenance', statusText: setting.maintenance_message }, status: 503
       end
     end
 

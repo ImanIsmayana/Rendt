@@ -4,7 +4,7 @@ class Api::V1::JunkyardProductsController < Api::V1::ApiController
   end
 
   skip_before_action :verify_authenticity_token
- 
+
   before_action :check_user_authentication
   before_action :set_junkyard_product, only: [:detail, :update, :delete, :like, :unlike, :upload_photo]
   before_action :set_category, only: [:by_category, :by_favourite, :by_price]
@@ -19,6 +19,7 @@ class Api::V1::JunkyardProductsController < Api::V1::ApiController
 
   def all
     @junk_yard_products = JunkyardProduct.get_list_active_junkyard_products.page(params[:page]).per(10)
+    render json: {status: 200}
   end
 
   api :GET, "/v1/junkyard_products/by_category", "Get list of all junkyard products filter by category"
@@ -30,6 +31,7 @@ class Api::V1::JunkyardProductsController < Api::V1::ApiController
 
   def by_category
     @junkyard_products = @category.junkyard_products.active.page(params[:page]).per(10)
+    render json: {status: 200}
   end
 
   api :GET, "/v1/junkyard_products/by_user", "Get list of all junkyard products filter by user"
@@ -44,6 +46,7 @@ class Api::V1::JunkyardProductsController < Api::V1::ApiController
 
     if @user
       @junkyard_products = @user.junkyard_products.get_list_active_junkyard_products.page(params[:page]).per(10)
+      render json: {status: 200}
     else
       @object = "User"
       render "api/v1/errors/404", status: 404
@@ -70,6 +73,7 @@ class Api::V1::JunkyardProductsController < Api::V1::ApiController
 
   def detail
     @junkyard_product = @junkyard
+    render json: {status: 200}
   end
 
   api :POST, "/v1/junkyard_products/like", "User has ability to like item or junkyard product"
@@ -96,7 +100,8 @@ class Api::V1::JunkyardProductsController < Api::V1::ApiController
           owner: @user,
           recipient: @junkyard.user,
           notification_type: 'like',
-          title_message: title_message
+          title_message: title_message,
+          status: 201
         )
       end
     else
@@ -114,6 +119,7 @@ class Api::V1::JunkyardProductsController < Api::V1::ApiController
   def unlike
     if @user.mobile_platform
       @user.unlike @junkyard
+      render json: {status: 200}
     else
       @object = "Device ID from Mobile Platform"
       render "api/v1/errors/404", status: 404
@@ -124,7 +130,7 @@ class Api::V1::JunkyardProductsController < Api::V1::ApiController
   formats ['json']
   param :authentication_token, String, desc: "Authentication token of User", required: true
   param :junkyard_product_id, String, desc: "Junkyard product ID of photo to be uploaded", required: true
-  description "Upload photo for item or junkyard product. Each junkyard product has ability to have 8 photos. 
+  description "Upload photo for item or junkyard product. Each junkyard product has ability to have 8 photos.
     [Important : Add parameter called 'name' for file upload]"
 
   # OPTIMIZE it will be great if we can add limit validation on attachment model for product
@@ -137,10 +143,12 @@ class Api::V1::JunkyardProductsController < Api::V1::ApiController
       unless @photo.save
         @error = 1
         @errors = photo.errors
+        render json: {status: 200}
       end
     else
       @error = 1
       @errors = { photo: ["Junkyard product already has maximum number of photos! (8 photos)"] }
+      render json: {status: 422}
     end
   end
 
@@ -162,9 +170,11 @@ class Api::V1::JunkyardProductsController < Api::V1::ApiController
 
     if junkyard_product.save
       @junkyard_product = junkyard_product
+      render json: {status: 201}
     else
       @error = 1
       @errors = junkyard_product.errors
+      render json: {status: 422}
     end
   end
 
@@ -184,9 +194,11 @@ class Api::V1::JunkyardProductsController < Api::V1::ApiController
   def update
     if @junkyard.update(junkyard_product_params)
       @junkyard_product =  @junkyard
+      render json: {status: 200}
     else
       @error = 1
       @errors = @junkyard.errors
+      render json: {status: 422}
     end
   end
 
@@ -201,6 +213,7 @@ class Api::V1::JunkyardProductsController < Api::V1::ApiController
       @junkyard.delete
       @junkyard.save
       @junkyard_product = @junkyard
+      render json: {status: 200}
     else
       @object = 'Junkyard Product'
       render "api/v1/errors/403", status: 403
@@ -231,7 +244,7 @@ class Api::V1::JunkyardProductsController < Api::V1::ApiController
     end
 
     def junkyard_product_params
-      junk_product_params = params.except!(:authentication_token).permit(:id, :name, :description, :location, :latitude, :longitude, 
+      junk_product_params = params.except!(:authentication_token).permit(:id, :name, :description, :location, :latitude, :longitude,
         :size, :special_condition, :category_id, :user_id, { name: []})
       junk_product_params.merge(user_id: @user.id)
     end

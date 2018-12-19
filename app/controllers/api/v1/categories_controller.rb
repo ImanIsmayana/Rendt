@@ -17,6 +17,7 @@ class Api::V1::CategoriesController < Api::V1::ApiController
     @categories = Category.includes(:attachments, :products, :junkyard_products).select(:id, :name, :image)
     @product_count = @categories.count('products.*')
     @junkyard_count = @categories.count('junkyard_products.*')
+    render json: {status: 200}
   end
 
   api :POST, "/v1/categories/create", "Create a new category product"
@@ -34,9 +35,11 @@ class Api::V1::CategoriesController < Api::V1::ApiController
     if category.save
       attachment = category.attachments.create(name: params[:image]) if params[:image]
       @category = category
+      render json: {status: 201}
     else
       @error = 1
       @errors = category.errors
+      render json: {status: 422}
     end
   end
 end

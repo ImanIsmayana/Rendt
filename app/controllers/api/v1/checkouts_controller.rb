@@ -8,7 +8,7 @@ class Api::V1::CheckoutsController < Api::V1::ApiController
   before_action :check_user_authentication
   before_action :set_product, only: :create
   before_action :set_payment_information, only: :update_payment_information
-  before_action :get_checkout, only: [:items, :update_rent_duration, :update_payment_information, 
+  before_action :get_checkout, only: [:items, :update_rent_duration, :update_payment_information,
     :confirmation, :review]
 
   respond_to :json
@@ -23,12 +23,15 @@ class Api::V1::CheckoutsController < Api::V1::ApiController
   # OPTIMIZE is API cannot send product_ids in array format? we could use nested attributes when creating checkout and its items
   def create
     product = create_product(@products, params[:product_ids]) if @products.present?
+    render json: {status: 201}
     junkyard_product = create_junkyard(@junkyard_products, params[:junkyard_product_ids]) if @junkyard_products.present?
+    render json: {status: 201}
 
     checkout_product = Checkout.includes(:checkout_items).find(product) if @products.present?
     checkout_junkyard = Checkout.includes(:checkout_items).find(junkyard_product) if @junkyard_products.present?
 
     @checkout = Checkout.get_checkout_junkyard_or_product(checkout_product, checkout_junkyard)
+    render json: {status: 200}
   end
 
   api :GET, "/v1/checkouts/items", "Get list of all transaction history of current user"
@@ -39,6 +42,7 @@ class Api::V1::CheckoutsController < Api::V1::ApiController
 
   def items
     @checkout_items = @checkout.checkout_items
+    render json: {status: 200}
   end
 
   api :POST, "/v1/checkouts/update_rent_duration", "Update checkout rent item duration"
@@ -62,6 +66,7 @@ class Api::V1::CheckoutsController < Api::V1::ApiController
     #
     # update total paid on checkout record
     @checkout.update(total_paid: total_price)
+    render json: {status: 200}
   end
 
   api :POST, "/v1/checkouts/update_payment_information", "Update checkout payment information"
@@ -73,6 +78,7 @@ class Api::V1::CheckoutsController < Api::V1::ApiController
 
   def update_payment_information
     @checkout.update(payment_id: params[:payment_id])
+    render json: {status: 200}
   end
 
   api :GET, "/v1/checkouts/update_status_item", "Update status item in rent histories"
@@ -102,11 +108,14 @@ class Api::V1::CheckoutsController < Api::V1::ApiController
         another_parameters: {
           product_id: product.id,
           product_name: product.name
-        }
+        },
+        status: 200
       )
+
     else
       @error = 1
       @errors = checkout_item.errors
+      render json: {status: 422}
     end
   end
 
@@ -125,15 +134,17 @@ class Api::V1::CheckoutsController < Api::V1::ApiController
       request = @checkout.request_single_payments
 
       if request[:success]
-        @payments_response = { 
+        @payments_response = {
           url: request[:url],
-          pay_key: request[:pay_key]
+          pay_key: request[:pay_key],
+          status: 200
         }
-        
+
         @checkout.update_attributes(pay_key: request[:pay_key], payment_type: 'paypal') #, aasm_state: :approved)
       else
         @error = request[:error]
         @errors = request[:errors]
+        render json: {status: 422}
       end
     end
 
@@ -154,19 +165,20 @@ class Api::V1::CheckoutsController < Api::V1::ApiController
   def review
     checkout, checkout_junkyard = [@checkout, @checkout_junkyard]
     @checkout_result = Checkout.get_review_checkout_junkyard_or_product(checkout, checkout_junkyard)
+    render json: {status: 200}
   end
 
   private
     def set_product
       if params[:product_ids].present?
-        @products = Product.where("id IN (?) AND aasm_state = ?", params[:product_ids].split(","), :available)
+        @products = Product.where("id IN (?) AND aasm_state = ?", params[:product_ids].split(","), :available, status: 200)
       end
 
       if params[:junkyard_product_ids].present?
-        @junkyard_products = 
-          JunkyardProduct.where("id IN (?) AND aasm_state = ?", params[:junkyard_product_ids].split(","), :available)
+        @junkyard_products =
+          JunkyardProduct.where("id IN (?) AND aasm_state = ?", params[:junkyard_product_ids].split(","), :available, status: 200)
       end
-      
+
       unless @products || @junkyard_products
         if @products.empty? || @junkyard_products.empty?
           @object = 'Product or Junkyard'
@@ -206,7 +218,7 @@ class Api::V1::CheckoutsController < Api::V1::ApiController
       if params[:checkout_type] && (params[:checkout_type].eql?('both') || params[:checkout_type].eql?('junkyard'))
         @checkout_junkyard = Checkout.includes(:checkout_items)
           .find_by(id: params[:checkout_junkyard_id], checkout_type: :junkyard)
-        
+
         is_exists?(@checkout_junkyard, 'checkout junkyard')
       end
     end
@@ -226,7 +238,7 @@ class Api::V1::CheckoutsController < Api::V1::ApiController
 
       products.each do |product|
         checkout.checkout_items.create(
-          product_id: product.id, 
+          product_id: product.id,
           deposit: product.deposit,
           item_type: :product
         ) if product.available?
@@ -255,7 +267,8 @@ class Api::V1::CheckoutsController < Api::V1::ApiController
         rent_history = RentHistory.create(
           renter_id: renter_id,
           product_id: product_id,
-          rent_type: :junkyard
+          rent_type: :junkyard,
+          status: 201
         )
 
         rent_history.junkyard_product.update(aasm_state: :not_available) if rent_history

@@ -30,7 +30,7 @@
 
 class User < ActiveRecord::Base
   include PublicActivity::Model
-  
+
   #
   # simple token authentication configuration
   #
@@ -71,8 +71,8 @@ class User < ActiveRecord::Base
   #
   # validations
   #
-  validates :first_name, :last_name, :address, :latitude, :longitude, :phone_number, presence: true
-  validates :first_name, :last_name, length: {minimum: 3, maximum: 30}
+  # validates :first_name, :last_name, :address, :latitude, :longitude, :phone_number, presence: true
+  # validates :first_name, :last_name, length: {minimum: 3, maximum: 30}
 
   #
   # nested attributes form

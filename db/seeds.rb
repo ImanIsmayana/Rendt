@@ -55,9 +55,11 @@ Page.create(heading: 'Sample Content', url: 'about-us', meta_title: 'Sample Cont
     menu_title: "Sample Content #{n}", menu_position: 'top', menu_sort_order: 1, active: true);
  end
 
+User.destroy_all
 User.create!(email: 'mino@example.com', password: 'mino123456', password_confirmation: 'mino123456', first_name: "mino", last_name: "taur", address: "new york", latitude: "40.712776", longitude: "-74.005974", phone_number: "02179187686")
 User.create!(email: 'jhon@example.com', password: 'jhon123456', password_confirmation: 'jhon123456', first_name: "jhon", last_name: "son", address: "new york", latitude: "40.712776", longitude: "-74.005974", phone_number: "02179187686")
 
+Home.destroy_all
 Home.create!(title: 'Example', app_description: 'Lorem ipsum dolor sit amet',
   google_play_url: "https://play.google.com/store/apps/details?id=com.whatsapp.w4b&hl=en",
   features_one_title: 'foto', features_one_description: 'to take foto',
@@ -66,3 +68,23 @@ Home.create!(title: 'Example', app_description: 'Lorem ipsum dolor sit amet',
   features_four_title: 'document', features_four_description: 'to read doc',
   application_information_title: 'example',
   application_information_description: 'lorem ipsum dolor sit amet');
+
+Product.destroy_all
+Product.create!(id: 1,
+  name: "vacum cleaner",
+  category_id: 1,
+  description: "beatiful cleaner",
+  location: "new york",
+  special_condition: "nothing",
+  deposit: 0.1e2,
+  user_id: 1,
+  size: "1 x 3 meter",
+  latitude: "40.712776",
+  longitude: "-74.005974",
+  aasm_state: "available",
+  one_hour: 0.1e1,
+  four_hours: 0.2e1,
+  one_day: 0.3e1,
+  one_week: 0.5e1,
+  favourites_count: 0,
+  rent_status: "not_rent");

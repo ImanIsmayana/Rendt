@@ -21,6 +21,7 @@ class Api::V1::ProductsController < Api::V1::ApiController
   # OPTIMIZE let's includes(:attachments, :category) to avoid N+1 query (done)
   def all
     @products = Product.get_list_active_products.page(params[:page]).per(10)
+    render json: {status: 200}
   end
 
   api :GET, "/v1/products/by_category", "Get list of all products filter by category"
@@ -32,6 +33,7 @@ class Api::V1::ProductsController < Api::V1::ApiController
 
   def by_category
     @products = @category.products.active.page(params[:page]).per(10)
+    render json: {status: 200}
   end
 
   api :GET, "/v1/products/by_user", "Get list of all products filter by user"
@@ -46,6 +48,7 @@ class Api::V1::ProductsController < Api::V1::ApiController
 
     if @user
       @products = @user.products.get_list_active_products.page(params[:page]).per(10)
+      render json: {status: 200}
     else
       @object = "User"
       render "api/v1/errors/404", status: 404
@@ -62,6 +65,7 @@ class Api::V1::ProductsController < Api::V1::ApiController
   def by_favourite
     @products = @category.products.includes(:attachments).active
       .order(favourites_count: :desc).page(params[:page]).per(10)
+    render json: {status: 200}
   end
 
   api :GET, "/v1/products/by_price", "Get list of all products filter by price"
@@ -76,6 +80,7 @@ class Api::V1::ProductsController < Api::V1::ApiController
 
   def by_price
     @products = Product.get_by_price(params[:category_id], params[:rent_time])
+    render json: {status: 200}
   end
 
   api :GET, "/v1/products/detail", "Get detail of the product"
@@ -86,6 +91,7 @@ class Api::V1::ProductsController < Api::V1::ApiController
 
   def detail
     @product = Product.find_by(id: params[:product_id])
+    render json: {status: 200}
 
     if @product.blank?
       @object = "Product"
@@ -117,9 +123,11 @@ class Api::V1::ProductsController < Api::V1::ApiController
 
     if product.save
       @product = product
+      render json: {status: 201}
     else
       @error = 1
       @errors = product.errors
+      render json: {status: 422}
     end
   end
 
@@ -145,9 +153,11 @@ class Api::V1::ProductsController < Api::V1::ApiController
   def update
     if @current_product.update(product_params)
       @product = @current_product
+      render json: {status: 200}
     else
       @error = 1
       @errors = product.errors
+      render json: {status: 304}
     end
   end
 
@@ -163,6 +173,7 @@ class Api::V1::ProductsController < Api::V1::ApiController
 
     if @current_product.save
       @product = @current_product
+      render json: {status: 200}
     else
       @object = "Product"
       render "api/v1/errors/404", status: 404
@@ -185,9 +196,11 @@ class Api::V1::ProductsController < Api::V1::ApiController
 
         if photo.save
           @photo = photo
+          render json: {status: 201}
         else
           @error = 1
           @errors = photo.errors
+          render json: {status: 422}
         end
       else
         @error = 1
@@ -215,6 +228,7 @@ class Api::V1::ProductsController < Api::V1::ApiController
 
     if @current_product.save
       @product_status = @current_product.aasm_state
+      render json: {status: 200}
     else
       @object = "Product"
       render "api/v1/errors/404", status: 404
@@ -236,9 +250,11 @@ class Api::V1::ProductsController < Api::V1::ApiController
   def set_rent_status
     if @current_product.update(rent_status: product_params[:status])
       @rent_status = @current_product.rent_status
+      render json: {status: 200}
     else
       @error = 1
       @errors = @current_product.errors
+      render json: {status: 422}
     end
   end
 
@@ -273,7 +289,8 @@ class Api::V1::ProductsController < Api::V1::ApiController
             another_parameters: {
               product_id: product.id,
               product_name: product.name
-            }
+            },
+            status: 201
           )
         end
       else
@@ -298,6 +315,7 @@ class Api::V1::ProductsController < Api::V1::ApiController
     if product
       if @user.mobile_platform
         @user.unlike product
+        render json: {status: 200}
       else
         @object = "Device ID from Mobile Platform"
       end
@@ -319,6 +337,7 @@ class Api::V1::ProductsController < Api::V1::ApiController
 
     if messages
       @message_parents = messages
+      render json: {status: 200}
     else
       @object = "Message"
       render "api/v1/errors/404", status: 404
@@ -334,11 +353,12 @@ class Api::V1::ProductsController < Api::V1::ApiController
   def enquiries_by_product
     # Hai ganteng -> Find by id is deprecated use find_by(id: params[:product_id]) or just use .find for ID (done)
     product = Product.find_by(id: params[:product_id])
-    
+
     if product
       if !product.messages.empty?
         @product = product.messages.first.documentable
         @message_parents = product.messages.includes(:sent_messageable).where(ancestry: nil)
+        render json: {status: 200}
       end
     else
       @object = "Product"
@@ -360,6 +380,7 @@ class Api::V1::ProductsController < Api::V1::ApiController
 
       if message
         @messages = message.conversation
+        render json: {status: 200}
       end
     else
       @object = "Product"
@@ -383,6 +404,7 @@ class Api::V1::ProductsController < Api::V1::ApiController
 
         if message
           @messages = message.conversation.includes(:sent_messageable, :received_messageable).order("id asc")
+          render json: {status: 200}
         end
       else
         render "api/v1/errors/403", status: 403
@@ -425,7 +447,8 @@ class Api::V1::ProductsController < Api::V1::ApiController
           enquiry_id: @message.id,
           product_id: product.id,
           product_name: product.name
-        }
+        },
+        status: 200
       )
     else
       @object = "Product"
@@ -466,7 +489,8 @@ class Api::V1::ProductsController < Api::V1::ApiController
           enquiry_id: @message.id,
           product_id: product.id,
           product_name: product.name
-        }
+        },
+        status: 200
       )
     else
       @object = "Product"
@@ -507,7 +531,7 @@ class Api::V1::ProductsController < Api::V1::ApiController
     end
 
     def product_params
-      product_params = params.except!(:authentication_token).permit(:product_id, :name, :one_hour, :four_hours, :one_day, :one_week, 
+      product_params = params.except!(:authentication_token).permit(:product_id, :name, :one_hour, :four_hours, :one_day, :one_week,
         :description, :location, :latitude, :longitude, :size, :special_condition, :deposit, :category_id, :user_id,
         :rent_status, :status)
       product_params.merge(user_id: @user.id)

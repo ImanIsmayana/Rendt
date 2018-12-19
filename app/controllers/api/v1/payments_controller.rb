@@ -17,9 +17,10 @@ class Api::V1::PaymentsController < Api::V1::ApiController
   param :authentication_token, String, desc: "Authentication token of User", required: true
   param :status, String, desc: "Status of the paypal emair('default')"
   description "Get list of all payment informations based on user"
-  
+
   def by_user
     @payments = @user.payments.order(id: :desc)
+    render json: {status: 200}
   end
 
   api :POST, "/v1/payments/create", "Create a new payment information based on current user"
@@ -32,24 +33,28 @@ class Api::V1::PaymentsController < Api::V1::ApiController
   def create
     if @response[:success]
       is_exists = Payment.where(paypal_email: @response[:user_info][:paypal_email]).exists?
-      
+
       if is_exists
         @error = 1
         @errors = 'Your payment already exist'
+        render json: {status: 409}
       else
         payment = Payment.new(paypal_email: @response[:user_info][:paypal_email], user_id: @user.id, aasm_state: params[:status])
-        
+
         if payment.save
           @payment = payment
           @response = @response
+          render json: {status: 201}
         else
           @error = 1
           @errors = payment.error
+          render json: {status: 422}
         end
       end
     else
       @error = request[:error]
       @errors = request[:errors]
+      render json: {status: 422}
     end
   end
 
@@ -68,26 +73,29 @@ class Api::V1::PaymentsController < Api::V1::ApiController
       if is_exists
         @error = 1
         @errors = 'Your payment already exist'
+        render json: {status: 409}
       else
         merge_params = payment_params.merge(aasm_state: params[:status])
-        
+
         if @payment.update(merge_params)
           current_default_payment = Payment.where('user_id = ? AND aasm_state = ? AND id != ?', @user.id, 'default', @payment.id).first
-          
+
           if current_default_payment.present? && @user.payments.default.size > 1
             current_default_payment.update(aasm_state: :inactive)
           end
-          
+
           @response = @response
         else
           @error = 1
           @errors = payment.error
+          render json: {status: 422}
         end
       end
 
     else
       @error = request[:error]
       @errors = request[:errors]
+      render json: {status: 422}
     end
   end
 
@@ -101,19 +109,23 @@ class Api::V1::PaymentsController < Api::V1::ApiController
   def update_status
     current_payment = @user.payments.default.first
 
-    if current_payment 
+    if current_payment
       if current_payment.update(aasm_state: :inactive)
         payment = Payment.find_by(id: params[:payment_id])
-        
+        render json: {status: 200}
+
         if payment.update_attributes(aasm_state: params[:status])
           @payment = payment
+          render json: {status: 200}
         else
           @error = 1
           @errors = payment.error
+          render json: {status: 422}
         end
       else
         @error = 1
         @errors = current_payment.error
+        render json: {status: 422}
       end
     else
       @object = "Payment Information"
@@ -131,6 +143,7 @@ class Api::V1::PaymentsController < Api::V1::ApiController
     if @payment.aasm_state.eql? 'default'
       @error = 1
       @errors = "You can't remove this payment information because this payment set as default"
+      render json: {status: 304}
     else
       unless @payment.destroy
         @object = "Payment"
@@ -144,7 +157,7 @@ class Api::V1::PaymentsController < Api::V1::ApiController
   param :authentication_token, String, desc: "Authentication token of User", required: true
   param :product_id, String, desc: "Product ID", required: true
   param :renter_id, String, desc: "User ID of the renter", required: true
-  description "The lender give refund to the renter" 
+  description "The lender give refund to the renter"
 
   def give_refund
     recipient = User.find_by(id: params[:renter_id])
@@ -166,7 +179,8 @@ class Api::V1::PaymentsController < Api::V1::ApiController
       another_parameters: {
         product_id: @product.id,
         product_name: @product.name
-      }
+      },
+      status: 201
     )
   end
 
@@ -174,14 +188,14 @@ class Api::V1::PaymentsController < Api::V1::ApiController
   formats ['json']
   param :authentication_token, String, desc: "Authentication token of User", required: true
   param :product_id, String, desc: "Product ID", required: true
-  description "The renter received refund from the lender" 
+  description "The renter received refund from the lender"
 
   def accepted_refund
     product = Product.renter_accepeted_refund(params[:product_id])
-    
+
     if product
       refund_payment = PaypalAdaptivePayments.refund(product.pay_key, product.deposit)
-      
+
       if refund_payment.success?
         @refund_info = refund_payment.refundInfoList.refundInfo
         @time = refund_payment.responseEnvelope.timestamp.strftime("%B %d, %Y %H:%M:%S")
@@ -191,7 +205,7 @@ class Api::V1::PaymentsController < Api::V1::ApiController
         # create activity includes send notification to mobile
         #
         activity = PublicActivity::Activity.new
-        
+
         response_notif = activity.create_notification(
           key: 'refund.accepted_by_renter',
           owner: @user,
@@ -199,6 +213,7 @@ class Api::V1::PaymentsController < Api::V1::ApiController
           notification_type: 'accepted_refund',
           title_message: 'Accepted Deposit',
           body_message: body_message,
+          status: 201
         )
       else
         error_response = refund_payment.error.first
@@ -206,7 +221,8 @@ class Api::V1::PaymentsController < Api::V1::ApiController
         @error = 1
         @errors = {
           error_id: error_response.errorId,
-          object: error_response.message
+          object: error_response.message,
+          status: 422
         }
       end
     else
@@ -217,7 +233,7 @@ class Api::V1::PaymentsController < Api::V1::ApiController
 
   def ipn_notify
     response = request.parameters
-    
+
     if response["status"].eql?('COMPLETED') && response['reason_code'].nil?
       if @checkout
         payment_per_lender_id = @checkout.generate_payment_per_lender_hash(:lender_id)
@@ -249,13 +265,15 @@ class Api::V1::PaymentsController < Api::V1::ApiController
             rent_type: :product,
             price: checkout_item.price,
             checkout_id: @checkout.id,
-            checkout_item_id: checkout_item.id
+            checkout_item_id: checkout_item.id,
+            status: 201
           )
 
           if rent_history
             rent_history.product.update(
               aasm_state: :not_available,
-              rent_status: :rent
+              rent_status: :rent,
+              status: 200
             )
           end
         end
@@ -279,7 +297,8 @@ class Api::V1::PaymentsController < Api::V1::ApiController
               recipient: recipient,
               notification_type: 'rent_request',
               title_message: 'Rent Request',
-              body_message: body_message
+              body_message: body_message,
+              status: 201
             )
           end
         else
@@ -310,6 +329,7 @@ class Api::V1::PaymentsController < Api::V1::ApiController
 
     def set_payment
       @payment = Payment.find_by(id: params[:payment_id])
+      render json: {status: 200}
 
       unless @payment
         @object = "Payment"

@@ -42,6 +42,7 @@ class Api::V1::HistoriesController < Api::V1::ApiController
     @total_income = RentHistory.total_income(@user.id)
     transfer_request = TransferRequest.where(user_id: @user.id, aasm_state: :pending)
     @is_transfer_request = transfer_request.present? ? true : false
+    render json: {status: 200}
   end
 
   api :GET, "/v1/histories/update_status", "Update status item in rent histories"
@@ -56,9 +57,11 @@ class Api::V1::HistoriesController < Api::V1::ApiController
 
     if @rent_history.save
       @status = @rent_history.aasm_state
+      render json: {status: 200}
     else
       @error = 1
       @errors = @rent_history.errors
+      render json: {status: 422}
     end
   end
 

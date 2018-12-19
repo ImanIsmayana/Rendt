@@ -17,13 +17,14 @@ class Api::V1::NotificationsController < Api::V1::ApiController
 
   def all
     @notifications = PublicActivity::Activity.get_notifications(@recipient_id).page(params[:page]).per(15)
+    render json: {status: 200}
   end
 
   api :POST, "/v1/notifications/test_notify", "Testing notification"
   formats ['json']
   param :authentication_token, String, desc: "Authentication token of User which has notifications", required: true
   param :recipient_id, String, desc: "Recipient ID", required: true
-  param :type, String, desc: "Tyep of notification like as 
+  param :type, String, desc: "Tyep of notification like as
     (accepted_refund, give_refund, favourite_product, favourite_lender, favourite_junkyard_product)", required: true
   param :title, String, desc: "Title of message"
   param :message, String, desc: "Message"
@@ -45,7 +46,8 @@ class Api::V1::NotificationsController < Api::V1::ApiController
       another_parameters: {
         product_id: params[:product_id],
         product_name: params[:product_name]
-      }
+      },
+      status: 201
     )
 
     render json: response_notif, status: 200

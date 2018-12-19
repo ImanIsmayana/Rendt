@@ -5,4 +5,5 @@ child @category do
   node :attachment do |category|
     category.attachments.first.name.url if category.attachments.present?
   end
+    node(:status){ 201 }
 end

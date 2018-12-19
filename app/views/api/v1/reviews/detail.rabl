@@ -5,4 +5,5 @@ child @review do
     :overall_rating, :comment, :target_id, :target_type, :user_id
 
   node(:product_id) { |review| review.product_id }
+  node(:status){ 200 }
 end

@@ -9,4 +9,5 @@ child @checkout_items do
       node(:name){|user| user.full_name}
     end
   end
+  node(:status){ 200 }
 end

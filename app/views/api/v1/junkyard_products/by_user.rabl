@@ -18,4 +18,5 @@ child @junkyard_products do
   node :is_favourited do |product|
     product.favourited_by?(@user)
   end
+  node(:status){ 200 }
 end

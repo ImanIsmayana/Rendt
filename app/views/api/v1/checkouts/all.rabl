@@ -11,9 +11,10 @@ child @checkouts do
 
       child(:user) do
         attributes :id
-        
+
         node(:name){|user| user.full_name}
       end
     end
   end
+  node(:status){ 200 }
 end

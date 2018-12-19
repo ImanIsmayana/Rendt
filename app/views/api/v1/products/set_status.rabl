@@ -24,4 +24,5 @@ node do
   else
     node(:is_returned) { false }
   end
+  node(:status){ 200 }
 end

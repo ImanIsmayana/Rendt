@@ -13,3 +13,4 @@ node do
     node(:is_returned) { false }
   end
 end
+node(:status){ 200 }

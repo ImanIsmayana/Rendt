@@ -12,4 +12,5 @@ child @lenders, root: 'lenders', object_root: false do
   end
 
   node(:full_name) { |user| user.full_name }
+  node(:status){ 200 }
 end

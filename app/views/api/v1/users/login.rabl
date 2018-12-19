@@ -7,4 +7,5 @@ child @user do
     node(:user_id){ @user_id }
     node(:authentication_token){ @authentication_token }
   end
+  node(:status){ 200 }
 end

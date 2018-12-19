@@ -12,4 +12,5 @@ child @checkout do
       end
     end
   end
+  node(:status){ 200 }
 end

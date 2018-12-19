@@ -37,4 +37,6 @@ child @junkyard_product do
   node :likes_count do |product|
     product.get_likes.size
   end
+
+  node(:status){ 200 }
 end

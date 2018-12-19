@@ -1,7 +1,7 @@
 node(:error){ @error }
 node(:errors){ @errors }
 child @product do
-  attributes :id, :name, :one_hour, :four_hours, :one_day, :one_week, :deposit, :aasm_state, :description, 
+  attributes :id, :name, :one_hour, :four_hours, :one_day, :one_week, :deposit, :aasm_state, :description,
     :location, :latitude, :longitude, :created_at
 
   #child(:checkout_items, object_root: false) do
@@ -44,4 +44,5 @@ child @product do
   end
 
   node(:countdown) { @product.countdown }
+  node(:status){ 200 }
 end

@@ -2,7 +2,7 @@ node(:error){ @error }
 node(:errors){ @errors }
 child @messages do
   attribute :id, :body
-  
+
   child :sent_messageable => :sender do
     attributes :id
 
@@ -30,4 +30,5 @@ child @messages do
   node :is_message_owner do |message|
     @user == message.sent_messageable
   end
+  node(:status){ 200 }
 end

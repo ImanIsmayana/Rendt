@@ -2,7 +2,7 @@ node(:error){ @error }
 node(:errors){ @errors }
 child @message do
   attribute :id, :body
-  
+
   child :sent_messageable => :sender do
     attributes :id
 
@@ -26,4 +26,5 @@ child @message do
   node :created_time_at do |message|
     message.created_at.strftime("%H:%M:%S")
   end
+  node(:status){ 200 }
 end

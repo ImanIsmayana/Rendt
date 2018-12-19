@@ -30,4 +30,5 @@ child @reviews do
   node :created_at do |review|
     review.created_at.strftime("%B %d, %Y")
   end
+  node(:status){ 200 }
 end

@@ -20,4 +20,5 @@ child @favourites.includes(:favouritable => :category), object_root: false do
       product.favourited_by?(@user)
     end
   end
+  node(:status){ 200 }
 end

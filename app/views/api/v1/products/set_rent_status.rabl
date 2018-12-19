@@ -24,4 +24,5 @@ node do
   else
     node(:is_need_refunded) { false }
   end
+  node(:status){ 200 }
 end

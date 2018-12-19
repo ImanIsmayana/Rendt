@@ -2,7 +2,7 @@ node(:error){ @error }
 node(:errors){ @errors }
 child @message_parents => :messages do
   attribute :id
-  
+
   child :sent_messageable => :sender do
     attributes :id
 
@@ -27,4 +27,5 @@ child @message_parents => :messages do
     attributes :id
     node(:name){|p| p.name}
   end
+  node(:status){ 200 }
 end

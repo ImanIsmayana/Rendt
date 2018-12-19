@@ -7,6 +7,10 @@ child @categories do
     category.attachments.first.name.url if category.attachments.present?
   end
 
+  node :image_url do |image|
+    ENV['HOSTNAME'] + image.image_url
+  end
+
   node(:status){ 200 }
 end
 

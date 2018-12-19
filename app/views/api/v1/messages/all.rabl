@@ -26,4 +26,5 @@ child @messages do
   node :created_time_at do |message|
     message.created_at.strftime("%H:%M:%S")
   end
+  node(:status){ 200 }
 end

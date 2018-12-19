@@ -14,4 +14,5 @@ child @favourites, object_root: false do
       target.favourited_by?
     end
   end
+  node(:status){ 200 }
 end

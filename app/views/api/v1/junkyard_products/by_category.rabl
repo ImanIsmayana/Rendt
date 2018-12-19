@@ -6,7 +6,7 @@ child @junkyard_products do
   node :attachment do |product|
     product.attachments.first.name.url if product.attachments.present?
   end
-  
+
   node :category_name do |product|
     product.category.name
   end
@@ -18,4 +18,5 @@ child @junkyard_products do
   node :is_favourited do |product|
     product.favourited_by?(@user)
   end
+  node(:status){ 200 }
 end

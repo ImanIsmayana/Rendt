@@ -30,4 +30,5 @@ child @products do
       node(:rented_by) { nil }
     end
   end
+  node(:status){ 200 }
 end

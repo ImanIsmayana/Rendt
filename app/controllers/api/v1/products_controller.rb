@@ -21,7 +21,6 @@ class Api::V1::ProductsController < Api::V1::ApiController
   # OPTIMIZE let's includes(:attachments, :category) to avoid N+1 query (done)
   def all
     @products = Product.get_list_active_products.page(params[:page]).per(10)
-    render json: {status: 200}
   end
 
   api :GET, "/v1/products/by_category", "Get list of all products filter by category"
@@ -90,7 +89,6 @@ class Api::V1::ProductsController < Api::V1::ApiController
 
   def detail
     @product = Product.find_by(id: params[:product_id])
-    render json: {status: 200}
 
     if @product.blank?
       @object = "Product"

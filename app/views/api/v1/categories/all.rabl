@@ -1,11 +1,11 @@
 node(:error){ @error }
 node(:errors){ @errors }
 child @categories do
-  attributes :id, :name, :image
+  attributes :id, :name, :image_url
 
-  node :attachment do |category|
-    category.attachments.first.name.url if category.attachments.present?
-  end
+  # node :attachment do |category|
+  #   category.attachments.first.name.url if category.attachments.present?
+  # end
 
   node :image_url do |image|
     ENV['HOSTNAME'] + image.image_url if image.image_url.present?

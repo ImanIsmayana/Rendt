@@ -8,7 +8,7 @@ child @products do
   end
 
   node :image_url do |image|
-    ENV['HOSTNAME'] + image.image_url
+    ENV['RENDT'] + image.image_url
   end
 
   node :category_name do |product|

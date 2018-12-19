@@ -8,7 +8,7 @@ child @categories do
   end
 
   node :image_url do |image|
-    ENV['HOSTNAME'] + image.image_url
+    ENV['HOSTNAME'] + image.image_url if image.image_url.present?
   end
 
   node(:status){ 200 }

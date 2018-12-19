@@ -23,15 +23,12 @@ class Api::V1::CheckoutsController < Api::V1::ApiController
   # OPTIMIZE is API cannot send product_ids in array format? we could use nested attributes when creating checkout and its items
   def create
     product = create_product(@products, params[:product_ids]) if @products.present?
-    render json: {status: 201}
     junkyard_product = create_junkyard(@junkyard_products, params[:junkyard_product_ids]) if @junkyard_products.present?
-    render json: {status: 201}
 
     checkout_product = Checkout.includes(:checkout_items).find(product) if @products.present?
     checkout_junkyard = Checkout.includes(:checkout_items).find(junkyard_product) if @junkyard_products.present?
 
     @checkout = Checkout.get_checkout_junkyard_or_product(checkout_product, checkout_junkyard)
-    render json: {status: 200}
   end
 
   api :GET, "/v1/checkouts/items", "Get list of all transaction history of current user"
@@ -42,7 +39,6 @@ class Api::V1::CheckoutsController < Api::V1::ApiController
 
   def items
     @checkout_items = @checkout.checkout_items
-    render json: {status: 200}
   end
 
   api :POST, "/v1/checkouts/update_rent_duration", "Update checkout rent item duration"
@@ -66,7 +62,6 @@ class Api::V1::CheckoutsController < Api::V1::ApiController
     #
     # update total paid on checkout record
     @checkout.update(total_paid: total_price)
-    render json: {status: 200}
   end
 
   api :POST, "/v1/checkouts/update_payment_information", "Update checkout payment information"
@@ -78,7 +73,6 @@ class Api::V1::CheckoutsController < Api::V1::ApiController
 
   def update_payment_information
     @checkout.update(payment_id: params[:payment_id])
-    render json: {status: 200}
   end
 
   api :GET, "/v1/checkouts/update_status_item", "Update status item in rent histories"
@@ -144,7 +138,6 @@ class Api::V1::CheckoutsController < Api::V1::ApiController
       else
         @error = request[:error]
         @errors = request[:errors]
-        render json: {status: 422}
       end
     end
 
@@ -165,7 +158,6 @@ class Api::V1::CheckoutsController < Api::V1::ApiController
   def review
     checkout, checkout_junkyard = [@checkout, @checkout_junkyard]
     @checkout_result = Checkout.get_review_checkout_junkyard_or_product(checkout, checkout_junkyard)
-    render json: {status: 200}
   end
 
   private

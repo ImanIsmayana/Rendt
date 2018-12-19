@@ -16,7 +16,6 @@ class Api::V1::MessagesController < Api::V1::ApiController
 
   def all
     @messages = @user.messages.includes(:sent_messageable, :received_messageable).conversations
-    render json: {status: 200}
   end
 
   api :GET, "/v1/messages/conversation", "Get list of all conversation based on current user from renter side"
@@ -26,7 +25,6 @@ class Api::V1::MessagesController < Api::V1::ApiController
 
   def conversation
     message = CustomMessage.find(params[:message_id])
-    render json: {status: 200}
 
     if message
       @messages = message.conversation.includes(:sent_messageable, :received_messageable).ascending
@@ -40,7 +38,6 @@ class Api::V1::MessagesController < Api::V1::ApiController
 
   def conversation_by_receiver
     message = CustomMessage.get_conversation_by_receiver(@user.id, params[:receiver_id])
-    render json: {status: 200}
 
     if message
       @messages = message.conversation.includes(:sent_messageable, :received_messageable).ascending

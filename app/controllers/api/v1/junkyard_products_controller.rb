@@ -19,7 +19,6 @@ class Api::V1::JunkyardProductsController < Api::V1::ApiController
 
   def all
     @junk_yard_products = JunkyardProduct.get_list_active_junkyard_products.page(params[:page]).per(10)
-    render json: {status: 200}
   end
 
   api :GET, "/v1/junkyard_products/by_category", "Get list of all junkyard products filter by category"
@@ -31,7 +30,6 @@ class Api::V1::JunkyardProductsController < Api::V1::ApiController
 
   def by_category
     @junkyard_products = @category.junkyard_products.active.page(params[:page]).per(10)
-    render json: {status: 200}
   end
 
   api :GET, "/v1/junkyard_products/by_user", "Get list of all junkyard products filter by user"
@@ -46,7 +44,6 @@ class Api::V1::JunkyardProductsController < Api::V1::ApiController
 
     if @user
       @junkyard_products = @user.junkyard_products.get_list_active_junkyard_products.page(params[:page]).per(10)
-      render json: {status: 200}
     else
       @object = "User"
       render "api/v1/errors/404", status: 404
@@ -73,7 +70,6 @@ class Api::V1::JunkyardProductsController < Api::V1::ApiController
 
   def detail
     @junkyard_product = @junkyard
-    render json: {status: 200}
   end
 
   api :POST, "/v1/junkyard_products/like", "User has ability to like item or junkyard product"
@@ -119,7 +115,6 @@ class Api::V1::JunkyardProductsController < Api::V1::ApiController
   def unlike
     if @user.mobile_platform
       @user.unlike @junkyard
-      render json: {status: 200}
     else
       @object = "Device ID from Mobile Platform"
       render "api/v1/errors/404", status: 404
@@ -143,12 +138,10 @@ class Api::V1::JunkyardProductsController < Api::V1::ApiController
       unless @photo.save
         @error = 1
         @errors = photo.errors
-        render json: {status: 200}
       end
     else
       @error = 1
       @errors = { photo: ["Junkyard product already has maximum number of photos! (8 photos)"] }
-      render json: {status: 422}
     end
   end
 
@@ -170,11 +163,9 @@ class Api::V1::JunkyardProductsController < Api::V1::ApiController
 
     if junkyard_product.save
       @junkyard_product = junkyard_product
-      render json: {status: 201}
     else
       @error = 1
       @errors = junkyard_product.errors
-      render json: {status: 422}
     end
   end
 
@@ -194,11 +185,9 @@ class Api::V1::JunkyardProductsController < Api::V1::ApiController
   def update
     if @junkyard.update(junkyard_product_params)
       @junkyard_product =  @junkyard
-      render json: {status: 200}
     else
       @error = 1
       @errors = @junkyard.errors
-      render json: {status: 422}
     end
   end
 
@@ -213,7 +202,6 @@ class Api::V1::JunkyardProductsController < Api::V1::ApiController
       @junkyard.delete
       @junkyard.save
       @junkyard_product = @junkyard
-      render json: {status: 200}
     else
       @object = 'Junkyard Product'
       render "api/v1/errors/403", status: 403

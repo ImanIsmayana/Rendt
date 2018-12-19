@@ -17,7 +17,6 @@ class Api::V1::NotificationsController < Api::V1::ApiController
 
   def all
     @notifications = PublicActivity::Activity.get_notifications(@recipient_id).page(params[:page]).per(15)
-    render json: {status: 200}
   end
 
   api :POST, "/v1/notifications/test_notify", "Testing notification"

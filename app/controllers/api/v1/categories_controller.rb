@@ -34,11 +34,9 @@ class Api::V1::CategoriesController < Api::V1::ApiController
     if category.save
       attachment = category.attachments.create(name: params[:image]) if params[:image]
       @category = category
-      render json: {status: 201}
     else
       @error = 1
       @errors = category.errors
-      render json: {status: 422}
     end
   end
 end

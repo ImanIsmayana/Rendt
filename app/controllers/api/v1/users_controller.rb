@@ -29,11 +29,9 @@ class Api::V1::UsersController < Api::V1::ApiController
 
     if user.save
       @user = user
-      render json: {status: 201}
     else
       @error = 1
       @errors = user.errors
-      render json: {status: 422}
     end
   end
 
@@ -51,13 +49,11 @@ class Api::V1::UsersController < Api::V1::ApiController
     if user.blank?
       @error = 1
       @errors = { email: ["User with email #{params[:email]} is not registered!"] }
-      render json: {status: 404}
     else
       # if user.confirmed?
         if user.is_blocked
           @error = 1
           @errors = { authentication: ["Your account already blocked. Please contact admin for further information"] }
-          render json: {status: 404}
         else
           if user.valid_password? params[:password]
             warden.set_user(user)
@@ -66,11 +62,9 @@ class Api::V1::UsersController < Api::V1::ApiController
             @authentication_token = user.authentication_token
             @user_id = user.id
             @user = user
-            render json: {status: 200}
           else
             @error = 1
             @errors = { authentication: ["Invalid email and password"] }
-            render json: {status: 404}
           end
         end
       # else
@@ -90,7 +84,6 @@ class Api::V1::UsersController < Api::V1::ApiController
     if @user
       # automatically regenerate new token handle by simple_token_authentication
       @user.update(authentication_token: nil)
-      render json: {status: 200}
     end
   end
 
@@ -111,7 +104,6 @@ class Api::V1::UsersController < Api::V1::ApiController
       if user.blank?
         @error = 1
         @errors = {email: ["User with email #{params[:email]} is not registered!"]}
-        render json: {status: 404}
       else
         send_forgot_password_email = User.send_reset_password_instructions(email: params[:email])
         yield send_forgot_password_email if block_given?
@@ -139,14 +131,12 @@ class Api::V1::UsersController < Api::V1::ApiController
       if user.blank?
         @error = 1
         @errors = {email: ["User with email #{params[:email]} is not registered!"]}
-        render json: {status: 404}
       else
         send_confirmation_email = user.first.send_confirmation_instructions
 
         unless successfully_sent?(send_confirmation_email)
           @error = 1
           @errors = {email: ["An error occured when sending email!"]}
-          render json: {status: 422}
         end
       end
     end
@@ -159,7 +149,6 @@ class Api::V1::UsersController < Api::V1::ApiController
 
   def profile
     @profile = @user
-    render json: {status: 200}
   end
 
   api :POST, "/v1/users/hide_address", "Ability for show or hide address user"
@@ -172,7 +161,6 @@ class Api::V1::UsersController < Api::V1::ApiController
     unless @user.update_attributes(hide_address: params[:hide])
       @error = 1
       @errors = @user.errors
-      render json: {status: 200}
     end
   end
 
@@ -195,11 +183,9 @@ class Api::V1::UsersController < Api::V1::ApiController
 
     if current_user.update_attributes(user_params)
       @current_user = current_user
-      render json: {status: 200}
     else
       @error = 1
       @errors = current_user.errors
-      render json: {status: 422}
     end
   end
 
@@ -214,11 +200,9 @@ class Api::V1::UsersController < Api::V1::ApiController
 
     if photo.save
       @photo = photo
-      render json: {status: 200}
     else
       @error = 1
       @errors = photo.errors
-      render json: {status: 422}
     end
   end
 
@@ -235,11 +219,9 @@ class Api::V1::UsersController < Api::V1::ApiController
 
     if current_user.update_with_password(user_params)
       @current_user = current_user
-      render json: {status: 200}
     else
       @error = 1
       @errors = current_user.errors
-      render json: {status: 422}
     end
   end
 
@@ -255,7 +237,6 @@ class Api::V1::UsersController < Api::V1::ApiController
       photo.remove_name!
       photo.destroy
       @photo = photo
-      render json: {status: 200}
     else
       @object = "Photo"
       render "api/v1/errors/404", status: 404

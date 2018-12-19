@@ -18,7 +18,6 @@ class Api::V1::ReviewsController < Api::V1::ApiController
   def get_lender_all
     @reviews = Review.includes(:user, :target).where(target_type: 'lender', target_id: @user.id)
       .page(params[:page]).per(10)
-    render json: {status: 200}
   end
 
   api :GET, "/v1/reviews/renter/all", "Get list of all reviews for lender"
@@ -30,7 +29,6 @@ class Api::V1::ReviewsController < Api::V1::ApiController
   def get_renter_all
     @reviews = Review.includes(:user, :target).where(target_type: 'renter', target_id: @user.id)
       .page(params[:page]).per(10)
-    render json: {status: 200}
   end
 
   api :GET, "/v1/reviews/list", "Get list of all user reviews for other user"
@@ -41,7 +39,6 @@ class Api::V1::ReviewsController < Api::V1::ApiController
 
   def list_all
     @reviews = Review.includes(:user, :target).where(target_id: params[:target_id], target_type: 'lender')
-    render json: {status: 200}
   end
 
   api :GET, "/v1/reviews/detail", "Show review detail"
@@ -54,7 +51,6 @@ class Api::V1::ReviewsController < Api::V1::ApiController
   def detail
     @review = @current_review
     @review.update_attributes(aasm_state: :read)
-    render json: {status: 200}
   end
 
   api :POST, "/v1/reviews/lender/create", "Create review for Lender or Product owner"
@@ -80,10 +76,8 @@ class Api::V1::ReviewsController < Api::V1::ApiController
       title_message = 'Review'
       body_message = "You have already reviewed by #{@user.full_name}"
       send_notif('create_for_lender', 'review_for_lender', title_message, body_message, @review.target)
-      render json: {status: 201}
     else
       @errors = review.errors
-      render json: {status: 422}
     end
   end
 
@@ -108,10 +102,8 @@ class Api::V1::ReviewsController < Api::V1::ApiController
       title_message = 'Review'
       body_message = "#{@user.full_name} has updated review"
       send_notif('updated_for_lender', 'updated_review_for_lender', title_message, body_message, @review.target)
-      render json: {status: 200}
     else
       @errors = @current_review.errors
-      render json: {status: 422}
     end
   end
 
@@ -137,10 +129,8 @@ class Api::V1::ReviewsController < Api::V1::ApiController
       title_message = 'Review'
       body_message = "You have already reviewed by #{@user.full_name}"
       send_notif('create_for_renter', 'review_for_renter', title_message, body_message, @review.target)
-      render json: {status: 201}
     else
       @errors = review.errors
-      render json: {status: 422}
     end
   end
 
@@ -164,10 +154,8 @@ class Api::V1::ReviewsController < Api::V1::ApiController
       title_message = 'Review'
       body_message = "#{@user.full_name} has updated review"
       send_notif('updated_for_renter', 'updated_review_for_render', title_message, body_message, @review.target)
-      render json: {status: 200}
     else
       @errors = @current_review.errors
-      render json: {status: 422}
     end
   end
 
@@ -180,7 +168,6 @@ class Api::V1::ReviewsController < Api::V1::ApiController
   # OPTIMIZE retrieve review from @user.reviews to make it shorter (done) and I'm used action controller
   def delete
     @current_review.destroy
-    render json: {status: 200}
   end
 
   private

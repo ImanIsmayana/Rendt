@@ -20,7 +20,6 @@ class Api::V1::PaymentsController < Api::V1::ApiController
 
   def by_user
     @payments = @user.payments.order(id: :desc)
-    render json: {status: 200}
   end
 
   api :POST, "/v1/payments/create", "Create a new payment information based on current user"
@@ -37,24 +36,20 @@ class Api::V1::PaymentsController < Api::V1::ApiController
       if is_exists
         @error = 1
         @errors = 'Your payment already exist'
-        render json: {status: 409}
       else
         payment = Payment.new(paypal_email: @response[:user_info][:paypal_email], user_id: @user.id, aasm_state: params[:status])
 
         if payment.save
           @payment = payment
           @response = @response
-          render json: {status: 201}
         else
           @error = 1
           @errors = payment.error
-          render json: {status: 422}
         end
       end
     else
       @error = request[:error]
       @errors = request[:errors]
-      render json: {status: 422}
     end
   end
 
@@ -73,7 +68,6 @@ class Api::V1::PaymentsController < Api::V1::ApiController
       if is_exists
         @error = 1
         @errors = 'Your payment already exist'
-        render json: {status: 409}
       else
         merge_params = payment_params.merge(aasm_state: params[:status])
 
@@ -88,14 +82,12 @@ class Api::V1::PaymentsController < Api::V1::ApiController
         else
           @error = 1
           @errors = payment.error
-          render json: {status: 422}
         end
       end
 
     else
       @error = request[:error]
       @errors = request[:errors]
-      render json: {status: 422}
     end
   end
 
@@ -112,20 +104,16 @@ class Api::V1::PaymentsController < Api::V1::ApiController
     if current_payment
       if current_payment.update(aasm_state: :inactive)
         payment = Payment.find_by(id: params[:payment_id])
-        render json: {status: 200}
 
         if payment.update_attributes(aasm_state: params[:status])
           @payment = payment
-          render json: {status: 200}
         else
           @error = 1
           @errors = payment.error
-          render json: {status: 422}
         end
       else
         @error = 1
         @errors = current_payment.error
-        render json: {status: 422}
       end
     else
       @object = "Payment Information"
@@ -143,7 +131,6 @@ class Api::V1::PaymentsController < Api::V1::ApiController
     if @payment.aasm_state.eql? 'default'
       @error = 1
       @errors = "You can't remove this payment information because this payment set as default"
-      render json: {status: 304}
     else
       unless @payment.destroy
         @object = "Payment"

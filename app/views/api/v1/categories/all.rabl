@@ -6,6 +6,8 @@ child @categories do
   node :attachment do |category|
     category.attachments.first.name.url if category.attachments.present?
   end
+
+  node(:status){ 200 }
 end
 
 node(:product_count) { @product_count }

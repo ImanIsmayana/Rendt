@@ -16,7 +16,6 @@ class Api::V1::CartsController < Api::V1::ApiController
   # OPTIMIZE let's add includes(:product) to avoid N+1 query and specify fields needed (done)
   def all
     @carts = Cart.get_all_of_carts(@user, params[:page])
-    render json: {status: 200}
   end
 
   api :POST, "/v1/carts/add_item", "User has ability to add item or product to his cart"
@@ -37,7 +36,6 @@ class Api::V1::CartsController < Api::V1::ApiController
 
     if item
       @user.carts.where(product_id: item, aasm_state: params[:cart_type]).first_or_create
-      render json: {status: 200}
     else
       @object = 'Product or Junkyard'
       render "api/v1/errors/404", status: 401
@@ -55,7 +53,6 @@ class Api::V1::CartsController < Api::V1::ApiController
 
     if product
       @user.carts.where(product_id: product).destroy_all
-      render json: {status: 200}
     else
       @object = "Product"
       render "api/v1/errors/404", status: 404

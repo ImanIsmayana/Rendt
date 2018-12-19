@@ -16,7 +16,6 @@ class Api::V1::LendersController < Api::V1::ApiController
 
   def all
     @lenders = User.get_lender_have_products.page(params[:page]).per(10)
-    render json: {status: 200}
   end
 
   api :GET, "/v1/lenders/profile", "Get of lender profile"
@@ -28,7 +27,6 @@ class Api::V1::LendersController < Api::V1::ApiController
   def profile
     @lender = User.get_profile(params[:user_id])
     @review_count = Review.where(target_id: @lender.id, target_type: 'lender').size
-    render json: {status: 200}
 
     if @lender
       if @lender.products.blank?

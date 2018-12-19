@@ -21,11 +21,9 @@ class Api::V1::TransferRequestsController < Api::V1::ApiController
 
     if transfer_request.save
       @transfer_request = transfer_request
-      render json: {status: 201}
     else
       @error = 1
       @errors = transfer_request.errors
-      render json: {status: 422}
     end
   end
 

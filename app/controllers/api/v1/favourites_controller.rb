@@ -19,7 +19,6 @@ class Api::V1::FavouritesController < Api::V1::ApiController
   # OPTIMIZE let's add includes(:favouritable) to avoid N+1 query
   def all
     @favourites = Favourite.get_all(@user.id, 'Product').page(params[:page]).per(10)
-    render json: {status: 200}
   end
 
   api :GET, "/v1/favourites/all_lender", "Get list of all favourites lender of a user"
@@ -30,7 +29,6 @@ class Api::V1::FavouritesController < Api::V1::ApiController
 
   def all_lender
     @favourites = Favourite.get_all(@user.id, 'User').page(params[:page]).per(10)
-    render json: {status: 200}
   end
 
   api :POST, "/v1/favourites/create", "User has ability to add item or product to be his favourites"
@@ -168,9 +166,6 @@ class Api::V1::FavouritesController < Api::V1::ApiController
     else
       is_exists?(product, 'product')
     end
-
-    render json: {status: 200}
-
   end
 
   api :POST, "/v1/favourites/destroy_favourit_lender", "User has ability to unfavourite lender"
@@ -187,9 +182,6 @@ class Api::V1::FavouritesController < Api::V1::ApiController
     else
       is_exists?(user_favourite, 'Favourite')
     end
-
-    render json: {status: 200}
-
   end
 
   api :POST, "/v1/favourites/destroy_favourite_junkyard", "User has ability to unfavourite junkyard"
@@ -206,9 +198,6 @@ class Api::V1::FavouritesController < Api::V1::ApiController
     else
       is_exists?(user_favourite, 'Favourite Junkyard Product')
     end
-
-    render json: {status: 200}
-
   end
 
   private

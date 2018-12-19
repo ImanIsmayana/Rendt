@@ -4,13 +4,13 @@ node(:errors){ @errors }
 child @categories do
   attributes :id, :name, :image
 
-  node :attachment do |category|
-     category.attachments.first.name.url if category.attachments.present?
-  end
-
-  # node :image_url do |image|
-  #   ENV['RENDT'] + image.image_url if image.image_url.present?
+  # node :attachment do |category|
+  #    category.attachments.first.name.url if category.attachments.present?
   # end
+
+  node :image_url do |image|
+    ENV['RENDT'] + image.image_url if image.image_url.present?
+  end
 
   node(:status){ 200 }
 end

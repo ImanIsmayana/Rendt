@@ -33,7 +33,6 @@ class Api::V1::ProductsController < Api::V1::ApiController
 
   def by_category
     @products = @category.products.active.page(params[:page]).per(10)
-    render json: {status: 200}
   end
 
   api :GET, "/v1/products/by_user", "Get list of all products filter by user"

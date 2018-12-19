@@ -7,6 +7,10 @@ child @products do
     product.attachments.first.name.url if product.attachments.present?
   end
 
+  node :image_url do |image|
+    ENV['HOSTNAME'] + image.image_url
+  end
+
   node :category_name do |product|
     product.category.name
   end

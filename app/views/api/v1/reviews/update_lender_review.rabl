@@ -1,5 +1,10 @@
-node(:error){ @error }
-node(:errors){ @errors }
+if @error.eql? 1
+  node(:error){ @error }
+  node(:errors){ @errors }
+end
+if @error.eql? 0
+  node(:status){ 200 }
+end
 child @review do
   attribute :id, :quality, :price, :deposit, :service, :tool_safety, :return_to_home, :return_in_good_and_clean,
     :overall_rating, :comment
@@ -25,5 +30,4 @@ child @review do
   node :created_at do |review|
     review.created_at.strftime("%B %d, %Y")
   end
-  node(:status){ 200 }
 end

@@ -1,5 +1,10 @@
-node(:error){ @error }
-node(:errors){ @errors }
+if @error.eql? 1
+  node(:error){ @error }
+  node(:errors){ @errors }
+end
+if @error.eql? 0
+  node(:status){ 200 }
+end
 child @favourites.includes(:favouritable => :category), object_root: false do
   child :favouritable do |f|
     attributes :id, :name, :one_hour, :four_hours, :one_day, :one_week, :deposit, :aasm_state, :description
@@ -20,5 +25,4 @@ child @favourites.includes(:favouritable => :category), object_root: false do
       product.favourited_by?(@user)
     end
   end
-  node(:status){ 200 }
 end

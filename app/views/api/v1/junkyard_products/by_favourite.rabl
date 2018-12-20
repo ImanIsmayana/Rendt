@@ -1,5 +1,10 @@
-node(:error){ @error }
-node(:errors){ @errors }
+if @error.eql? 1
+  node(:error){ @error }
+  node(:errors){ @errors }
+end
+if @error.eql? 0
+  node(:status){ 200 }
+end
 node(:category_name){ @category.name }
 child @junkyard_products do
   attributes :id, :name, :description, :special_condition, :location, :latitude, :longitude, :size, :category_id, :aasm_state
@@ -23,5 +28,4 @@ child @junkyard_products do
       { :is_favourited => false }
     end
   end
-  node(:status){ 200 }
 end

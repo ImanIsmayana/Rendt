@@ -1,5 +1,10 @@
-node(:error){ @error }
-node(:errors){ @errors }
+if @error.eql? 1
+  node(:error){ @error }
+  node(:errors){ @errors }
+end
+if @error.eql? 0
+  node(:status){ 200 }
+end
 child @notifications, object_root: false do
   attributes :id, :owner_id, :owner_type, :recipient_id, :recipient_type,
     :aasm_state, :parameters, :created_at, :trackable
@@ -11,5 +16,4 @@ child @notifications, object_root: false do
       { trackable: false }
     end
   end
-  node(:status){ 200 }
 end

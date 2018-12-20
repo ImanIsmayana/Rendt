@@ -1,5 +1,10 @@
-node(:error) { @error }
-node(:errors) { @errors }
+if @error.eql? 1
+  node(:error){ @error }
+  node(:errors){ @errors }
+end
+if @error.eql? 0
+  node(:status){ 200 }
+end
 node do
   if @rent_status.eql? 'not_rent'
     node(:is_not_rent) { true }
@@ -24,5 +29,4 @@ node do
   else
     node(:is_need_refunded) { false }
   end
-  node(:status){ 200 }
 end

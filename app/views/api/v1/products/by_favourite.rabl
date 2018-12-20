@@ -1,6 +1,11 @@
-node(:error){ @error }
-node(:errors){ @errors }
+if @error.eql? 1
+  node(:error){ @error }
+  node(:errors){ @errors }
+end
 node(:category_name){ @category.name }
+if @error.eql? 0
+  node(:status){ 200 }
+end
 child @products do
   attributes :id, :name, :one_hour, :four_hours, :one_day, :one_week, :deposit, :aasm_state, :description,
     :rent_status
@@ -34,5 +39,4 @@ child @products do
       node(:rented_by) { nil }
     end
   end
-  node(:status){ 200 }
 end

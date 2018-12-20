@@ -1,5 +1,10 @@
-node(:error){ @error }
-node(:errors){ @errors }
+if @error.eql? 1
+  node(:error){ @error }
+  node(:errors){ @errors }
+end
+if @error.eql? 0
+  node(:status){ 200 }
+end
 child @message_parents => :messages do
   attribute :id
 
@@ -22,6 +27,5 @@ child @message_parents => :messages do
   node :created_time_at do |message|
     message.created_at.strftime("%H:%M:%S")
   end
-  node(:status){ 200 }
 end
 node(:product_name){@product.name} if @product

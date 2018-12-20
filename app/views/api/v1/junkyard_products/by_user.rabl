@@ -1,6 +1,10 @@
-node(:error){ @error }
-node(:errors){ @errors }
-child @junkyard_products do
+if @error.eql? 1
+  node(:error){ @error }
+  node(:errors){ @errors }
+end
+if @error.eql? 0
+  node(:status){ 200 }
+endchild @junkyard_products do
   attributes :id, :name, :description, :special_condition, :location, :latitude, :longitude, :size, :category_id, :aasm_state
 
   node :attachment do |product|
@@ -18,5 +22,4 @@ child @junkyard_products do
   node :is_favourited do |product|
     product.favourited_by?(@user)
   end
-  node(:status){ 200 }
 end

@@ -1,5 +1,10 @@
-node(:error){ @error }
-node(:errors){ @errors }
+if @error.eql? 1
+  node(:error){ @error }
+  node(:errors){ @errors }
+end
+if @error.eql? 0
+  node(:status){ 200 }
+end
 child @messages do
   attribute :id, :body
 
@@ -30,6 +35,5 @@ child @messages do
   node :is_message_owner do |message|
     @user == message.sent_messageable
   end
-  node(:status){ 200 }
 end
 node(:product_name){@product.name}

@@ -1,5 +1,10 @@
-node(:error){ @error }
-node(:errors){ @errors }
+if @error.eql? 1
+  node(:error){ @error }
+  node(:errors){ @errors }
+end
+if @error.eql? 0
+  node(:status){ 200 }
+end
 child @messages do
   attribute :id, :body, :documentable_id
 
@@ -26,5 +31,4 @@ child @messages do
   node :created_time_at do |message|
     message.created_at.strftime("%H:%M:%S")
   end
-  node(:status){ 200 }
 end

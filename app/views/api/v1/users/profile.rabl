@@ -1,5 +1,10 @@
-node(:error){ @error }
-node(:errors){ @errors }
+if @error.eql? 1
+  node(:error){ @error }
+  node(:errors){ @errors }
+end
+if @error.eql? 0
+  node(:status){ 200 }
+end
 child @profile do
   attributes :id, :email, :first_name, :last_name, :address, :latitude, :longitude, :phone_number,
   :attachment, :authentication_token, :description
@@ -15,5 +20,4 @@ child @profile do
       node(:is_lender) { false }
     end
   end
-  node(:status){ 200 }
 end

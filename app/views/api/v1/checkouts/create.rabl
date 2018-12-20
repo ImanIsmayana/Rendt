@@ -1,4 +1,8 @@
-node(:error) { @error }
-node(:errors) { @errors }
+if @error.eql? 1
+  node(:error){ @error }
+  node(:errors){ @errors }
+end
 node(:checkout) { @checkout }
-node(:status){ 201 }
+if @error.eql? 0
+  node(:status){ 201 }
+end

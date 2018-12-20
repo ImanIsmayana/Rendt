@@ -1,5 +1,7 @@
-node(:error){ @error }
-node(:errors){ @errors }
+if @error.eql? 1
+  node(:error){ @error }
+  node(:errors){ @errors }
+end
 node do
   if @status.eql? 'rented'
     node(:is_rented) { true }
@@ -13,4 +15,6 @@ node do
     node(:is_returned) { false }
   end
 end
-node(:status){ 200 }
+if @error.eql? 0
+  node(:status){ 200 }
+end

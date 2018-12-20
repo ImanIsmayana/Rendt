@@ -1,8 +1,12 @@
 if @error.eql? 1
   node(:error){ @error }
   node(:errors){ @errors }
+  # node(:carts) { @null }
 end
-node(:carts) { @carts }
+
 if @error.eql? 0
+  if @carts.present?
+    node(:carts) { @carts }
+  end
   node(:status){ 200 }
 end

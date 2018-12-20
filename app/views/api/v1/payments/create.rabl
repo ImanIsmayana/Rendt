@@ -5,7 +5,8 @@ end
 node(:response){ @response }
 if @error.eql? 0
   node(:status){ 200 }
-end
-child @payment do |payment|
-  attributes :id, :paypal_email, :user_id
+
+  child @payment do |payment|
+    attributes :id, :paypal_email, :user_id
+  end
 end

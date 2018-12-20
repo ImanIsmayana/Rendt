@@ -63,6 +63,7 @@ class Api::V1::FavouritesController < Api::V1::ApiController
           },
           status: 201
         )
+
         if response_notif[:error]
           @object = response_notif[:object]
           render "api/v1/errors/404", status: 404

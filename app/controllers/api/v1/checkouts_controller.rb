@@ -31,6 +31,10 @@ class Api::V1::CheckoutsController < Api::V1::ApiController
     @checkout = Checkout.get_checkout_junkyard_or_product(checkout_product, checkout_junkyard)
   end
 
+  # def all
+  #   @checkouts = Checkout.all
+  # end
+
   api :GET, "/v1/checkouts/items", "Get list of all transaction history of current user"
   formats ['json']
   param :authentication_token, String, desc: "Authentication token of User who will favourite a product", required: true

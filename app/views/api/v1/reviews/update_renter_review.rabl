@@ -4,30 +4,31 @@ if @error.eql? 1
 end
 if @error.eql? 0
   node(:status){ 200 }
-end
-child @review do
-  attribute :id, :quality, :price, :deposit, :service, :tool_safety, :return_to_home, :return_in_good_and_clean,
-    :overall_rating, :comment
 
-  child :user => :sender do
-    attributes :id
+  child @review do
+    attribute :id, :quality, :price, :deposit, :service, :tool_safety, :return_to_home, :return_in_good_and_clean,
+      :overall_rating, :comment
 
-    node :full_name do |sender|
-      sender.full_name
+    child :user => :sender do
+      attributes :id
+
+      node :full_name do |sender|
+        sender.full_name
+      end
     end
-  end
 
-  child :target => :receiver do
-    attributes :id
+    child :target => :receiver do
+      attributes :id
 
-    node :full_name do |receiver|
-      receiver.full_name
+      node :full_name do |receiver|
+        receiver.full_name
+      end
     end
-  end
 
-  node(:product_id) { |review| review.product_id }
+    node(:product_id) { |review| review.product_id }
 
-  node :created_at do |review|
-    review.created_at.strftime("%B %d, %Y")
+    node :created_at do |review|
+      review.created_at.strftime("%B %d, %Y")
+    end
   end
 end

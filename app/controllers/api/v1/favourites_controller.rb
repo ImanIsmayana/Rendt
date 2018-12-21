@@ -13,7 +13,6 @@ class Api::V1::FavouritesController < Api::V1::ApiController
   api :GET, "/v1/favourites/all", "Get list of all items or products favourites of a user"
   formats ['json']
   param :authentication_token, String, desc: "Authentication token of User who will favourite a product", required: true
-  param :page, String, desc: "Page number of listing - per 10 data", required: true
   description "Get list of all items or products favourites from a user"
 
   # OPTIMIZE let's add includes(:favouritable) to avoid N+1 query
@@ -24,7 +23,6 @@ class Api::V1::FavouritesController < Api::V1::ApiController
   api :GET, "/v1/favourites/all_lender", "Get list of all favourites lender of a user"
   formats ['json']
   param :authentication_token, String, desc: "Authentication token of User who will favourite a product", required: true
-  param :page, String, desc: "Page number of listing - per 10 data", required: true
   description "Get list of all favourites lender from a user"
 
   def all_lender

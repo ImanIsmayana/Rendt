@@ -7,7 +7,7 @@ if @error.eql? 0
 
   child @profile do
     attributes :id, :email, :first_name, :last_name, :address, :latitude, :longitude, :phone_number,
-    :attachment, :authentication_token, :description
+    :attachment, :authentication_token, :description, :hide_address
 
     node :attachment do |profile|
       profile.attachment.name.url if profile.attachment.present?

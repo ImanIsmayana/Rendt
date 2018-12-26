@@ -11,7 +11,7 @@ class Api::V1::LendersController < Api::V1::ApiController
   api :GET, "/v1/lenders/all", "Get list of all lenders"
   formats ['json']
   param :authentication_token, String, desc: "Authentication token of User"
-  param :page, String, desc: "Page number of listing - per 10 data", required: true
+  # param :page, String, desc: "Page number of listing - per 10 data", required: true
   description "Get list of all lenders"
 
   def all

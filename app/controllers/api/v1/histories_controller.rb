@@ -11,6 +11,7 @@ class Api::V1::HistoriesController < Api::V1::ApiController
   api :GET, "/v1/histories/my_transaction", "Get list of all transaction history of current user"
   formats ['json']
   param :authentication_token, String, desc: "Authentication token of User who will favourite a product", required: true
+  # param :page, String, desc: "Page number of listing - per 10 data", required: true
   description "Get list of all transaction history of current user"
 
   def my_transaction
@@ -20,6 +21,7 @@ class Api::V1::HistoriesController < Api::V1::ApiController
   api :GET, "/v1/histories/my_order", "Get list of all order tools history of current user"
   formats ['json']
   param :authentication_token, String, desc: "Authentication token of User who will favourite a product", required: true
+  # param :page, String, desc: "Page number of listing - per 10 data", required: true
   description "Get list of all order tools history of current user"
 
   def my_order

@@ -12,7 +12,7 @@ class Api::V1::NotificationsController < Api::V1::ApiController
   api :GET, "/v1/notifications/all", "Get list of all notifications of current user"
   formats ['json']
   param :authentication_token, String, desc: "Authentication token of User which has notifications", required: true
-  param :page, String, desc: "Page number of listing - per 10 data", required: true
+  # param :page, String, desc: "Page number of listing - per 10 data", required: true
   description "Get list of all notifications details of current user"
 
   def all

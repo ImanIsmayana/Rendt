@@ -11,6 +11,7 @@ class Api::V1::CartsController < Api::V1::ApiController
   api :GET, "/v1/carts/all", "Get list of all product on user's cart"
   formats ['json']
   param :authentication_token, String, desc: "Authentication token of User who will favourite a product", required: true
+  # param :page, String, desc: "Page number of listing - per 10 data", required: true
   description "Get list of all items or products on user's cart"
 
   # OPTIMIZE let's add includes(:product) to avoid N+1 query and specify fields needed (done)

@@ -14,7 +14,7 @@ class Api::V1::JunkyardProductsController < Api::V1::ApiController
   api :GET, "/v1/junkyard_products/all", "Get list of all virtual junk yards"
   formats ['json']
   param :authentication_token, String, desc: "Authentication token of User", required: true
-  param :page, String, desc: "Page number of listing - per 10 data", required: true
+  # param :page, String, desc: "Page number of listing - per 10 data", required: true
   description "Get list of all item or product."
 
   def all
@@ -25,7 +25,7 @@ class Api::V1::JunkyardProductsController < Api::V1::ApiController
   formats ['json']
   param :authentication_token, String, desc: "Authentication token of User"
   param :category_id, String, desc: "Category ID of Item or Product", required: true
-  param :page, String, desc: "Page number of listing - per 10 data", required: true
+  # param :page, String, desc: "Page number of listing - per 10 data", required: true
   description "Get list of all items or products in junkyard and filter by category"
 
   def by_category
@@ -36,7 +36,7 @@ class Api::V1::JunkyardProductsController < Api::V1::ApiController
   formats ['json']
   param :authentication_token, String, desc: "Authentication token of User", required: true
   param :user_id, String, desc: "User ID of products owner"
-  param :page, String, desc: "Page number of listing - per 10 data", required: true
+  # param :page, String, desc: "Page number of listing - per 10 data", required: true
   description "Get list of all items or products in junkyard and filter by user"
 
   def by_user
@@ -54,7 +54,7 @@ class Api::V1::JunkyardProductsController < Api::V1::ApiController
   formats ['json']
   param :authentication_token, String, desc: "Authentication token of User", required: true
   param :category_id, String, desc: "Category ID of Item or Product", required: true
-  param :page, String, desc: "Page number of listing - per 10 data", required: true
+  # param :page, String, desc: "Page number of listing - per 10 data", required: true
   description "Get list of all items or junkyard products filter by favourite"
 
   def by_favourite

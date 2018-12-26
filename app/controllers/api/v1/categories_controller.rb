@@ -11,7 +11,7 @@ class Api::V1::CategoriesController < Api::V1::ApiController
   api :GET, "/v1/categories/all", "Get list of all categories"
   formats ['json']
   description "Get list of all item or product categories."
-
+  # param :page, String, desc: "Page number of listing - per 10 data", required: true
   # OPTIMIZE let's add includes(:attachment) to avoid N+1 query and specify fields needed (done)
   def all
     @categories = Category.includes(:attachments, :products, :junkyard_products).select(:id, :name, :image)

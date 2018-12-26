@@ -6,7 +6,8 @@ if @error.eql? 0
   node(:status){ 200 }
 
   child @junkyard_product do
-    attributes :id, :name, :description, :special_condition, :location, :latitude, :longitude, :size, :category_id, :aasm_state
+    attributes :id, :name, :description, :special_condition,
+               :location, :latitude, :longitude, :size, :category_id, :aasm_state
 
     child(:category) do
       attributes :id, :name

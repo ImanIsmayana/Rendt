@@ -6,7 +6,8 @@ if @error.eql? 0
   node(:status){ 200 }
 
   child @junk_yard_products do
-    attributes :id, :name, :description, :special_condition, :location, :latitude, :longitude, :size, :category_id, :aasm_state
+    attributes :id, :name, :description, :special_condition, :location, :latitude,
+               :longitude, :size, :category_id, :aasm_state
 
     node :attachment do |product|
       product.attachments.first.name.url rescue nil

@@ -6,7 +6,8 @@ if @error.eql? 0
   node(:status){ 200 }
 
   child @products do
-    attributes :id, :name, :one_hour, :four_hours, :one_day, :one_week, :deposit, :aasm_state, :descriptionl, :latitude, :longitude, :location
+    attributes :id, :name, :one_hour, :four_hours, :one_day, :one_week, :deposit, :aasm_state, :description,
+               :latitude, :longitude, :location
 
     node :attachment do |product|
       product.attachments.first.name.url if product.attachments.present?

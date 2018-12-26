@@ -176,7 +176,7 @@ class Api::V1::CheckoutsController < Api::V1::ApiController
       end
 
       unless @products || @junkyard_products
-        if @products.empty? || @junkyard_products.empty?
+        if @products && @products.empty? || @junkyard_products && @junkyard_products.empty?
           @object = 'Product or Junkyard'
           render "api/v1/errors/404", status: 404
         end

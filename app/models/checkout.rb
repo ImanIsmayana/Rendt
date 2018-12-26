@@ -47,7 +47,7 @@ class Checkout < ActiveRecord::Base
   aasm(:checkout_type) do
     state :product
     state :junkyard
-    
+
     event :is_product do
       transitions :from => :junkyard, :to => :product
     end
@@ -64,7 +64,7 @@ class Checkout < ActiveRecord::Base
     state :not_paid, :initial => true
     state :paid
     state :free
-    
+
     event :is_not_paid do
       transitions :from => :paid, :to => :not_paid
     end
@@ -95,13 +95,13 @@ class Checkout < ActiveRecord::Base
     product_hash = checkout_product.set_hash if checkout_product
     junkyard_hash = checkout_junkyard.set_hash if checkout_junkyard
 
-    if checkout_product && checkout_junkyard
-      product_hash.merge(junkyard_hash)
-    elsif checkout_product
-      product_hash.merge({ checkout_junkyard: { checkout_items: [] } })
-    else
-      junkyard_hash.merge({ checkout_product: { checkout_items: [] } })
-    end
+    # if checkout_product && checkout_junkyard
+    #   product_hash.merge(junkyard_hash)
+    # elsif checkout_product
+    #   product_hash.merge({ checkout_junkyard: { checkout_items: [] } })
+    # else
+    #   junkyard_hash.merge({ checkout_product: { checkout_items: [] } })
+    # end
   end
 
   def set_hash
@@ -122,8 +122,8 @@ class Checkout < ActiveRecord::Base
     self.checkout_items.each do |item_product|
       product = item_product.product
 
-      checkout_item_hash = { 
-        checkout_item: { 
+      checkout_item_hash = {
+        checkout_item: {
           id: item_product.id,
           price: item_product.price,
           rent_time: item_product.rent_time,
@@ -143,7 +143,7 @@ class Checkout < ActiveRecord::Base
           }
         }
       }
-    
+
       checkout_hash[checkout_key][:checkout_items] << checkout_item_hash
     end
 
@@ -187,8 +187,8 @@ class Checkout < ActiveRecord::Base
     self.checkout_items.includes(:product).each do |item_product|
       product = item_product.product
 
-      checkout_item_hash = { 
-        checkout_item: { 
+      checkout_item_hash = {
+        checkout_item: {
           id: item_product.id,
           price: item_product.price,
           rent_time: item_product.rent_time,
@@ -204,7 +204,7 @@ class Checkout < ActiveRecord::Base
           }
         }
       }
-    
+
       checkout_hash[checkout_key][:checkout_items] << checkout_item_hash
     end
 
@@ -216,14 +216,14 @@ class Checkout < ActiveRecord::Base
       .select("payments.user_id AS id, payments.paypal_email, SUM(total_price - ((total_price * 0.03) + 1)) AS AMOUNT")
       .where("checkouts.id = ?", id).group("payments.paypal_email, payments.user_id")
   end
-  
+
   def self.get_list_of_checkouts(object, status = nil, inactive_histories = nil, method_name = nil)
     checkout_item_array = []
     renter = object.renter
-    
+
     renter.checkouts.paid.includes(:checkout_items => [:product => :user]).each do |checkout|
       lend_by = renter.full_name if status.eql? 'lend'
-      
+
       checkout.checkout_items.product_only.each do |checkout_item|
         checkout_items_hash = {}
 
@@ -262,7 +262,7 @@ class Checkout < ActiveRecord::Base
       else
         total_price_per_lender2 += checkout_item.price.to_f
         pay_params[lender_email] = total_price_per_lender2
-      end 
+      end
     end
 
     pay_params
@@ -291,7 +291,7 @@ class Checkout < ActiveRecord::Base
     lender_hash = {}
 
     self.checkout_items.includes(:product => :user).each do |checkout_item|
-      hash_key = 
+      hash_key =
         if group_by.eql? :lender_id
           checkout_item.product.user_id
         else
@@ -302,7 +302,7 @@ class Checkout < ActiveRecord::Base
         lender_hash[hash_key] += checkout_item.price.to_f
       else
         lender_hash[hash_key] = checkout_item.price.to_f
-      end 
+      end
     end
 
     lender_hash
@@ -334,9 +334,9 @@ class Checkout < ActiveRecord::Base
 
     receivers = generate_payment_per_lender_hash
     receivers << { email: api.config.sandbox_email_address, amount: self.total_paid, primary: true }
-    
+
     sender_email = self.payment.paypal_email
-    
+
     request = PaypalAdaptivePayments.build_pay(receivers, sender_email)
 
     request

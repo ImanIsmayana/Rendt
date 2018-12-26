@@ -12,6 +12,7 @@ class Api::V1::MessagesController < Api::V1::ApiController
   api :GET, "/v1/messages/all", "Get list of all messages from any user connected with current user"
   formats ['json']
   param :authentication_token, String, desc: "Authentication token of User", required: true
+  # param :page, String, desc: "Page number of listing - per 10 data", required: true
   description "Get list of all messages from any user connected with current user"
 
   def all

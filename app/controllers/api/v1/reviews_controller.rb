@@ -12,7 +12,7 @@ class Api::V1::ReviewsController < Api::V1::ApiController
   api :GET, "/v1/reviews/lender/all", "Get list of all reviews for lender"
   formats ['json']
   param :authentication_token, String, desc: "Authentication token of User", required: true
-  param :page, String, desc: "Page number of listing - per 10 data", required: true
+  # param :page, String, desc: "Page number of listing - per 10 data", required: true
   description "Get list of all reviews for lender"
 
   def get_lender_all
@@ -23,7 +23,7 @@ class Api::V1::ReviewsController < Api::V1::ApiController
   api :GET, "/v1/reviews/renter/all", "Get list of all reviews for lender"
   formats ['json']
   param :authentication_token, String, desc: "Authentication token of User", required: true
-  param :page, String, desc: "Page number of listing - per 10 data", required: true
+  # param :page, String, desc: "Page number of listing - per 10 data", required: true
   description "Get list of all reviews for lender"
 
   def get_renter_all
@@ -35,6 +35,7 @@ class Api::V1::ReviewsController < Api::V1::ApiController
   formats ['json']
   param :authentication_token, String, desc: "Authentication token of User", required: true
   param :target_id, String, desc: "Target ID", required: true
+  # param :page, String, desc: "Page number of listing - per 10 data", required: true
   description "Get list of all user reviews for other user"
 
   def list_all

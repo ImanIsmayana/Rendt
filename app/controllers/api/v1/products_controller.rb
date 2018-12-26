@@ -15,7 +15,7 @@ class Api::V1::ProductsController < Api::V1::ApiController
   api :GET, "/v1/products/all", "Get list of all products"
   formats ['json']
   param :authentication_token, String, desc: "Authentication token of User"
-  param :page, String, desc: "Page number of listing - per 10 data", required: true
+  # param :page, String, desc: "Page number of listing - per 10 data", required: true
   description "Get list of all items or products"
 
   # OPTIMIZE let's includes(:attachments, :category) to avoid N+1 query (done)
@@ -27,7 +27,7 @@ class Api::V1::ProductsController < Api::V1::ApiController
   formats ['json']
   param :authentication_token, String, desc: "Authentication token of User"
   param :category_id, String, desc: "Category ID of Item or Product", required: true
-  param :page, String, desc: "Page number of listing - per 10 data", required: true
+  # param :page, String, desc: "Page number of listing - per 10 data", required: true
   description "Get list of all items or products filter by category"
 
   def by_category
@@ -38,7 +38,7 @@ class Api::V1::ProductsController < Api::V1::ApiController
   formats ['json']
   param :authentication_token, String, desc: "Authentication token of User", required: true
   param :user_id, String, desc: "User ID of products owner"
-  param :page, String, desc: "Page number of listing - per 10 data", required: true
+  # param :page, String, desc: "Page number of listing - per 10 data", required: true
   description "Get list of all items or products filter by category"
 
   def by_user
@@ -56,7 +56,7 @@ class Api::V1::ProductsController < Api::V1::ApiController
   formats ['json']
   param :authentication_token, String, desc: "Authentication token of User", required: true
   param :category_id, String, desc: "Category ID of Item or Product", required: true
-  param :page, String, desc: "Page number of listing - per 10 data", required: true
+  # param :page, String, desc: "Page number of listing - per 10 data", required: true
   description "Get list of all items or products filter by favourite"
 
   def by_favourite
@@ -71,7 +71,7 @@ class Api::V1::ProductsController < Api::V1::ApiController
   param :rent_time, String, desc: "
     Filter item based on rent time ('1h', '4h', '1d', and '1w'), from lowest price to highest price
     [Important : Default sort by lowest price]", required: true
-  param :page, String, desc: "Page number of listing - per 10 data", required: true
+  # param :page, String, desc: "Page number of listing - per 10 data", required: true
   description "Get list of all items or products filter by price based on rent time from lowest price to highest price"
 
   def by_price

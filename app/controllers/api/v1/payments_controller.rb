@@ -16,6 +16,7 @@ class Api::V1::PaymentsController < Api::V1::ApiController
   formats ['json']
   param :authentication_token, String, desc: "Authentication token of User", required: true
   param :status, String, desc: "Status of the paypal emair('default')"
+  # param :page, String, desc: "Page number of listing - per 10 data", required: true
   description "Get list of all payment informations based on user"
 
   def by_user

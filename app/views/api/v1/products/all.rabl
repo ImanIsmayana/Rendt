@@ -13,9 +13,9 @@ if @error.eql? 0
       product.attachments.first.name.url if product.attachments.present?
     end
 
-    node :image_url do |image|
-      ENV['RENDT'] + image.image_url
-    end
+    # node :image_url do |image|
+    #   image.image_url
+    # end
 
     node :category_name do |product|
       product.category.name

@@ -95,13 +95,13 @@ class Checkout < ActiveRecord::Base
     product_hash = checkout_product.set_hash if checkout_product
     junkyard_hash = checkout_junkyard.set_hash if checkout_junkyard
 
-    # if checkout_product && checkout_junkyard
-    #   product_hash.merge(junkyard_hash)
-    # elsif checkout_product
-    #   product_hash.merge({ checkout_junkyard: { checkout_items: [] } })
-    # else
-    #   junkyard_hash.merge({ checkout_product: { checkout_items: [] } })
-    # end
+    if checkout_product && checkout_junkyard
+      product_hash.merge(junkyard_hash)
+    elsif checkout_product
+      product_hash.merge({ checkout_junkyard: { checkout_items: [] } })
+    else
+      junkyard_hash
+    end
   end
 
   def set_hash

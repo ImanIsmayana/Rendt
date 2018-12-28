@@ -27,7 +27,7 @@ class Api::V1::PaymentsController < Api::V1::ApiController
   formats ['json']
   param :authentication_token, String, desc: "Authentication token of User", required: true
   param :paypal_email, String, desc: "PayPal Email", required: true
-  param :status, String, desc: "Status of the paypal emair('default', 'inactive')"
+  param :status, String, desc: "Status of the paypal email('default', 'inactive')"
   description "Create a new payment information based on current user"
 
   def create

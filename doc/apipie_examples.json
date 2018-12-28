@@ -2355,7 +2355,7 @@
       "verb": "GET",
       "path": "/api/v1/products/all",
       "versions": [
-
+        "1.0"
       ],
       "query": "authentication_token=D2WPqzykzpARmuzp55hV&page=1",
       "request_data": null,

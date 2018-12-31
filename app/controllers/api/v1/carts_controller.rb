@@ -17,6 +17,12 @@ class Api::V1::CartsController < Api::V1::ApiController
   # OPTIMIZE let's add includes(:product) to avoid N+1 query and specify fields needed (done)
   def all
     @carts = Cart.get_all_of_carts(@user, params[:page])
+    if @carts.present?
+      @carts
+    else
+       @object = 'Cart'
+      render "api/v1/errors/404", status: 401
+    end
   end
 
   api :POST, "/v1/carts/add_item", "User has ability to add item or product to his cart"

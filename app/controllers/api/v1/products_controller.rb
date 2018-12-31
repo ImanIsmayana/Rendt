@@ -21,6 +21,12 @@ class Api::V1::ProductsController < Api::V1::ApiController
   # OPTIMIZE let's includes(:attachments, :category) to avoid N+1 query (done)
   def all
     @products = Product.get_list_active_products.page(params[:page]).per(10)
+    if @products.present?
+      @products
+    else
+      @object = 'product'
+      render "api/v1/errors/404", status: 401
+    end
   end
 
   api :GET, "/v1/products/by_category", "Get list of all products filter by category"

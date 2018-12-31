@@ -15,8 +15,14 @@ class Api::V1::CategoriesController < Api::V1::ApiController
   # OPTIMIZE let's add includes(:attachment) to avoid N+1 query and specify fields needed (done)
   def all
     @categories = Category.includes(:attachments, :products, :junkyard_products).select(:id, :name, :image)
-    @product_count = @categories.count('products.*')
-    @junkyard_count = @categories.count('junkyard_products.*')
+    if @categories.present?
+      @categories
+      @product_count = @categories.count('products.*')
+      @junkyard_count = @categories.count('junkyard_products.*')
+    else
+      @object = 'Category'
+      render "api/v1/errors/404", status: 401
+    end
   end
 
   api :POST, "/v1/categories/create", "Create a new category product"

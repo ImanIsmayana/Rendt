@@ -167,12 +167,14 @@ class Api::V1::CheckoutsController < Api::V1::ApiController
   private
     def set_product
       if params[:product_ids].present?
-        @products = Product.where("id IN (?) AND aasm_state = ?", params[:product_ids].split(","), :available, status: 200)
+        @products = Product.where("id IN (?) AND aasm_state = ?",
+          params[:product_ids].split(","), :available)
       end
 
       if params[:junkyard_product_ids].present?
         @junkyard_products =
-          JunkyardProduct.where("id IN (?) AND aasm_state = ?", params[:junkyard_product_ids].split(","), :available, status: 200)
+          JunkyardProduct.where("id IN (?) AND aasm_state = ?",
+            params[:junkyard_product_ids].split(","), :available)
       end
 
       unless @products || @junkyard_products

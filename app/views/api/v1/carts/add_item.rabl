@@ -3,5 +3,6 @@ if @error.eql? 1
   node(:errors){ @errors }
 end
 if @error.eql? 0
-  node(:status){ 200 }
+  node(:product){ @item.name }
+  node(:status){ 201 }
 end

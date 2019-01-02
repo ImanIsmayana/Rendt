@@ -34,15 +34,15 @@ class Api::V1::CartsController < Api::V1::ApiController
 
   # OPTIMIZE could we use find_by_id! ? so once data not found it will raise 404 error from Rails, it will make no repeating 404 error handler
   def add_item
-    item =
+    @item =
       if params[:cart_type].eql? 'product'
         Product.find_by(id: params[:product_id])
       elsif params[:cart_type].eql? 'junkyard'
         JunkyardProduct.find_by(id: params[:product_id])
       end
 
-    if item
-      @user.carts.where(product_id: item, aasm_state: params[:cart_type]).first_or_create
+    if @item
+      @user.carts.where(product_id: @item, aasm_state: params[:cart_type]).first_or_create
     else
       @object = 'Product or Junkyard'
       render "api/v1/errors/404", status: 401

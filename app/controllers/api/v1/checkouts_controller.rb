@@ -70,7 +70,7 @@ class Api::V1::CheckoutsController < Api::V1::ApiController
     #
     # update total paid on checkout record
     @checkout.update(total_paid: total_price)
-    @total_checkout_all_price = total_price
+    @total_price_checkout = total_price
     # @total_deposit = @checkout.product? deposit
     # @all_price = price
     # @total_all_price += @checkout.total_all_price

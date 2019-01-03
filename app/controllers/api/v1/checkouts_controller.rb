@@ -61,11 +61,19 @@ class Api::V1::CheckoutsController < Api::V1::ApiController
     @checkout.checkout_items.each_with_index do |checkout_item, index|
       checkout_item.update_attributes(duration_code: rent_durations[index])
       total_price += checkout_item.total_price
+      # deposit = checkout_item.deposit
+      # price = checkout_item.price
+
+      # total_all_price += checkout_item.total_price
     end
 
     #
     # update total paid on checkout record
     @checkout.update(total_paid: total_price)
+    @total_checkout_all_price = total_price
+    # @total_deposit = @checkout.product? deposit
+    # @all_price = price
+    # @total_all_price += @checkout.total_all_price
   end
 
   api :POST, "/v1/checkouts/update_payment_information", "Update checkout payment information"

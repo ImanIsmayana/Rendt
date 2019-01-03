@@ -7,6 +7,9 @@ if @error.eql? 0
 end
 child @checkout do
   attributes :id, :aasm_state
+  node(:total_checkout_all_price){ @total_checkout_all_price }
+  # node(:total_deposit){ @deposit }
+  # node(:total_price){ @price }
   child :checkout_items do
     attributes :id, :price, :rent_time, :deposit, :total_price
     child :product do

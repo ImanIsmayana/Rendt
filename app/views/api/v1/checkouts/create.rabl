@@ -3,6 +3,7 @@ if @error.eql? 1
   node(:errors){ @errors }
 end
 if @error.eql? 0
-  node(:checkout) { @checkout }
-  node(:status){ 201 }
+    node(:id){ :id }
+    node(:checkout) { @checkout }
+    node(:status){ 201 }
 end

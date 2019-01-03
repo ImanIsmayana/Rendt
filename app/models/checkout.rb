@@ -98,7 +98,7 @@ class Checkout < ActiveRecord::Base
     if checkout_product && checkout_junkyard
       product_hash.merge(junkyard_hash)
     elsif checkout_product
-      product_hash.merge({ checkout_product: { checkout_items: [] } })
+      product_hash.merge(product_hash)
     else
       junkyard_hash.merge({ checkout_junkyard: { checkout_items: [] } })
     end

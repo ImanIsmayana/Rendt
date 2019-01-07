@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161024062425) do
+ActiveRecord::Schema.define(version: 20190107023839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -207,6 +207,7 @@ ActiveRecord::Schema.define(version: 20161024062425) do
     t.boolean  "sender_permanent_delete",    default: false
     t.integer  "documentable_id"
     t.string   "documentable_type"
+    t.string   "limit"
   end
 
   add_index "messages", ["ancestry"], name: "index_messages_on_ancestry", using: :btree

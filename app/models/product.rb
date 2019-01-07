@@ -37,7 +37,7 @@ class Product < ActiveRecord::Base
 
   #
   # aasm configuration
-  
+
   include AASM
   aasm do
     state :not_available
@@ -115,7 +115,7 @@ class Product < ActiveRecord::Base
   #
   # validations
   #
-  validates :name, :category_id, :one_hour, :four_hours, :one_day, :one_week, :description, :location, :latitude, :longitude, :user_id, presence: true
+  validates :name, :category_id, :one_hour, :four_hours, :one_day, :one_week, :description, :location, :latitude, :longitude, :limit, :user_id, presence: true
   validates :name, length: {minimum: 3, maximum: 100}
   validates :one_hour, :four_hours, :one_day, :one_week, numericality: true
 
@@ -150,7 +150,7 @@ class Product < ActiveRecord::Base
 
   def self.get_list_active_products
     self.includes(:attachments, :category, :rent_histories).active
-      .select(:id, :name, :category_id, :one_hour, :four_hours, :one_day, :one_week, :deposit, :aasm_state, :description, 
+      .select(:id, :name, :category_id, :one_hour, :four_hours, :one_day, :one_week, :deposit, :aasm_state, :description,
         :latitude, :longitude, :location, :rent_status)
   end
 
@@ -171,7 +171,7 @@ class Product < ActiveRecord::Base
       else
         'one_week'.to_sym
       end
-    
+
     self.includes(:category, :attachments).active.where(category_id: category_id).order(rent_periode => 'asc')
   end
 

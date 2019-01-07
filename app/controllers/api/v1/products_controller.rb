@@ -318,11 +318,13 @@ class Api::V1::ProductsController < Api::V1::ApiController
   api :GET, "/v1/products/enquiries", "List of product enquiries"
   formats ['json']
   param :authentication_token, String, desc: "Authentication token of User", required: true
+  param :limit, String, desc: "Add Limit to show message", require: true
   description "Ability for Lender to get list of enquiries based on his own items or products"
 
   # OPTIMIZE try to avoid N+1 query (done)
   def enquiries
     messages = CustomMessage.includes(:sent_messageable, :documentable).where(received_messageable: @user, ancestry:nil)
+    messages = messages.limit(params[:limit])
 
     if messages
       @message_parents = messages
